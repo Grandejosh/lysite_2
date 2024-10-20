@@ -1,0 +1,78 @@
+
+.col-md-6 .col-lg-8 {
+    width: 100%; /* Make the container fill available space */
+    background-color: white; /* Set the background color */
+    padding: 30px; /* Optional: Add padding for spacing between card and container edges */
+    border: unset !important; 
+  }
+.card {
+border: unset !important;  
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: white; /* Set the background color if not already defined */   
+}
+
+.card-body {
+text-align: center; /* Centra el texto dentro de la tarjeta */
+padding: 60px;
+border: 1px solid #ccc;
+border-radius: 5px;
+border: unset !important; 
+}
+.text-cuenta p{
+    color: black !important;
+   /* text-align: left;*/
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: Arial, sans-serif; /* Use a lighter font */
+    font-size: 1.5em !important; /* Increase font size */
+    line-height: 1.5; /* Increase line spacing for readability */
+    /*margin: 0; /* Remove top and bottom margins */
+    text-align: center; /* Justify text to fill the container */
+  }
+  .text-cuenta-b p{
+    color: black !important;
+   /* text-align: left;*/
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: Arial, sans-serif; /* Use a lighter font */
+    font-size: 1.3em !important; /* Increase font size */
+    line-height: 1.5; /* Increase line spacing for readability */
+    /*margin: 0; /* Remove top and bottom margins */
+    text-align: left; /* Justify text to fill the container */
+  } 
+
+  .form-login input{
+    width: 60%;
+    text-align: center; /* Justify text to fill the container */
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+    outline: none;
+    flex: 5px;
+    align-items: center !important;
+    margin: 0;
+}    
+  .form-a a {
+    margin: 0;
+    color:rgb(135, 32, 82); 
+    text-align: right;
+    font-size: 0.8em !important; /* Increase font size */
+    align-items: right;
+    margin-left: 260px !important;
+ }
+  .form-group button.btn-primary.submit {
+    background-color: rgb(135, 32, 82) !important; /* Primary blue color */
+    color: white !important; /* White text color */
+    border-color: #007bff; /* Maintain border color consistency */
+    text-align: center; /* Center the text within the button */
+    border-radius: 0%;
+    padding: 5px 10px !important ;
+  }
+
+  .btn-cent{
+    width: 50%; /* Ancho personalizado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: center; /* Alinear texto en el centro */
+}

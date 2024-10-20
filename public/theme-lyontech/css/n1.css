@@ -1,0 +1,14 @@
+label{
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+}
+
+.orange-button {
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    width: 15%;
+    border-radius: 0;
+    border: none;
+    background-color: #fe9252;
+    margin: 10px;
+}

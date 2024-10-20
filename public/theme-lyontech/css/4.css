@@ -1,0 +1,214 @@
+/*/ <uniquifier>: Use a unique and descriptive class name*/
+/* <weight>: Use a value from 300 to 900/*/
+
+.img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija la imagen de fondo en la ventana gráfica */
+    filter: brightness(110%) saturate(120%);
+}
+
+/* Asegura que el contenido ocupe toda la altura de la ventana gráfica */
+.js-fullheight {
+    height: 100vh; /* 100% de la altura de la ventana gráfica */
+    display: flex;
+
+}
+
+.container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+
+.card-transparent {
+    background-color: transparent !important;
+    border: none; /* Elimina el borde */
+}
+
+/* Alinea el card a la derecha */
+.align-right {
+    text-align: left;
+}
+
+
+.ancho-a {
+    width: 100%;
+    margin: 180px 60px; /* Margen superior e inferior de 50px y margen derecho e izquierdo de 10px */
+    /* Puedes ajustar estos valores según tus necesidades */
+    position: relative; /* Posición relativa para permitir el posicionamiento absoluto */
+}
+.ancho-b {
+
+    /* Puedes ajustar estos valores según tus necesidades */
+    position: relative; /* Posición relativa para permitir el posicionamiento absoluto */
+}
+
+/* Posiciona el contenedor más a la derecha */
+.ancho::after {
+    content: ""; /* Contenido pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 0;
+    right: -30px; /* Distancia adicional a la derecha */
+    bottom: 0;
+    width: -30px !important; /* Ancho del espacio adicional */
+    background-color: white; /* Color del espacio adicional */
+}
+
+    
+
+
+.btn-cent{
+    width: 90%; /* Ancho personalizado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: center; /* Alinear texto en el centro */
+}
+
+.btn {
+    padding: 5px 45px; /* Tamaño del botón */
+    margin: 5px; /* Margen entre botones */
+    border: none; /* Eliminar borde */
+    cursor: pointer;
+    font-size: 21px; /* Tamaño de la fuente */
+}
+
+.btn-pagar {
+    background-color: rgb(234,144,97);  /* Color de fondo verde */
+    color: white; /* Color del texto blanco */
+}
+
+.btn-volver {
+    background-color: rgb(155, 151, 148); /* Color de fondo rojo */
+    color: white; /* Color del texto blanco */
+}
+
+.card-body {
+    color: white; /* Color del texto blanco */
+    margin: 0; /* Elimina el margen */
+}
+
+.text-login h5{
+    font-size: 4.1rem  !important;
+    color: #ffffff !important;
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom:0;
+  }
+  .text-login p{
+    color: #ffffff !important;
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    line-height: 1.5; /* Increase line spacing for readability */
+    text-align: justify; /* Justify text to fill the container */
+  }
+  .text-left h5{
+    font-family: "Rubik", Bold;
+    font-weight: 700;
+    font-size: 40px;
+  }
+  .text-left p{
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    font-size: 25px;
+  }
+
+  .card h5{
+    font-family: "Rubik", Bold;
+    font-weight: 700;
+    font-size: 40px;
+  }
+  .card p{
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    font-size: 25px;
+  }
+  .card a{
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    font-size: 25px;
+  }
+
+.form-login{
+    font-family: "Rubik", Medium;
+    font-weight: 500; 
+}
+ .card{
+    border-radius: 10px;
+    padding: 20px;
+    width: 120%;
+    height: auto;
+    align-self: center !important;
+    justify-content: center !important;
+   
+ }
+
+/***pruba**/
+.container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/***formulario**/
+.form-login input{
+    width: 100%;  
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    flex: 5px;
+}    
+.field-icon {
+    position: absolute;
+    top: 50%;
+    right: 25px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: black } 
+
+    .form-group button.btn-primary.submit {
+        margin-top: 30px;
+        background-color: rgb(135, 32, 82) !important; /* Primary blue color */
+        color: white !important; /* White text color */
+        border-color: #007bff; /* Maintain border color consistency */
+        text-align: center; /* Center the text within the button */
+        border-radius: 0%;
+        padding: 5px 10px !important ;
+        font-family: "Rubik", Medium;
+        font-weight: 500; 
+    }  
+    .btn-cent{
+        width: 70%; /* Ancho personalizado */
+        margin: 0 auto; /* Centrar horizontalmente */
+        text-align: center; /* Alinear texto en el centro */
+        padding-bottom: 40px;
+    }  
+
+    .form-select{
+        font-family: "Rubik", Medium;
+        font-weight: 500; 
+    }
+    
+    .form-select select{
+    
+        width: 100%;  
+        font-size: 16px;
+        color: black;
+        margin: 0;
+        border: none;
+        border-bottom: 1px solid black;
+        outline: none;
+        flex: 5px;
+    }

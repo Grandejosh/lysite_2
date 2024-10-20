@@ -1,0 +1,153 @@
+/* Estilos para dispositivos móviles */
+@media (max-width: 600px) {
+
+  [dir=ltr] .pc-screen{
+    display: none;
+  }
+  
+  [dir=ltr] .table-screen{
+  }
+  
+  [dir=ltr] .movil-screen{
+    display: block;
+  }  
+
+
+    /* Titulos ----------------------------------*/
+
+    [dir=ltr] .title-home {
+        margin-bottom: 12px; /* 2rem */
+        font-size: 35px;
+    }
+    
+    [dir=ltr] .subTitle-home {
+        color: hsla(0, 0%, 100%, .7) !important;
+        font-size: 28px;
+        line-height: 1.3;
+    }
+
+
+    /* --------------------------------------------*/
+    /* Box ----------------------------------------*/
+    /* --------------------------------------------*/
+    
+    /*-- Home --*/
+    [dir=ltr] .box-section-home {
+      padding: 180px 0px;
+    }
+
+    [dir=ltr] .box-presentation-home {
+      padding-bottom: 60px;
+    }
+    
+    [dir=ltr] .box-presentation-home h1 {
+      color: #fff;
+      text-align: center;
+    }
+    
+    [dir=ltr] .box-presentation-home h4 {
+      color: #fff;
+      text-align: center;
+      margin-top: -15px;
+    }
+
+    [dir=ltr] .box-presentation-left-home {
+      padding: 40px 10px;
+    }
+    
+    [dir=ltr] .box-presentation-right-home {
+      padding: 40px 10px;
+    }
+
+    [dir=ltr] .box-presentation-content-home {
+      margin-top: 0px;
+    }
+
+    [dir=ltr] .box-presentation-content-home h4{
+      text-align: center;
+    }
+    
+    [dir=ltr] .box-presentation-content-home p{
+      text-align: center;
+    }
+    /*------------*/
+
+    /*-- Login --*/
+    [dir=ltr] .box-plane-login {
+      padding: 60px;
+    }
+
+    [dir=ltr] .box-plane-content-login {
+      background: #fff; 
+      padding: 30px 10px; 
+      border-radius: 20px;
+    }
+
+    [dir=ltr] .box-plane-card-login {
+      padding: 20px; 
+      align-items: center;
+    }
+
+    [dir=ltr] .box-plane-sesion {
+      padding: 60px;
+    }
+
+    [dir=ltr] .box-plane-content-sesion { 
+      padding: 30px 10px; 
+      border-radius: 20px;
+    }
+
+    [dir=ltr] .box-plane-card-sesion {
+      align-items: center;
+    }
+    
+    
+
+    /* Imagenes ----------------------------------*/
+    
+    [dir=ltr] .img-home{
+      margin-top: 100px;
+      margin-bottom: 80px;
+      width: 100%;
+    }
+
+    /* Box ---------------------------------------*/
+    
+    [dir=ltr] .box-white-home-1{
+      padding: 15px 0px;
+      text-align: center; 
+      background: #fff; 
+      border-radius: 60px 60px 0px 0px;
+    }
+    
+    [dir=ltr] .box-white-home-2{
+      padding: 15px 0px;
+      text-align: center; 
+      background: #fff;
+    }
+    
+    [dir=ltr] .box-white-home-3{
+        padding: 15px 0px;
+      text-align: center; 
+      background: #fff;
+      border-radius: 0px 0px 60px 60px;
+    }
+    
+    
+    [dir=ltr] .title-ia-lyon {
+      padding: 30px 0px 0px 0px;
+    }
+
+    /*-- Courses List --*/
+    
+    [dir=ltr] .box-course-list {
+      padding: 30px;
+    }
+
+    [dir=ltr] .box-course-list img{
+      width: 50px;
+    }
+}
+
+
+/* 2K QHD. 2560 X 1440 */

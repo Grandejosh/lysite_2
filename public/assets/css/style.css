@@ -1,0 +1,185 @@
+.invalid-feedback-2{
+    width: 100%;
+    margin-top: 0.25rem;
+    font-size: .707rem;
+    color: #d9534f;
+}
+.list-point-none li{
+    list-style:none;
+}
+/* Estilos del modal */
+.ckmodal {
+    display: none; /* Por defecto, ocultar el modal */
+    position: fixed; /* Fijar la posición del modal */
+    z-index: 1000000; /* Asegurarse de que esté por encima del contenido de la página */
+    left: 50%; /* Centrar el modal horizontalmente */
+    top: 50%; /* Centrar el modal verticalmente */
+    transform: translate(-50%, -50%); /* Centrar el modal */
+    width: 250px; /* Ancho de 250px */
+    height: 250px; /* Alto de 250px */
+    background-color: white; /* Fondo blanco */
+
+  }
+  
+  /* Contenido del modal */
+  .ckmodal-content {
+    position: relative; /* Hacer que el contenido sea relativo al modal */
+    background-color: #fefefe;
+    padding: 20px;
+    border-radius: 4px;
+    border: 1px solid #d9534f;
+  }
+ 
+
+  /* estilo de box gpt */
+
+.gpt-container{max-width:1170px; margin:auto;}
+.gpt-img{ max-width:100%;}
+.gpt-inbox_people {
+  background: #f8f8f8 none repeat scroll 0 0;
+  float: left;
+  overflow: hidden;
+  width: 40%; 
+  border-right:1px solid #c4c4c4;
+}
+.gpt-inbox_msg {
+  border: 1px solid #c4c4c4;
+  clear: both;
+  overflow: hidden;
+}
+.gpt-top_spac{ margin: 20px 0 0;}
+
+
+.gpt-recent_heading {float: left; width:40%;}
+.gpt-srch_bar {
+  display: inline-block;
+  text-align: right;
+  width: 60%;
+}
+.gpt-headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
+
+.gpt-recent_heading h4 {
+  color: #05728f;
+  font-size: 21px;
+  margin: auto;
+}
+.gpt-srch_bar input{ border:1px solid #cdcdcd; border-width:0 0 1px 0; width:80%; padding:2px 0 4px 6px; background:none;}
+.gpt-srch_bar .input-group-addon button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: medium none;
+  padding: 0;
+  color: #707070;
+  font-size: 18px;
+}
+.gpt-srch_bar .input-group-addon { margin: 0 0 0 -27px;}
+
+.gpt-chat_ib h5{ font-size:15px; color:#464646; margin:0 0 8px 0;}
+.gpt-chat_ib h5 span{ font-size:13px; float:right;}
+.gpt-chat_ib p{ font-size:14px; color:#989898; margin:auto}
+.gpt-chat_img {
+  float: left;
+  width: 11%;
+}
+.gpt-chat_ib {
+  float: left;
+  padding: 0 0 0 15px;
+  width: 88%;
+}
+
+.gpt-chat_people{ overflow:hidden; clear:both;}
+.gpt-chat_list {
+  border-bottom: 1px solid #c4c4c4;
+  margin: 0;
+  padding: 18px 16px 10px;
+}
+.gpt-inbox_chat { 
+  height: 500px;
+}
+
+.gpt-active_chat{ background:#ebebeb;}
+
+.gpt-incoming_msg_img {
+  display: inline-block;
+  width: 6%;
+}
+.gpt-received_msg {
+  display: inline-block;
+  padding: 0 0 0 10px;
+  vertical-align: top;
+  width: 92%;
+ }
+ .gpt-received_withd_msg p {
+  background: #ebebeb none repeat scroll 0 0;
+  border-radius: 3px;
+  color: #646464;
+  font-size: 14px;
+  margin: 0;
+  padding: 5px 10px 5px 12px;
+  width: 100%;
+}
+.gpt-time_date {
+  color: #747474;
+  display: block;
+  font-size: 12px;
+  margin: 8px 0 0;
+}
+.gpt-received_withd_msg { width: 57%;}
+.gpt-mesgs {
+    float: left;
+    padding: 0px;
+    width: 60%;
+}
+
+.gpt-mesgs-width {
+  width: 40% !important;
+}
+
+.gpt-prompts {
+  float: left;
+  padding: 0px;
+  width: 30%;
+}
+.gpt-inbox_people-width {
+  width: 30% !important;
+}
+ .gpt-sent_msg p {
+  background: #05728f none repeat scroll 0 0;
+  border-radius: 3px;
+  font-size: 14px;
+  margin: 0; color:#fff;
+  padding: 5px 10px 5px 12px;
+  width:100%;
+}
+.gpt-outgoing_msg{ overflow:hidden; margin:26px 0 26px;}
+.gpt-sent_msg {
+  float: right;
+  width: 46%;
+}
+.gpt-input_msg_write textarea {
+  color: #4c4c4c;
+  font-size: 15px;
+  min-height: 108px;
+  width: 100%;
+}
+
+.gpt-type_msg {
+  position: relative;
+}
+.gpt-msg_send_btn {
+  height: 33px;
+  position: absolute;
+  right: 0;
+  top: 11px;
+}
+.gpt-messaging { padding: 0 0 50px 0;}
+.gpt-msg_history {
+  height: 385px;
+  overflow-y: auto;
+}
+.gpt-chat_list:hover{ 
+  background-color: #fefefe;
+  cursor: pointer;
+}
+.gpt-chat_list:active {
+  background-color: #fefefe; /* Color durante el clic */
+}

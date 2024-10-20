@@ -1,0 +1,204 @@
+
+
+.text-login h5{
+    font-size: 2.8rem  !important;
+    color: #ffffff !important;
+    text-align: left;
+    margin-bottom:0;
+}
+.text-login p{
+    color: #ffffff !important;
+    text-align: left;
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: 'Rubik',Light; /* Use a lighter font */
+    /*font-size: 1.2em !important; /* Increase font size */
+    line-height: 1.5; /* Increase line spacing for readability */
+    /*margin: 0; /* Remove top and bottom margins */
+    text-align: justify; /* Justify text to fill the container */
+}
+
+.b-card{
+    background-color: transparent !important;
+    color: white;
+    text-align: left; /* Align text to the right */
+}
+
+.row{
+    padding-left: 20px !important;
+}
+a {
+   color: #007bff; 
+    text-decoration: none; 
+}
+    /* background-color: transparent; */ 
+    
+.form-group button.btn-primary.submit {
+    margin-top: 40px;
+    background-color: rgb(135, 32, 82) !important; /* Primary blue color */
+    color: white !important; /* White text color */
+    border-color: #007bff; /* Maintain border color consistency */
+    text-align: center; /* Center the text within the button */
+    border-radius: 0%;
+    padding: 5px 10px !important ;
+}
+
+.col-md-5.col-lg-5 {
+    width: 100%; /* Make the container fill available space */
+    background-color: white; /* Set the background color */
+    padding: 20px; /* Optional: Add padding for spacing between card and container edges */
+    border: none; /* Remove border */
+}
+.login-wrap {
+    position: relative;
+    color: black; 
+}
+.login-wrap h3 {
+    font-weight: 300;
+    color: black; 
+}
+.login-wrap p {
+    font-weight: 300;
+    color: black; 
+    font-size: 1.3rem;
+}    
+.login-wrap .social {
+    width: 100%; 
+}
+.login-wrap .social a {
+    width: 100%;
+    display: block;
+    color: red !important;
+}
+.login-wrap .social a:hover {
+    background: #000;
+    color: #fff;
+    border-color: #000; 
+}
+
+.login-wrap.borderless {
+    box-shadow: none;
+    outline: unset !important; /* Remove focus outline */
+}
+
+.field-icon {
+    position: absolute;
+    top: 57%;
+    right: 25px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: black }    
+ 
+
+
+.submit{
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: white;
+    background: #b01e64 !important; 
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-bottom: 40px;
+    letter-spacing: 4px;
+    align-items: center; 
+    display: flex; /* Activate flexbox layout for the form */
+    justify-content: center; /* Center content horizontally */
+}
+.submit button:hover {
+    color: #c35a8d;
+    border-radius: 5px;
+  }
+/******************************************************************************/
+
+
+.form-row > div {
+    flex: 1;
+    margin-right: 10px; 
+}
+
+input[type="text"],
+select {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box; 
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+
+option {
+    width: 100%;
+    padding: 10px;
+    color: #000;
+    box-sizing: border-box; 
+    border: none;
+    border-bottom: 1px solid black;
+}
+.form-login input{
+    width: 100%;  
+    font-size: 16px;
+    color: #9d9d9d;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    flex: 5px;
+}
+
+.form-select select{
+    width: 100%;  
+    font-size: 16px;
+    color: #858585;
+    margin-top: 10px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    flex: 5px;
+}
+
+  .btn-cent{
+    width: 70%; /* Ancho personalizado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: center; /* Alinear texto en el centro */
+}
+.align-right {
+    text-align: left;
+}
+
+.ancho-a {
+    width: 100%;
+    margin: 100px 60px; /* Margen superior e inferior de 50px y margen derecho e izquierdo de 10px */
+    /* Puedes ajustar estos valores segÃºn tus necesidades */
+    position: relative; /* PosiciÃ³n relativa para permitir el posicionamiento absoluto */
+}
+
+.card-transparent {
+    background-color: transparent !important;
+    border: none; /* Elimina el borde */
+}
+.card-body {
+    color: white; /* Color del texto blanco */
+    margin: 0; /* Elimina el margen */
+}
+
+.text-login h5{
+    font-size: 3.5rem  !important;
+    color: #ffffff !important;
+    text-align: left;
+    margin-bottom:0;
+  }
+  .text-login p{
+    color: #ffffff !important;
+   /* text-align: left;*/
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: Arial, sans-serif; /* Use a lighter font */
+   
+    line-height: 0.9; /* Increase line spacing for readability */
+    /*margin: 0; /* Remove top and bottom margins */
+    text-align: justify; /* Justify text to fill the container */
+  }

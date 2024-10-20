@@ -1,0 +1,13 @@
+{
+    "name": "Homepage",
+    "alias": "homepage",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Homepage\\Providers\\HomepageServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

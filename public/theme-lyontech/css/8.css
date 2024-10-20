@@ -1,0 +1,130 @@
+.image-der {
+    text-align:right !important; /* Centrar la imagen horizontalmente */
+    padding: 20px; /* Aumentar el padding alrededor de la imagen */
+  }
+
+  .image-der img{
+    width: 200px; /* Ancho deseado de la imagen */
+    height: auto; /* Mantiene la proporción de aspecto */
+  }
+
+  .field-text {
+    position: absolute;
+    top: 77%;
+    right: 45px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: black }
+.field-text-a {
+    position: absolute;
+    top: 78%;
+    right: 5px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    color: black ;
+    padding-right: 160px;}  
+.text-bot {
+    margin-top: 20px;
+    padding-left: 20px;
+    margin: 0;
+   padding-bottom: 20px;
+
+  }
+  .text-bot p {
+    
+    margin: 0;
+   
+}
+.btn-with-icon {
+    display: inline-flex;
+    align-items: center;  
+    background-color: #fee9db; /* Color de fondo del botón */
+    color: black; /* Color del texto */
+    cursor: pointer;
+    border: #a6a1a1;
+    width: 100%;
+    margin: 0;
+    }
+      
+.btn-with-icon img {
+width: 2px; /* Ancho de la imagen */
+height: 2px; /* Altura de la imagen */
+margin-right: -15px; /* Espacio entre la imagen y el texto */
+}
+
+.boton {
+border: 1px solid #787050; /* Cambia el grosor y el color del borde según tus preferencias */
+background-color: #fee9db; /* Cambia el color de fondo del botón */
+color: #000; /* Cambia el color del texto del botón */
+cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+margin: 0;
+}
+
+@media(hover: hover){
+    .boton:hover{
+        color: white;
+        background-color: #fe9252;
+    }
+}
+
+.con-boton {
+    text-align: left !important; /* Centra el contenido horizontalmente */
+    margin: 0;
+}
+
+.con-boton img {
+    width: 80px; /* Cambia el ancho de la imagen según lo necesites */
+    height: auto; /* Mantiene la proporción de aspecto de la imagen */
+    margin-left: 8px; /* Añade un margen a la derecha */
+    margin-right: 3px; /* Añade un margen a la derecha */
+}
+
+.contenido {
+    margin: 0; /* Anula los márgenes del contenedor */
+    padding: 0; /* Opcional: anula cualquier relleno en el contenedor */
+    text-align: left;
+    align-content: center;
+    justify-content: center;
+    }
+
+.contenido h5{
+
+    padding: 0; /* Anula cualquier relleno en los elementos h5 y span dentro del contenedor */
+    font-family: "Rubik", bold;
+    font-weight: 700;
+    font-size: 1rem;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+} 
+
+.contenido p{
+
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    padding: 0 !important; /* Anula cualquier relleno en los elementos h5 y span dentro del contenedor */
+    font-size: 0.9rem;
+    display: inline-block;
+    margin: 0 auto;
+    padding: 0;
+}
+
+    .datos{
+        width: 100%;
+    }
+    .orange-button {
+        width: 100px;
+        border-radius: 0;
+        border: none;
+        background-color:  #fe9252;
+        margin: 10px;
+    }
+
+    @media (min-width: 992px){
+    .container {
+        max-width: 1400px;
+    }}
+
+    

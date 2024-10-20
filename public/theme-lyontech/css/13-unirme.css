@@ -1,0 +1,156 @@
+
+.img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija la imagen de fondo en la ventana gráfica */
+    filter: brightness(110%) saturate(120%);
+}
+
+/* Asegura que el contenido ocupe toda la altura de la ventana gráfica */
+.js-fullheight {
+    height: 100vh; /* 100% de la altura de la ventana gráfica */
+    display: flex;
+
+}
+
+.container-fluid {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card{
+    border-radius: 10px;
+    padding: 20px;
+    width: 120%;
+    height: auto;
+    align-self: center !important;
+    justify-content: center !important;
+   
+ }
+
+
+.card-transparent {
+    background-color: transparent !important;
+    border: none; /* Elimina el borde */
+}
+
+
+.text-login h5{
+    font-size: 4.1rem  !important;
+    color: #ffffff !important;
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom:0;
+  }
+  .text-login p{
+    color: #ffffff !important;
+    margin-top: 0;
+    margin-bottom:0;
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    line-height: 1.5; /* Increase line spacing for readability */
+    text-align: justify; /* Justify text to fill the container */
+  }
+  .text-left h5{
+    font-family: "Rubik", Bold;
+    font-weight: 700;
+    font-size: 40px;
+  }
+  .text-left p{
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    font-size: 25px;
+  }
+  .contenido h5{
+    font-size: 20px;
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    text-align: left;
+    margin-bottom:0;
+  }
+  .contenido p{
+    font-size: 15px;
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    text-align: left !important;
+    margin-bottom:0;
+  }
+
+
+  .btn-with-icon {
+    display: inline-flex;
+    align-items: center;  
+    margin: 30px;
+    color: black; /* Color del texto */
+    cursor: pointer;
+    border: #a6a1a1;
+    width: 100%;
+    border-radius: 10px;
+
+    display: flex; /* Enables horizontal layout */
+    justify-content: space-between; 
+    }
+      
+
+.boton {
+    border: 1px solid #787050; /* Cambia el grosor y el color del borde según tus preferencias */
+    margin: 30px;
+    color: #000; /* Cambia el color del texto del botón */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    margin: 0;
+    }
+
+    .con-boton {
+        text-align: left !important; /* Centra el contenido horizontalmente */
+        margin: 0;
+        
+    }
+    .con-der{
+        text-align: right !important;
+        margin: 0;
+    }
+    
+    .con-der img {
+        width: 40px; /* Cambia el ancho de la imagen según lo necesites */
+        height: auto; /* Mantiene la proporción de aspecto de la imagen */
+
+       
+    }
+
+    .con-boton img {
+        width: 40px; /* Cambia el ancho de la imagen según lo necesites */
+        height: auto; /* Mantiene la proporción de aspecto de la imagen */
+        margin-left: 25px; /* Añade un margen a la derecha */
+        margin-right: -10px;
+    }
+/*ssasdasdasfdgdhdhfgjhs*/
+.btn-custom {
+    width: 100%;
+    border: 1px solid #060606; /* Establece el borde */
+    border-radius: 5px; /* Añade bordes redondeados */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #ffffff; 
+    color: black; 
+}
+
+.btn-custom a {
+    display: block; /* Para que los enlaces ocupen todo el espacio del contenedor */
+    padding: 10px; /* Añade espacio alrededor del contenido */
+    text-decoration: none; /* Quita el subrayado de los enlaces */
+    color: #333; /* Color del texto */
+}
+
+.btn-custom a:hover {
+    background-color: #f0f0f0; /* Cambia el color de fondo al pasar el ratón sobre el enlace */
+}
+
+
+.btn-custom .text {
+    font-size: 14px; /* Tamaño del texto */
+}

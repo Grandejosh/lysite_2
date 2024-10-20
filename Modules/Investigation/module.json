@@ -1,0 +1,13 @@
+{
+    "name": "Investigation",
+    "alias": "investigation",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\Investigation\\Providers\\InvestigationServiceProvider"
+    ],
+    "aliases": {},
+    "files": [],
+    "requires": []
+}

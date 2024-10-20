@@ -1,0 +1,139 @@
+.custom-button {
+    background-color: black; /* Cambiar el color del fondo */
+    border: none; /* Eliminar borde */
+    padding: 0; /* Eliminar relleno */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  }
+
+  .custom-button img {
+    width: 40px; /* Cambiar el ancho de la imagen */
+    height: 40px; /* Cambiar la altura de la imagen */
+    display: block; /* Hacer que la imagen sea un bloque para poder aplicar márgenes */
+    margin: auto; /* Centrar la imagen */
+  }
+
+  .custom-button-c {
+    background-color: black; /* Cambiar el color del fondo */
+    border: none; /* Eliminar borde */
+    padding: 0; /* Eliminar relleno */
+    cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  }
+
+  .custom-button-c img {
+
+    display: block; /* Hacer que la imagen sea un bloque para poder aplicar márgenes */
+  
+  }
+  .orange-medio {
+    background: #fe9252; /* Cambiar el color de fondo a naranja */
+    padding: 1px; /* Ajustar el padding según sea necesario */
+
+  }
+  .negro-medio {
+    background: #080808; /* Cambiar el color de fondo a naranja */
+    padding: 1px; /* Ajustar el padding según sea necesario */
+
+  }
+
+  .image-container {
+    text-align: center; /* Centrar la imagen horizontalmente */
+    padding: 10px; /* Aumentar el padding alrededor de la imagen */
+  }
+
+  .text-container {
+    text-align: left; /* Centrar la imagen horizontalmente */
+    padding: 20px; /* Aumentar el padding alrededor de la imagen */
+  }
+
+  .text-container h5{
+    border: 0;
+    margin: 0;
+    font-family: "Rubik", bold;
+    font-weight: 700;
+    font-size: 30px;
+    color: white;
+  }
+  .text-container p{
+    border: 0;
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    color: white;
+    font-size: 18px;
+  }
+  .custom-padding{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .custom-padding h5{
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    font-size: 14px;
+    margin: 5px;
+  }
+  .custom-padding p{
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 5px;
+  }
+  .custom-padding button{
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 5px;
+  }
+  .rosado{
+    position: relative;
+    padding: 5px 5px;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.15rem;
+  }
+
+  .rosado-bajo {
+    background: #feb891; /* Cambiar el color de fondo a naranja */
+    background-color: #feb891;
+    
+  }
+  .rosadito{
+    background: transparent;
+   
+    border-radius: 10px;
+   
+  }
+
+  .footer_section {
+    height: 100vh !important;
+  }
+
+/*******/
+
+.text-login h5{
+  font-family: "Rubik", Medium;
+  font-weight: 500;
+  margin-top: 0;
+  margin-bottom:0;
+
+}
+
+.text-login p{
+  font-family: "Rubik", Light;
+  font-weight: 300;
+  margin-top: 0;
+  margin-bottom:0;
+  font-size: 18px;
+}
+.card-body h5{
+  font-family: "Rubik", bold;
+  font-weight: 700;
+}
+.card-body p{
+  font-family: "Rubik", Light;
+  font-weight: 300;
+}
+
+.card{
+  background-color: #fee9db !important;
+  border: 0 !important;
+}

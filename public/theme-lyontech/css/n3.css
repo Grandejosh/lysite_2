@@ -1,0 +1,89 @@
+.table td{
+    padding: 2px;
+}
+.table th{
+    text-align: center;
+    padding: 10px;
+}
+.table{
+    font-size: 17px;
+    background-color:  #fee9db;
+}
+
+.form-group textarea{
+    border: 1px solid;
+}
+
+.orange-button {
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    font-size: 18px;
+    width: 100%;
+    color: white;
+    border-radius: 0;
+    border: none;
+    background-color: #fe9252;
+    margin: 5px;
+}
+
+
+.citas{
+
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    background-color: #fe9252;
+    color: aliceblue;
+    border-radius: 10px;
+    border: #fe9252;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+
+_________________
+
+
+
+_____
+.button-wrapper {
+   
+    position: relative;
+    width: 100px;
+    text-align: center;
+    
+  }
+  
+  .button-wrapper span.label {
+    padding: 0;
+    margin-top: 5px;
+    position: relative;
+    z-index: 0;
+    display: inline-block;
+    width: 100%;
+    background: orange;
+    cursor: pointer;
+    color: black;
+    padding: 5px 0;
+    text-align: center;
+    font-size:12px;
+    border-radius: 10px;
+  }
+  
+  #upload {
+      display: inline-block;
+      position: absolute;
+      z-index: 1;
+      width: 100%;
+      height: 30px;
+      top: 0;
+      left: 0;
+      opacity: 0;
+      cursor: pointer;
+  }
+
+ .palabras label{
+    margin-top: 10px;
+    text-align: center;
+    font-size:12px;
+    text-align: center;
+  }

@@ -1,0 +1,115 @@
+/*/ <uniquifier>: Use a unique and descriptive class name*/
+/* <weight>: Use a value from 300 to 900/*/
+
+.img {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Fija la imagen de fondo en la ventana gráfica */
+    filter: brightness(110%) saturate(120%);
+}
+
+/* Asegura que el contenido ocupe toda la altura de la ventana gráfica */
+.js-fullheight {
+    height: 100vh; /* 100% de la altura de la ventana gráfica */
+    display: flex;
+
+}
+
+.card{
+    border: 0;
+}
+
+.modo-titulo h5{
+    font-family: "Rubik", Bold;
+    font-weight: 700;
+    margin: 0;
+  }
+.modo-text{
+    padding-top: 20px;
+}
+  .modo-text p{
+    
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    margin-bottom: 0;
+  }
+
+  .btn-cent{
+    font-size: 21px;
+    font-family: "Rubik", Medium;
+    text-align: center; /* Alinear texto en el centro */
+    padding: 0;
+}
+
+.form-group-b button.btn-primary.submit {
+    background-color: rgb(235, 145, 87) !important; /* Primary blue color */
+    color: white !important; /* White text color */
+    text-align: center; /* Center the text within the button */
+    border: 0;
+    width: 80%;
+    padding: 5px 10px !important ;
+    font-size: 1.2rem;
+  }
+
+  .form-group button.btn-primary.submit {
+    background-color: rgb(146, 138, 142) !important; /* Primary blue color */
+    color: white !important; /* White text color */
+    text-align: center; /* Center the text within the button */
+    border: 0;
+    width: 80%;
+    padding: 5px 10px !important ;
+    font-size: 1.2rem;
+  }
+
+  /*****************************/
+  .modo-titulo-b h5{
+    font-family: "Rubik", Bold;
+    font-weight: 700;
+    margin: 10px;
+    font-size: 35px;
+  }
+
+  .modo-titulo-b p{
+    
+    font-family: "Rubik", Light;
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: 25px;
+  }
+
+ .carta-b{
+    padding: 30px;
+ }
+  .form-login{
+    font-family: "Rubik", Medium;
+    font-weight: 500; 
+}
+  .form-login input{
+    width: 100%;  
+    font-size: 16px;
+    color: black;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid black;
+    outline: none;
+    flex: 5px;
+}  
+
+.form-group-c button.btn-primary.submit {
+    margin-top: 30px;
+    background-color: rgb(235, 145, 87) !important; /* Primary blue color */
+    color: white !important; /* White text color */
+    border-color: rgb(235, 145, 87) !important; /* Primary blue color */
+    text-align: center; /* Center the text within the button */
+    border-radius: 0%;
+    padding: 5px 10px !important ;
+    font-family: "Rubik", Medium;
+    font-weight: 500; 
+}  
+.btn-cent-c{
+    width: 70%; /* Ancho personalizado */
+    margin: 0 auto; /* Centrar horizontalmente */
+    text-align: center; /* Alinear texto en el centro */
+    padding-bottom: 40px;
+}  

@@ -1,0 +1,29 @@
+label{
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+}
+
+.orange-button {
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    font-size: 18px;
+    width: 85%;
+
+    border-radius: 0;
+    border: none;
+    background-color: #fe9252;
+    margin: 5px;
+}
+
+.citas{
+
+    font-family: "Rubik", Medium;
+    font-weight: 500;
+    background-color: #fe9252;
+    color: aliceblue;
+    border-radius: 10px;
+    border: #fe9252;
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 14px;
+  }

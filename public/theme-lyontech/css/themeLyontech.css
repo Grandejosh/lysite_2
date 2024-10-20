@@ -1,0 +1,489 @@
+
+
+
+[dir=ltr] .active {
+  color: #fff;
+  background-color: #ff9152;
+  border-color: #ff9152;
+}
+
+[dir=ltr] .btn-border-black {
+  border: 1px solid #000;
+  border-radius: 30px;
+  padding: 2px 15px;
+} 
+
+[dir=ltr] .btn-border-black:hover {
+  background-color: #ff9152;
+  color: #fff;
+  border: 2px solid #fff; 
+  border-radius: 30px;
+  padding: 2px 15px;
+}
+
+[dir=ltr] .box-section {
+  padding: 0px 0px 60px 0px;
+}
+
+[dir=ltr] .title-ia-lyon {
+  text-align: left; 
+  color: #ff9152; 
+  font-size: 1.4rem; 
+  padding: 128px 0px 0px 0px;
+}
+
+[dir=ltr] .box-chrerry {
+  background-color: #ffe9db; 
+  padding: 30px 0px; 
+  margin-top: -20px;
+}
+
+[dir=ltr] .tab-vertical {
+  padding: 5px 0px 0px 5px;
+}
+
+[dir=ltr] .tab-vertical:hover {
+  color: #fff;
+  background-color: #ff9152;
+  border-color: #ff9152;
+}
+
+[dir=ltr] .tab-vertical img{
+  width: 40px; 
+  height: 40px; 
+  margin-top: 5px;
+}
+
+[dir=ltr] .tab-vertical p{
+  font-size: 12px;
+  padding: 0px;
+}
+
+[dir=ltr] .list-vertical p{
+  font-size: 12px;
+  padding: 0px;
+}
+
+[dir=ltr] .list-vertical hr{
+  margin-top: -15px;
+}
+
+
+[dir=ltr] .span-small{
+  font-size: 12px;
+  text-align: center;
+  padding: 3px 8px;
+  background-color: #ff9152;
+  border-radius: 10px;
+}
+
+[dir=ltr] .btn-small{
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 3px 15px;
+  background-color: #ff9152;
+  border-radius: 10px;
+}
+
+[dir=ltr] .btn-small:hover{
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  padding: 3px 15px;
+  background-color: #000;
+  border-radius: 10px;
+}
+
+[dir=ltr] .p-small{
+  font-size: 12px;
+}
+
+[dir=ltr] .p-medium{
+  font-size: 15px;
+}
+
+[dir=ltr] .text-gris{
+  color: #a5a6a5;
+}
+
+[dir=ltr] .btn-orange {
+  color: #fff;
+  background-color: #ff9152;
+  border-color: #ff9152;
+}
+
+[dir=ltr] .btn-orange:hover {
+  color: #fff;
+  background-color: #e36e2b;
+  border-color: #e36e2b;
+}
+
+
+[dir=ltr] .btn-black {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  border-radius: 8px;
+}
+
+[dir=ltr] .btn-black:hover {
+  color: #fff;
+  background-color: #ff9152;
+  border-color: #ff9152;
+}
+
+
+[dir=ltr] .btn-modal {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+[dir=ltr] .btn-modal:hover {
+  color: #fff;
+  background-color: #171717;
+  border-color: #171717;
+}
+
+[dir=ltr] .rating:not(:checked) > input{
+  position: absolute;
+  appearance: none;
+}
+
+[dir=ltr] .rating:not(:checked) > label{
+  float: right;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+
+[dir=ltr] .rating:not(:checked) > label::before{
+  content: '★';
+}
+
+[dir=ltr] .rating > input:checked + label:hover,
+[dir=ltr] .rating > input:checked + label:hover ~ label,
+[dir=ltr] .rating > input:checked ~ label:hover,
+[dir=ltr] .rating > input:checked ~ label:hover ~ label,
+[dir=ltr] .rating > label:hover ~ input:checked ~ label {
+  color: yellow;
+}
+
+[dir=ltr] .rating:not(:checked) > label:hover,
+[dir=ltr] .rating:not(:checked) > label:hover ~ label {
+  color: yellow;
+}
+
+[dir=ltr] .rating > input:checked ~ label {
+  color: yellow;
+}
+
+[dir=ltr] .js-fullheight {
+  height: 100vh; /* 100% de la altura de la ventana gráfica */
+    display: flex;
+}
+
+[dir=ltr] .img {
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Fija la imagen de fondo en la ventana gráfica */
+  filter: brightness(110%) saturate(120%);
+}
+
+[dir=ltr] .container-fluid {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[dir=ltr] .card{
+  border-radius: 10px;
+  padding: 25px;
+  width: 120%;
+  height: auto;
+  align-self: center !important;
+  justify-content: center !important;
+
+}
+
+[dir=ltr] .card h5{
+  font-family: "Rubik", Bold;
+  font-weight: 700;
+  font-size: 40px;
+}
+[dir=ltr] .card p{
+  font-family: "Rubik", Light;
+  font-weight: 300;
+  font-size: 25px;
+}
+[dir=ltr] .card a{
+  font-family: "Rubik", Medium;
+  font-weight: 500;
+  font-size: 25px;
+}
+
+[dir=ltr] .form-a a {
+  margin: 0;
+  color:rgb(135, 32, 82); 
+  font-size: 0.9em !important; /* Increase font size */
+  margin-left: 75% !important;
+}
+
+[dir=ltr] input:focus, input:valid {
+  color:#872152; 
+  border: 2px solid #872052; 
+}
+
+
+[dir=ltr] input::placeholder {
+  color:#872152; 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+[dir=ltr]  .card-transparent {
+background-color: transparent !important;
+border: none; /* Elimina el borde */
+}
+
+/* Alinea el card a la derecha */
+.align-right {
+text-align: left;
+}
+
+
+[dir=ltr]  .ancho-a {
+width: 100%;
+margin: 180px 60px; /* Margen superior e inferior de 50px y margen derecho e izquierdo de 10px */
+/* Puedes ajustar estos valores según tus necesidades */
+position: relative; /* Posición relativa para permitir el posicionamiento absoluto */
+}
+[dir=ltr]  .ancho-b {
+
+/* Puedes ajustar estos valores según tus necesidades */
+position: relative; /* Posición relativa para permitir el posicionamiento absoluto */
+}
+
+/* Posiciona el contenedor más a la derecha */
+[dir=ltr]  .ancho::after {
+content: ""; /* Contenido pseudo-elemento */
+position: absolute; /* Posicionamiento absoluto */
+top: 0;
+right: -30px; /* Distancia adicional a la derecha */
+bottom: 0;
+width: -30px !important; /* Ancho del espacio adicional */
+background-color: white; /* Color del espacio adicional */
+}
+
+
+
+
+[dir=ltr]  .btn-cent{
+width: 90%; /* Ancho personalizado */
+margin: 0 auto; /* Centrar horizontalmente */
+text-align: center; /* Alinear texto en el centro */
+}
+
+[dir=ltr]  .btn {
+padding: 5px 45px; /* Tamaño del botón */
+margin: 5px; /* Margen entre botones */
+border: none; /* Eliminar borde */
+cursor: pointer;
+font-size: 21px; /* Tamaño de la fuente */
+}
+
+[dir=ltr]  .btn-pagar {
+background-color: rgb(234,144,97);  /* Color de fondo verde */
+color: white; /* Color del texto blanco */
+}
+
+[dir=ltr]  .btn-volver {
+background-color: rgb(155, 151, 148); /* Color de fondo rojo */
+color: white; /* Color del texto blanco */
+}
+
+[dir=ltr]  .card-body {
+color: white; /* Color del texto blanco */
+margin: 0; /* Elimina el margen */
+}
+
+
+[dir=ltr]  .card-body-transparent {
+  background-color: rgba(255,255,255,0.5);
+  margin: 0; /* Elimina el margen */
+}
+
+
+[dir=ltr]  .text-login h5{
+font-size: 4.1rem  !important;
+color: #ffffff !important;
+font-family: "Rubik", Medium;
+font-weight: 500;
+text-align: left;
+margin-bottom:0;
+}
+[dir=ltr] .text-login p{
+color: #ffffff !important;
+margin-top: 0;
+margin-bottom:0;
+font-family: "Rubik", Light;
+font-weight: 300;
+line-height: 1.5; /* Increase line spacing for readability */
+text-align: justify; /* Justify text to fill the container */
+}
+[dir=ltr] .text-left h5{
+font-family: "Rubik", Bold;
+font-weight: 700;
+font-size: 40px;
+}
+[dir=ltr] .text-left p{
+font-family: "Rubik", Light;
+font-weight: 300;
+font-size: 25px;
+}
+
+[dir=ltr] .form-login{
+font-family: "Rubik", Medium;
+font-weight: 500; 
+}
+
+/***pruba**/
+[dir=ltr] .container-fluid {
+height: 100%;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/***formulario**/
+[dir=ltr] .form-login input{
+width: 100%;  
+font-size: 16px;
+color: black;
+margin-bottom: 30px;
+border: none;
+border-bottom: 1px solid black;
+outline: none;
+flex: 5px;
+}    
+
+[dir=ltr] .form-row > div {
+  flex: 1;
+  margin-right: 10px; 
+}
+[dir=ltr] .form-select{
+  font-family: "Rubik", Medium;
+  font-weight: 500; 
+}
+
+[dir=ltr] .form-select select{
+
+  width: 100%;  
+  font-size: 16px;
+  color: black;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  flex: 5px;
+}
+
+
+
+[dir=ltr] .field-icon {
+position: absolute;
+top: 50%;
+right: 25px;
+-webkit-transform: translateY(-50%);
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+color: black 
+} 
+
+[dir=ltr] .form-group button.btn-primary.submit {
+  margin-top: 30px;
+  background-color: rgb(135, 32, 82) !important; /* Primary blue color */
+  color: white !important; /* White text color */
+  border-color: #007bff; /* Maintain border color consistency */
+  text-align: center; /* Center the text within the button */
+  border-radius: 0%;
+  padding: 5px 10px !important ;
+  font-family: "Rubik", Medium;
+  font-weight: 500; 
+}  
+
+[dir=ltr] .btn-cent{
+  width: 70%; /* Ancho personalizado */
+  margin: 0 auto; /* Centrar horizontalmente */
+  text-align: center; /* Alinear texto en el centro */
+  padding-bottom: 40px;
+}  
+
+[dir=ltr] .form-select{
+  font-family: "Rubik", Medium;
+  font-weight: 500; 
+}
+
+[dir=ltr] .form-select select{
+
+  width: 100%;  
+  font-size: 16px;
+  color: black;
+  margin: 0;
+  border: none;
+  border-bottom: 1px solid black;
+  outline: none;
+  flex: 5px;
+}
+
+
+[dir=ltr] .text-cuenta p{
+color: black !important;
+display: inline-block; /* Makes stars behave like inline elements */
+/* text-align: left;*/
+margin-top: 0;
+margin-bottom:0;
+font-family: "Rubik", Light;
+font-weight: 300;
+font-size: 25px !important; /* Increase font size */
+
+/*margin: 0; /* Remove top and bottom margins */
+text-align: center; /* Justify text to fill the container */
+}
+[dir=ltr] .text-cuenta-b p{
+color: black !important;
+padding-top: 20px;
+display: inline-block; /* Makes stars behave like inline elements */
+/* text-align: left;*/
+margin-top: 0;
+margin-bottom:0;
+font-family: "Rubik", Light;
+font-weight: 300;
+font-size: 20px !important; /* Increase font size */
+/* line-height: 1.5; Increase line spacing for readability */
+/*margin: 0; /* Remove top and bottom margins */
+text-align: left; /* Justify text to fill the container */
+} 
+
+
+
+
+
+
