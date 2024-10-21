@@ -35,6 +35,10 @@ Route::get('/', function () {
     return view('home');
 })->name('home');
 
+Route::get('cookies_policy', function () {
+    return view('cookies_policy');
+})->name('cookies_policy');
+
 Route::get('/prueba', function () {
 
     //dd($roles);

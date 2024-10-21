@@ -14,7 +14,7 @@
 <!-- COOKIES -->
 
 <div id="cookie-consent" class="cookiesMessage_cookiesDisclaimer__pF8_x"><h5 class="cookiesMessage_cookiesDisclaimerHeader__y_YCo">USO DE COOKIES</h5>
-    <p class="cookiesMessage_cookiesDisclaimerBody__nxps1">Usamos cookies propias y de terceros para funciones esenciales de este sitio y mejorar tu experiencia al navegar por <a href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>. Revisa nuestro<!-- --> <a href="crear statico para mandar">Aviso de Cookies</a> para obtener más información al respecto.</p><div class="cookiesMessage_cookiesDisclaimerButton__NwcdV">
+    <p class="cookiesMessage_cookiesDisclaimerBody__nxps1">Usamos cookies propias y de terceros para funciones esenciales de este sitio y mejorar tu experiencia al navegar por <a href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>. Revisa nuestro<!-- --> <a target="_blank" href="{{ route('cookies_policy') }}">Aviso de Cookies</a> para obtener más información al respecto.</p><div class="cookiesMessage_cookiesDisclaimerButton__NwcdV">
         <button id="accept-cookies" class="cookiesMessage_cookiesDisclaimerButtonAccept__u3I5b" type="button">Aceptar</button></div></div>
 <style>
     .cookiesMessage_cookiesDisclaimer__pF8_x {
