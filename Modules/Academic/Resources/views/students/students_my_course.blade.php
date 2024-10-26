@@ -1,30 +1,15 @@
 @extends('layouts.tutorio')
-@section('bootstrap')
-    <!-- Material Design Icons
-    <link type="text/css" href="{{ asset('assets/css/material-icons.css') }}" rel="stylesheet">
 
-
-    <link type="text/css" href="{{ asset('assets/css/fontawesome.css') }}" rel="stylesheet">
-
-    <link type="text/css" href="{{ asset('assets/css/app.css') }}" rel="stylesheet">
--->
-@stop
 @section('lycss')
 
-    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
-        rel="stylesheet">
-        <!--
-    <link rel="stylesheet" href="{{ asset('theme-lyontech/css/7.css') }}">-->
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
 
 @stop
 @section('content')
 
-    <body class="layout-navbar-mini-fixed-bottom">
+    <body>
         <x-lyontech.header></x-lyontech.header>
         <x-lyontech.student-data></x-lyontech.student-data>
-
-
-
 
         <div class="container mt-5">
             <h1>{{ $course->name }}</h1>
@@ -39,10 +24,12 @@
                 border: 5px solid #ff9152;
             }
 
-                /* Estilos para la parte superior del modal (fondo rojo) */
+            /* Estilos para la parte superior del modal (fondo rojo) */
             #welcomeModal .modal-body {
-                background-color: #ff9152; /* Color de fondo rojo para la parte superior del modal */
-                color: white; /* Color del texto en la parte superior del modal */
+                background-color: #ff9152;
+                /* Color de fondo rojo para la parte superior del modal */
+                color: white;
+                /* Color del texto en la parte superior del modal */
             }
 
             /* Estilos para el botón de cierre del modal */
@@ -52,79 +39,38 @@
 
             /* Estilos para la parte inferior del modal */
             #welcomeModal .modal-footer {
-                background-color: #ffbc94; /* Color de fondo oscuro para la parte inferior del modal */
-                color: white; /* Color del texto en la parte inferior del modal */
+                background-color: #ffbc94;
+                /* Color de fondo oscuro para la parte inferior del modal */
+                color: white;
+                /* Color del texto en la parte inferior del modal */
             }
         </style>
         @if (isset($course->video_url))
-        <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcomeModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="welcomeModalLabel">Welcome!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div style="padding:61.88% 0 0 0;position:relative;"><iframe id="videoPlayer" src="https://player.vimeo.com/video/{{ $course->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LYONTEACH VIDEO PRESENTACION FINAL"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+            <div class="modal fade" id="welcomeModal" tabindex="-1" role="dialog" aria-labelledby="welcomeModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="welcomeModalLabel">Welcome!</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <div style="padding:61.88% 0 0 0;position:relative;"><iframe id="videoPlayer"
+                                    src="https://player.vimeo.com/video/{{ $course->video_url }}?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                                    title="LYONTEACH VIDEO PRESENTACION FINAL"></iframe></div>
+                            <script src="https://player.vimeo.com/api/player.js"></script>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">X</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
         @endif
-        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var welcomeModal = document.getElementById('welcomeModal');
-            var openModalBtn = document.getElementById('openModalBtn');
-            var video = document.getElementById('videoPlayer');
-
-            function showModal() {
-                $('#welcomeModal').modal('show');
-            }
-
-            function hideModal() {
-                var src = video.src;
-                video.src = '';
-                video.src = src;
-                $('#welcomeModal').modal('hide');
-
-            }
-
-            function setModalShown() {
-                localStorage.setItem('modalShown'+{{ $course->id }}, 'true');
-            }
-
-            function hasModalBeenShown() {
-                return localStorage.getItem('modalShown'+{{ $course->id }}) === 'true';
-            }
-
-            if (!hasModalBeenShown()) {
-                showModal();
-            }
-
-            $('#welcomeModal').on('hidden.bs.modal', function () {
-                setModalShown();
-                var src = video.src;
-                video.src = '';
-                video.src = src;
-            });
-
-            openModalBtn.addEventListener('click', function() {
-                showModal();
-            });
-        });
-    </script>
-
-
-
 
         @livewire('academic::students.students-course-section', ['course_id' => $course->id])
     </body>
@@ -183,6 +129,52 @@
     </div>
 @endsection
 @section('script')
+    {{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> --}}
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var welcomeModal = document.getElementById('welcomeModal');
+            var openModalBtn = document.getElementById('openModalBtn');
+            var video = document.getElementById('videoPlayer');
+
+            function showModal() {
+                $('#welcomeModal').modal('show');
+            }
+
+            function hideModal() {
+                var src = video.src;
+                video.src = '';
+                video.src = src;
+                $('#welcomeModal').modal('hide');
+
+            }
+
+            function setModalShown() {
+                localStorage.setItem('modalShown' + {{ $course->id }}, 'true');
+            }
+
+            function hasModalBeenShown() {
+                return localStorage.getItem('modalShown' + {{ $course->id }}) === 'true';
+            }
+
+            if (!hasModalBeenShown()) {
+                showModal();
+            }
+
+            $('#welcomeModal').on('hidden.bs.modal', function() {
+                setModalShown();
+                var src = video.src;
+                video.src = '';
+                video.src = src;
+            });
+
+            openModalBtn.addEventListener('click', function() {
+                showModal();
+            });
+        });
+    </script>
     <script>
         var urlVideo = "{{ $course->video_url }}";
         var typeVideo = "{{ $course->video_type }}";

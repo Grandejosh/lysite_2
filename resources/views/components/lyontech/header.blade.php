@@ -28,81 +28,83 @@
                         </a>
                     </div>
                 </li>
-                    @can('academico_directo_cursos')
-                        <li class="nav-item dropdown mt-2" style="padding: 0 10px;">
-                            <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
-                                id="courses" style="font-size: 23px;">
-                                {{ __('labels.My Courses') }} &nbsp;<i class="fa fa-angle-down" aria-hidden="true"
-                                    style="margin-top: 8px;"></i>
-                            </a>
-                            <div class="dropdown-menu card-bg min-width: 200px;" aria-labelledby="navbarDropdown">
-                                @if (count($courses) > 0)
-                                    @foreach ($courses as $course)
-                                        <a href="{{ route('academic_students_my_course', $course->id) }}" class="dropdown-item">
-                                            <span class="media-left mr-16pt">
-                                                <img src="{{ asset($course->course_image) }}" width="30" alt="avatar"
-                                                    class="media-left rounded ">
-                                            </span>
-                                            <div class="media-body">
-                                                {{ $course->name }}
-                                            </div>
-                                        </a>
-                                    @endforeach
-                                @else
-                                    <a href="{{ route('home') }}" class="dropdown-item">
+                @can('academico_directo_cursos')
+                    <li class="nav-item dropdown mt-2" style="padding: 0 10px;">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"
+                            id="courses" style="font-size: 23px;">
+                            {{ __('labels.My Courses') }} &nbsp;<i class="fa fa-angle-down" aria-hidden="true"
+                                style="margin-top: 8px;"></i>
+                        </a>
+                        <div class="dropdown-menu card-bg min-width: 200px;" aria-labelledby="navbarDropdown">
+                            @if (count($courses) > 0)
+                                @foreach ($courses as $course)
+                                    <a href="{{ route('academic_students_my_course', $course->id) }}" class="dropdown-item">
                                         <span class="media-left mr-16pt">
-                                            <img src="{{ url('assets/images/logo/white-60.png') }}" width="30"
-                                                alt="avatar" class="media-left rounded ">
+                                            <img src="{{ asset($course->course_image) }}" width="30" alt="avatar"
+                                                class="media-left rounded ">
                                         </span>
                                         <div class="media-body">
-                                            {{ __('labels.No courses') }}
+                                            {{ $course->name }}
                                         </div>
                                     </a>
-                                @endif
+                                @endforeach
+                            @else
+                                <a href="{{ route('home') }}" class="dropdown-item">
+                                    <span class="media-left mr-16pt">
+                                        <img src="{{ url('assets/images/logo/white-60.png') }}" width="30"
+                                            alt="avatar" class="media-left rounded ">
+                                    </span>
+                                    <div class="media-body">
+                                        {{ __('labels.No courses') }}
+                                    </div>
+                                </a>
+                            @endif
 
-                            </div>
-                        </li>
-                    @endcan
-                    @can('academico_directo_tesis')
-                        <livewire:investigation::thesis.header-investigation />
-                    @endcan
-                @else
-                    <li class="nav-item dropdown mt-2 pc-screen" style=" padding: 0px 15px;">
-                        <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
-                            aria-haspopup="true" aria-expanded="false" style="font-size: 23px;">
-                            Herramientas &nbsp;<i class="fa fa-angle-down" aria-hidden="true" style="margin-top: 8px;"></i>
-                        </a>
-                        <div class="dropdown-menu card-bg" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('help_gpt_default') }}">CONSULTAS IA</a>
-                            <a class="dropdown-item" href="{{ route('dashboard_courses_default') }}">CURSOS</a>
-                            <a class="dropdown-item" href="{{ route('worksheet_default') }}">HOJA DE TRABAJO</a>
                         </div>
                     </li>
-                    <li class="nav-item dropdown mt-2 pc-screen" style=" padding: 0px 15px;">
-                        <a class="nav-link" href="{{ route('modo_page') }}" style="font-size: 23px;">
-                            Membresías
-                        </a>
-                    </li> 
-                    <div class="movil-screen">
-                        <div  style="display: flex; justify-content: center; align-items: center; padding-top: 15px;">
-                            <div style="width: 50%;">
-                                <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false" style="font-size: 23px;">
-                                    &nbsp;&nbsp;&nbsp;&nbsp; Herramientas &nbsp;<i class="fa fa-angle-down" aria-hidden="true" style="margin-top: 8px;"></i>
-                                </a>
-                                <div class="dropdown-menu card-bg" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('help_gpt_default') }}">CONSULTAS IA</a>
-                                    <a class="dropdown-item" href="{{ route('dashboard_courses_default') }}">CURSOS</a>
-                                    <a class="dropdown-item" href="{{ route('worksheet_default') }}">HOJA DE TRABAJO</a>
-                                </div>
-                            </div>
-                            <div style="width: 50%; text-alig: center;">
-                                <a class="nav-link" href="{{ route('modo_page') }}" style="font-size: 23px;">
-                                    &nbsp;&nbsp;&nbsp;&nbsp; Membresías
-                                </a>
+                @endcan
+                @can('academico_directo_tesis')
+                    <livewire:investigation::thesis.header-investigation />
+                @endcan
+            @else
+                <li class="nav-item dropdown mt-2 pc-screen" style=" padding: 0px 15px;">
+                    <a href="#" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false" style="font-size: 23px;">
+                        Herramientas &nbsp;<i class="fa fa-angle-down" aria-hidden="true" style="margin-top: 8px;"></i>
+                    </a>
+                    <div class="dropdown-menu card-bg" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('help_gpt_default') }}">CONSULTAS IA</a>
+                        <a class="dropdown-item" href="{{ route('dashboard_courses_default') }}">CURSOS</a>
+                        <a class="dropdown-item" href="{{ route('worksheet_default') }}">HOJA DE TRABAJO</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mt-2 pc-screen" style=" padding: 0px 15px;">
+                    <a class="nav-link" href="{{ route('modo_page') }}" style="font-size: 23px;">
+                        Membresías
+                    </a>
+                </li>
+                <div class="movil-screen">
+                    <div style="display: flex; justify-content: center; align-items: center; padding-top: 15px;">
+                        <div style="width: 50%;">
+                            <a href="#" class="nav-link" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                style="font-size: 23px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp; Herramientas &nbsp;<i class="fa fa-angle-down"
+                                    aria-hidden="true" style="margin-top: 8px;"></i>
+                            </a>
+                            <div class="dropdown-menu card-bg" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('help_gpt_default') }}">CONSULTAS IA</a>
+                                <a class="dropdown-item" href="{{ route('dashboard_courses_default') }}">CURSOS</a>
+                                <a class="dropdown-item" href="{{ route('worksheet_default') }}">HOJA DE TRABAJO</a>
                             </div>
                         </div>
+                        <div style="width: 50%; text-alig: center;">
+                            <a class="nav-link" href="{{ route('modo_page') }}" style="font-size: 23px;">
+                                &nbsp;&nbsp;&nbsp;&nbsp; Membresías
+                            </a>
+                        </div>
                     </div>
+                </div>
             @endif
         </ul>
 
