@@ -108,12 +108,16 @@ class LyRegisterForm extends Component
 
     public function getProvences()
     {
-        $this->provinces = Province::where('department_id', $this->department_id)->get();
+        $this->provinces = Province::where('department_id', $this->department_id)
+            ->where('country_id', $this->country_id)
+            ->get();
     }
 
     public function getDistricts()
     {
-        $this->districts = District::where('province_id', $this->province_id)->get();
+        $this->districts = District::where('province_id', $this->province_id)
+            ->where('country_id', $this->country_id)
+            ->get();
     }
 
 
