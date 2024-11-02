@@ -125,6 +125,7 @@ class LyRegisterForm extends Component
     {
 
         $this->validate([
+            //'number' => 'required|unique:people,number',
             'number' => 'required',
             'names' => 'required|max:150',
             'last_name_father' => 'required|max:150',
