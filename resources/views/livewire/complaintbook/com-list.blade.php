@@ -31,7 +31,7 @@
                                         <th class="text-center">#</th>
                                         <th class="text-center">Acciones</th>
                                         <th>{{ __('labels.Name') }}</th>
-                                        <th>{{ __('labels.DNI') }}</th>
+                                        <th>DNI</th>
                                         <th>Teléfono</th>
                                         <th>Email</th>
                                         <th>Documento</th>
