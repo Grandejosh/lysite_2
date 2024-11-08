@@ -2,6 +2,7 @@
 
 use App\Events\InstructorOnline;
 use App\Events\PrivateMessage;
+use App\Http\Controllers\ComplaintBookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\LogoutController;
@@ -184,3 +185,18 @@ Route::get('/thanks', [DashboardController::class, 'thanks'])->name('thanks');
 
 //DNI RUTAS
 Route::get('/test/consulta/dni/{dni}', [DniController::class, 'consultaDni'])->name('dni_consulta');
+
+route::get('LibrodeReclamosLYON', function () {
+    return view('LibrodeReclamos');
+})->name('lyon_librodereclamos');
+
+
+Route::post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
+// returns a page that shows a full post
+Route::get('/complaintbook/{id}', ComplaintBookController::class . '@show')->name('complaintbook_show');
+// returns the form for editing a post
+Route::get('/complaintbook/{id}/edit', ComplaintBookController::class . '@edit')->name('complaintbook_edit');
+// updates a post
+Route::put('/complaintbook/{id}', ComplaintBookController::class . '@update')->name('complaintbook_update');
+// deletes a post
+Route::delete('/complaintbook/{id}', ComplaintBookController::class . '@destroy')->name('complaintbook_destroy');

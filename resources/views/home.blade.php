@@ -11,65 +11,74 @@
 @stop
 @section('content')
 
-<!-- COOKIES -->
+    <!-- COOKIES -->
 
-<div id="cookie-consent" class="cookiesMessage_cookiesDisclaimer__pF8_x"><h5 class="cookiesMessage_cookiesDisclaimerHeader__y_YCo">USO DE COOKIES</h5>
-    <p class="cookiesMessage_cookiesDisclaimerBody__nxps1">Usamos cookies propias y de terceros para funciones esenciales de este sitio y mejorar tu experiencia al navegar por <a href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>. Revisa nuestro<!-- --> <a target="_blank" href="{{ route('cookies_policy') }}">Aviso de Cookies</a> para obtener más información al respecto.</p><div class="cookiesMessage_cookiesDisclaimerButton__NwcdV">
-        <button id="accept-cookies" class="cookiesMessage_cookiesDisclaimerButtonAccept__u3I5b" type="button">Aceptar</button></div></div>
-<style>
-    .cookiesMessage_cookiesDisclaimer__pF8_x {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-  font-family: Barlow,sans-serif;
-  background-color: hsla(0,0%,100%,.9);
-  position: fixed;
-  color: #464646;
-  bottom: 0;
-  width: 100%;
-  padding: 1rem 6rem;
-  z-index: 999999;
-  box-sizing: border-box;
-}
-</style>
-
-<script>
-    document.getElementById('cookie-consent').style.display = "none";
-document.addEventListener('DOMContentLoaded', function() {
-    const cookieConsent = document.getElementById('cookie-consent');
-    const acceptButton = document.getElementById('accept-cookies');
-    var consent = localStorage.getItem('cookieConsent');
-    if(!(consent === 'true')){
-        cookieConsent.style.display = "block";
-    }
-    function showCookieConsent() {
-        if (localStorage.getItem('cookieConsent') !== 'true') {
-            cookieConsent.classList.remove('hidden');
-            setTimeout(() => {
-                cookieConsent.style.transform = 'translateY(0)';
-                cookieConsent.style.opacity = '1';
-            }, 100);
+    <div id="cookie-consent" class="cookiesMessage_cookiesDisclaimer__pF8_x">
+        <h5 class="cookiesMessage_cookiesDisclaimerHeader__y_YCo">USO DE COOKIES</h5>
+        <p class="cookiesMessage_cookiesDisclaimerBody__nxps1">Usamos cookies propias y de terceros para funciones esenciales
+            de este sitio y mejorar tu experiencia al navegar por <a href="{{ env('APP_URL') }}">{{ env('APP_NAME') }}</a>.
+            Revisa nuestro<!-- --> <a target="_blank" href="{{ route('cookies_policy') }}">Aviso de Cookies</a> para obtener
+            más información al respecto.</p>
+        <div class="cookiesMessage_cookiesDisclaimerButton__NwcdV">
+            <button id="accept-cookies" class="cookiesMessage_cookiesDisclaimerButtonAccept__u3I5b"
+                type="button">Aceptar</button>
+        </div>
+    </div>
+    <style>
+        .cookiesMessage_cookiesDisclaimer__pF8_x {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+            font-family: Barlow, sans-serif;
+            background-color: hsla(0, 0%, 100%, .9);
+            position: fixed;
+            color: #464646;
+            bottom: 0;
+            width: 100%;
+            padding: 1rem 6rem;
+            z-index: 999999;
+            box-sizing: border-box;
         }
-    }
+    </style>
 
-    function hideCookieConsent() {
-        cookieConsent.style.transform = 'translateY(100%)';
-        cookieConsent.style.display = 'none';
-        setTimeout(() => {
-            cookieConsent.classList.add('hidden');
-        }, 300);
-    }
+    <script>
+        document.getElementById('cookie-consent').style.display = "none";
+        document.addEventListener('DOMContentLoaded', function() {
+            const cookieConsent = document.getElementById('cookie-consent');
+            const acceptButton = document.getElementById('accept-cookies');
+            var consent = localStorage.getItem('cookieConsent');
+            if (!(consent === 'true')) {
+                cookieConsent.style.display = "block";
+            }
 
-    function acceptCookies() {
-        localStorage.setItem('cookieConsent', 'true');
-        hideCookieConsent();
-    }
+            function showCookieConsent() {
+                if (localStorage.getItem('cookieConsent') !== 'true') {
+                    cookieConsent.classList.remove('hidden');
+                    setTimeout(() => {
+                        cookieConsent.style.transform = 'translateY(0)';
+                        cookieConsent.style.opacity = '1';
+                    }, 100);
+                }
+            }
 
-    acceptButton.addEventListener('click', acceptCookies);
+            function hideCookieConsent() {
+                cookieConsent.style.transform = 'translateY(100%)';
+                cookieConsent.style.display = 'none';
+                setTimeout(() => {
+                    cookieConsent.classList.add('hidden');
+                }, 300);
+            }
 
-    showCookieConsent();
-});
-</script>
+            function acceptCookies() {
+                localStorage.setItem('cookieConsent', 'true');
+                hideCookieConsent();
+            }
+
+            acceptButton.addEventListener('click', acceptCookies);
+
+            showCookieConsent();
+        });
+    </script>
 
 
     <div class="hero_area" style="background: #000;">
@@ -183,7 +192,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                     <div class="col-md-8 d-flex justify-content-center align-items-center" style="padding: 40px;">
                         <div class="card-new bg-gradient">
-                            <div style="padding:61.88% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/1019497297?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" style="position:absolute;top:0;left:0;width:100%;height:100%;" title="LYONTEACH VIDEO PRESENTACION FINAL"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                            <div style="padding:61.88% 0 0 0;position:relative;"><iframe
+                                    src="https://player.vimeo.com/video/1019497297?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"
+                                    frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write"
+                                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                                    title="LYONTEACH VIDEO PRESENTACION FINAL"></iframe></div>
+                            <script src="https://player.vimeo.com/api/player.js"></script>
                         </div>
                     </div>
                 </div>
@@ -362,5 +376,38 @@ document.addEventListener('DOMContentLoaded', function() {
         <!-- // END Header Layout Content -->
 
     </div>
+    <x-lyontech.footer></x-lyontech.footer>
 
+
+@stop
+@section('modales')
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModalAlertaSuccessLibro" data-backdrop="static" data-keyboard="false"
+        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">LIBRO DE RECLAMOS</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    @if (session('success_libroreclamos'))
+                        <div class="alert alert-success">
+                            {{ session('success_libroreclamos') }}
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+@stop
+@section('script')
+    @if (session('success_libroreclamos'))
+        <script>
+            $('#exampleModalAlertaSuccessLibro').modal('show');
+        </script>
+    @endif
 @stop

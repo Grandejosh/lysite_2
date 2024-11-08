@@ -92,14 +92,17 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-    @yield('script')
+
     @yield('modales')
+    @yield('script')
     <!-- Modal -->
     @yield('script-chat')
     <script>
         setTimeout(function() {
-            let b = document.getElementsByClassName('preloader')[0];
-            b.style.display = 'none';
+            const preloader = document.getElementsByClassName('preloader')[0];
+            if (preloader) {
+                preloader.style.display = 'none';
+            }
         }, 10000);
     </script>
     @if (auth()->check())
