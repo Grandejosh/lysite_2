@@ -193,7 +193,7 @@ route::get('LibrodeReclamosLYON', function () {
 
 Route::post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
 // returns a page that shows a full post
-Route::get('/complaintbook/{id}', ComplaintBookController::class . '@show')->name('complaintbook_show');
+Route::get('/complaintbook/list', ComplaintBookController::class . '@index')->name('complaintbook_list');
 // returns the form for editing a post
 Route::get('/complaintbook/{id}/edit', ComplaintBookController::class . '@edit')->name('complaintbook_edit');
 // updates a post

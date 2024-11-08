@@ -9,6 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ComplaintBookController extends Controller
 {
+    public function index()
+    {
+        return view('complaintbook.index');
+    }
+
     public function store(Request $request)
     {
         $request->validate([

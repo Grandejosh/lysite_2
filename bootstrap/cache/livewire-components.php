@@ -5,6 +5,7 @@
   'auth.ly-register-form' => 'App\\Http\\Livewire\\Auth\\LyRegisterForm',
   'auth.ly-verify-email' => 'App\\Http\\Livewire\\Auth\\LyVerifyEmail',
   'auth.register-form' => 'App\\Http\\Livewire\\Auth\\RegisterForm',
+  'complaintbook.com-list' => 'App\\Http\\Livewire\\Complaintbook\\ComList',
   'course.courses-default' => 'App\\Http\\Livewire\\Course\\CoursesDefault',
   'course.courses-student' => 'App\\Http\\Livewire\\Course\\CoursesStudent',
   'dashboard.dashboard-admin' => 'App\\Http\\Livewire\\Dashboard\\DashboardAdmin',

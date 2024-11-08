@@ -110,6 +110,17 @@
                 </div>
             </li>
         @endcan
+        @role('Admin')
+            <li class="nav-item dropdown {{ $path[0] == 'complaintbook' ? 'active' : '' }}">
+                <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">libro de reclamos</a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item {{ $path[0] == 'investigation' && $path[1] == 'list' ? 'active' : '' }}"
+                        href="{{ route('complaintbook_list') }}">
+                        Listado
+                    </a>
+                </div>
+            </li>
+        @endrole
     </ul>
     {{-- <ul class="nav navbar-nav ml-auto">
         <li class="nav-item">
