@@ -97,7 +97,7 @@ class StudentsEdit extends Component
             'names' => 'required|max:150',
             'last_name_father' => 'required|max:150',
             'last_name_mother' => 'required|max:150',
-            'address' => 'required',
+            //'address' => 'required',
             'sex' => 'required',
             'birth_date' => 'required',
             'email' => 'required',
@@ -114,7 +114,7 @@ class StudentsEdit extends Component
             'last_name_father' => $this->last_name_father,
             'last_name_mother' => $this->last_name_mother,
             'full_name' => ($this->names . ' ' . $this->last_name_father . ' ' . $this->last_name_mother),
-            'address' => $this->address,
+            'address' => $this->address ?? null,
             'mobile_phone' => $this->mobile_phone,
             'sex' => $this->sex,
             'birth_date' => $this->birth_date,
@@ -137,11 +137,11 @@ class StudentsEdit extends Component
                     'registered_until' => date('Y-m-d H:i:s', strtotime('+0 day', strtotime($student_course['registered_until']))), //$student_course['registered_until']
                     'status' => $student_course['status']
                 ]);
-            }else{
+            } else {
                 $aca_student = AcaStudent::where('person_id', $this->person->id)
-                ->where('course_id', $student_course['id'])->get()->first()->id;
+                    ->where('course_id', $student_course['id'])->get()->first()->id;
                 $aca_student = AcaStudent::find($aca_student);
-
+                //dd($student_course['registered_until']);
                 $aca_student->update([
                     'person_id' => $this->person->id,
                     'course_id' => $student_course['id'],
@@ -184,7 +184,9 @@ class StudentsEdit extends Component
 
         $this->dispatchBrowserEvent('set-module-delete', ['res' => $res, 'tit' => $tit, 'msg' => $msg]);
     }
-    public function updateDate($index, $date){ //actualiza las fechas cuando se cambia en el elemento de la vista.
-        $this->student_courses[$index]['registered_until']=date('Y-m-d', strtotime($date));
+    public function updateDate($index, $date)
+    { //actualiza las fechas cuando se cambia en el elemento de la vista.
+        $this->student_courses[$index]['registered_until'] = date('Y-m-d', strtotime($date));
+        //dd($this->student_courses[$index]['registered_until']);
     }
 }
