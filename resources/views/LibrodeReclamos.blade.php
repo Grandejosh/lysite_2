@@ -14,7 +14,7 @@
                                 <img src="/theme-lyontech/images/leon.png" class="card-img-top"
                                     style="width: 180px;height:180px;margin:auto;margin-top:10px" />
                                 <div class="card-body">
-                                    <h4>IDENTIFICACIÓN DEL CONSUMIDOR DRECLAMANTE</h4>
+                                    <h4>IDENTIFICACIÓN DEL CONSUMIDOR RECLAMANTE</h4>
                                     <div class="form-group row">
                                         <label for="nombres" class="col-sm-4 col-form-label">NOMBRES Y APELLIDOS</label>
                                         <div class="col-sm-8">
@@ -28,7 +28,7 @@
                                     <div class="form-group row">
                                         <label for="numero_dni" class="col-sm-4 col-form-label">DNI</label>
                                         <div class="col-sm-8">
-                                            <input value="{{ old('numero_dni') }}" name="numero_dni" type="text"
+                                            <input value="{{ old('numero_dni') }}" name="numero_dni" type="number"
                                                 class="form-control" id="numero_dni">
                                             @error('numero_dni')
                                                 <small class="text-danger text-xs">{{ $message }}</small>
