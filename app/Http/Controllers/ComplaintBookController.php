@@ -57,8 +57,12 @@ class ComplaintBookController extends Controller
 
         $email = $request->get('email');
         $view_email = new EmailComplaintBookNotification($complaintBook);
-
         Mail::to($email)->send($view_email);
+
+        $email2 = env('MAIL_TO_NOTIFICATIONS');
+        $view_email2 = new EmailComplaintBookNotification($complaintBook);
+        $view_email2->subject("Hubo una queja/reclamo");
+        Mail::to($email2)->send($view_email2);
 
 
         return redirect()->route('home')

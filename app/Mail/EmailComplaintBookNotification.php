@@ -22,9 +22,15 @@ class EmailComplaintBookNotification extends Mailable
      *
      * @return void
      */
-    public function __construct($complaintBook)
+    public function __construct($complaintBook, $subject = null)
     {
-        $this->subject = "Notificación Libro de Reclamaciones - " . env('APP_NAME');
+        if($subject)
+        {
+            $this->subject = $subject;
+        }else{
+            $this->subject = "Notificación Libro de Reclamaciones - " . env('APP_NAME');
+        }
+
         $this->complaintBook = $complaintBook;
     }
 
@@ -33,12 +39,6 @@ class EmailComplaintBookNotification extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-    public function envelope()
-    {
-        return new Envelope(
-            subject: 'Email Complaint Book Notification',
-        );
-    }
 
     /**
      * Get the message content definition.

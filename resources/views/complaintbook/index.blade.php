@@ -3,7 +3,7 @@
         <div class="bg-gradient-primary">
             <div class="py-32pt">
                 <div class="container">
-                    <h1 class="text-white mb-8pt">Libro de reclamos</h1>
+                    <h1 class="text-white mb-8pt">Libro de reclamaciones</h1>
                 </div>
             </div>
         </div>
