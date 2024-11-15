@@ -27,7 +27,7 @@ async function main() {
 
     console.log('Archivos Eliminados de OPENAI exitosamente...');
     connection.end(); // Cerrar la conexión
-    console.log('Conexión cerrada');
+    //console.log('Conexión cerrada');
     //process.exit(0); // Salir del proceso con éxito
   } catch (error) {
     console.error('Error al eliminar los archivos: ' + error);
@@ -60,8 +60,8 @@ function file_ids_deleting() {
         return;
       }
 
-      console.log('Filas encontradas:');
-      console.log(results);
+      //console.log('Filas encontradas:');
+      //console.log(results);
       const promises = results.map(item => {
         return delete_fileID(item.id)
           .then(() => updateDeletedStatus(item.id));
@@ -91,13 +91,13 @@ try {
             return;
           }
 
-          console.log(`Estado de eliminación actualizado a true para el archivo con id ${file_id}`);
+          //console.log(`Estado de eliminación actualizado a true para el archivo con id ${file_id}`);
           resolve(); // Resolver la promesa en caso de éxito
         });
 
       });
 } catch (error) {
-    console.log("Error en función updateDeletedStatus con file_id: " + file_id);
+    //console.log("Error en función updateDeletedStatus con file_id: " + file_id);
 }
   }
 
@@ -105,5 +105,5 @@ try {
 // ELIMINAR DE OPENAI
 async function delete_fileID(fileId) {
   const file = await openai.files.del(fileId);
-  console.log("File Eliminado: ", file);
+  //console.log("File Eliminado: ", file);
 }

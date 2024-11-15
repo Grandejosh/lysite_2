@@ -6,6 +6,8 @@ use App\Models\ComplaintBook;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EmailComplaintBookNotification;
 
 class ComplaintBookController extends Controller
 {
@@ -34,7 +36,7 @@ class ComplaintBookController extends Controller
             'conformidad.accepted' => 'Debe estar conforme con lo detallado.',
         ]);
 
-        ComplaintBook::create([
+        $complaintBook = ComplaintBook::create([
             'date_register' => Carbon::now()->format('Y-m-d'),
             'full_name' => $request->get('nombres'),
             'dni_number' => $request->get('numero_dni'),
@@ -53,7 +55,18 @@ class ComplaintBookController extends Controller
             'status' => 1
         ]);
 
+        $email = $request->get('email');
+        $view_email = new EmailComplaintBookNotification($complaintBook);
+        Mail::to($email)->send($view_email);
+
+        $email2 = env('MAIL_TO_NOTIFICATIONS');
+        $view_email2 = new EmailComplaintBookNotification($complaintBook);
+        $view_email2->subject("Hubo una queja/reclamo");
+        Mail::to($email2)->send($view_email2);
+
+
         return redirect()->route('home')
             ->with('success_libroreclamos', 'Registro exitoso.');
     }
+
 }
