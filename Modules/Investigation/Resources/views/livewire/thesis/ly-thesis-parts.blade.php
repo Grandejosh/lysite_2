@@ -20,21 +20,24 @@
     <div class="container-section-1360p page__container pc-screen">
         <ol class="breadcrumb m-0">
             <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ env('APP_NAME', 'Laravel') }}</a></li>
-            <li class="breadcrumb-item active-black" style="background: none;">{{ __('investigation::labels.thesis_parts') }}</li>
+            <li class="breadcrumb-item active-black" style="background: none;">
+                {{ __('investigation::labels.thesis_parts') }}</li>
         </ol>
     </div>
     <div class="container movil-screen">
         <div class="row">
             <div class="col-md-12">
                 <ol class="breadcrumb m-0">
-                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ env('APP_NAME', 'Laravel') }}</a></li>
-                    <li class="breadcrumb-item active-black" style="background: none;">{{ __('investigation::labels.thesis_parts') }}</li>
+                    <li class="breadcrumb-item"><a href="{{ route('dashboard') }}">{{ env('APP_NAME', 'Laravel') }}</a>
+                    </li>
+                    <li class="breadcrumb-item active-black" style="background: none;">
+                        {{ __('investigation::labels.thesis_parts') }}</li>
                 </ol>
             </div>
         </div>
     </div>
     <!-- Sección 01 -->
-    
+
     <!-- Sección 02 -->
     <div class="container-section-1360p page__container pc-screen">
         <div class="row">
@@ -211,7 +214,7 @@
             </div>
         @endif
     </div>
-    
+
     <div class="container movil-screen">
         <div class="row">
             <div class="col-md-12">
@@ -269,8 +272,8 @@
             <div class="row">
                 <div class="col-3">
                     <div class="custom-control custom-checkbox">
-                        <input wire:model="auto_save" class="custom-control-input-orange" type="checkbox" value=""
-                            id="auto-saveCheck">
+                        <input wire:model="auto_save" class="custom-control-input-orange" type="checkbox"
+                            value="" id="auto-saveCheck">
                         <label class="custom-control-label" for="auto-saveCheck" onclick="toggleSaving()">
                             {{ __('labels.Automatic save') }}
                         </label>
@@ -314,7 +317,8 @@
                                         <div class="modal-header">
                                             <h5 class="modal-title" id="exampleModalScrollableTitle">Índice de Contenidos
                                             </h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <button type="button" class="close" data-dismiss="modal"
+                                                aria-label="Close">
                                                 <span aria-hidden="true">&times;</span>
                                             </button>
                                         </div>
@@ -360,8 +364,8 @@
                                 title="{{ __('labels.Watch a Video about') . ': ' . $focused_part->description }}">
                                 <i class="fa fa-video"></i>
                             </button>
-                            <button type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top"
-                                title="{{ $focused_part->information }}">
+                            <button type="button" class="btn btn-secondary" data-toggle="tooltip"
+                                data-placement="top" title="{{ $focused_part->information }}">
                                 <i class="fa fa-info-circle"></i>
                             </button>
                             @if ($focused_part->content_id != null)
@@ -399,9 +403,11 @@
                             <div>
                                 <div class="form-group">
                                     <label for="text1">Escribe aquí lo que desee parafrasear</label>
-                                    <select class="form-control prompty text-white" name="prompt" style="background: #ff9152;">
+                                    <select class="form-control prompty text-white" name="prompt"
+                                        style="background: #ff9152;">
                                         <option value="0" class="bg-orange-worksheet">Como Investigador</option>
-                                        <option value="1" class="bg-orange-worksheet">Disminuir Similitud</option>
+                                        <option value="1" class="bg-orange-worksheet">Disminuir Similitud
+                                        </option>
                                         <option value="2" class="bg-orange-worksheet">Humanizar Texto</option>
                                     </select>
                                     <style>
@@ -440,10 +446,12 @@
                                     <textarea rows="8" class="form-control" wire:model='resultado' name="text2" id="text2" readonly
                                         placeholder="Escribe o copia arriba un párrafo para ser parafraseado y luego haz click en 'procesar' para obtener el resultado de nuestro servicio.">{!! $resultado !!}</textarea>
                                 </div>
-                                <button onclick="closeParahrase()" type="button"
-                                    class="btn btn-secondary" style="padding: 5px 25px;">Cancelar</button>
-                                <button type="button" class="btn btn-cherry" id="paraphrasing" style="padding: 5px 25px;">Copiar</button>
-                                <button class="btn btn-orange" wire:click="paraphrasing" style="padding: 5px 25px;">Procesar</button>
+                                <button onclick="closeParahrase()" type="button" class="btn btn-secondary"
+                                    style="padding: 5px 25px;">Cancelar</button>
+                                <button type="button" class="btn btn-cherry" id="paraphrasing"
+                                    style="padding: 5px 25px;">Copiar</button>
+                                <button class="btn btn-orange" wire:click="paraphrasing"
+                                    style="padding: 5px 25px;">Procesar</button>
                             </div>
                         </div>
                     </div>
@@ -806,18 +814,19 @@
                             'link',
                             'blockQuote',
                             'imageUpload',
-                            '|',
                             'insertTable',
+                            '|',
                             'paraphrase',
-                            'completethesis',
-                            'margins',
                             'referenciar',
                             'helpkeywords',
                             'recommendation',
-                            'indexes',
                             '|',
+                            'margins',
                             'undo',
                             'redo',
+                            'completethesis',
+                            'indexes',
+                            '|',
                             'pageBreak',
                             '|',
                             'specialCharacters',

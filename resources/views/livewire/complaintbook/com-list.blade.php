@@ -52,15 +52,9 @@
                                                         <i class="fa fa-question"></i>
                                                     </button>
 
-                                                    <button onclick="updateRevisandoS({{ $complaintbook->id }})"
-                                                        type="button" class="btn btn-success btn-sm"
-                                                        title="EN REVISION">
-                                                        <i class="fa fa-registered"></i>
-                                                    </button>
-
-                                                    <button onclick="updateTerminadoS({{ $complaintbook->id }})"
-                                                        class="btn btn-danger btn-sm" title="CERRADO">
-                                                        <i class="fa fa-copyright"></i>
+                                                    <button wire:click="opemModalReplyMessaje({{ $complaintbook }})"
+                                                        type="button" class="btn btn-success btn-sm" title="Responder">
+                                                        <i class="fa fa-envelope"></i>
                                                     </button>
 
                                                 </div>
@@ -163,5 +157,31 @@
 
             $('#modalDetallesLibroReclamos').modal('show');
         }
+    </script>
+    <script>
+        window.addEventListener('open-modal-reply-mensaje', event => {
+            $('#replyEmail').val(event.detail.email);
+            $('#replyEstado').val(3);
+            $('#modalReplyEmail').modal('show');
+        })
+
+        function saveReplyMessage() {
+
+            @this.replyAsunto = $('#replyAsunto').val();
+            @this.replyEmail = $('#replyEmail').val();
+            @this.replyEstado = $('#replyEstado').val();
+            @this.replyMensaje = $('#replyMensaje').val();
+            @this.saveReplyMessageStatus();
+        }
+
+        window.addEventListener('open-modal-reply-mensaje-hide', event => {
+            cuteAlert({
+                type: "success",
+                title: event.detail.tit,
+                message: event.detail.msg,
+                buttonText: "Okay"
+            });
+            $('#modalReplyEmail').modal('hide');
+        })
     </script>
 </div>

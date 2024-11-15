@@ -42,5 +42,50 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalReplyEmail" tabindex="-1" aria-labelledby="modalReplyEmailLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modalReplyEmailLabel">Escribir mensaje de respuesta</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" id="modalReplyEmailBody">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleFormControlInput1">Asunto</label>
+                                <input required type="text" class="form-control" name="replyAsunto" id="replyAsunto">
+                            </div>
+                            <div class="row">
+                                <div class="col-6 form-group">
+                                    <label for="exampleFormControlInput1">Email</label>
+                                    <input required type="email"class="form-control" id="replyEmail" name="replyEmail"
+                                        placeholder="name@example.com">
+                                </div>
+                                <div class="col-6 form-group">
+                                    <label for="exampleFormControlSelect2">Estado</label>
+                                    <select required class="form-control" name="replyEstado" id="replyEstado">
+                                        <option value="2">Revisando</option>
+                                        <option value="3">Terminado</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Mensaje</label>
+                                <textarea required class="form-control" name="replyMensaje" id="replyMensaje" rows="3"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                        <button onclick="saveReplyMessage()" type="button" class="btn btn-primary">Guardar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     @endsection
 </x-master>
