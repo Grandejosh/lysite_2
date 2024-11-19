@@ -624,7 +624,7 @@ class LyBoxGpt extends Component
             $this->path = $this->file_document->storeAs('asistente_lyon', $this->fileName);
         }
         //$this->file_id
-        $sufijo = "responde usando código HTML y las listas en etiquetas <ul></ul>, <ol></ol> e <il></il> según sea necesario pero no crees las etiquetas '<HTML>', '<body>', '<head>' ni  '<tittle>' si puedes utiliza clases boostrap 4 en las propiedades class";
+        $sufijo = "responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle' si puedes utiliza clases boostrap 4 en las propiedades class";
         switch ($prompt) {
             case 1:
                 $this->message = "del archivo que tienes Enlístame los objetivos generales y específicos de la investigación, si no lo dice explicitamente deducelo y dímelo. " . $sufijo;
