@@ -697,7 +697,7 @@ class LyBoxGpt extends Component
         $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
 
         if($this->forget_context){
-            $resultado = "Entendido.";
+            $resultado = "Entendido, ¿Cómo puedo asistirte hoy?";
         }
 
         HistoryGptItem::create([
