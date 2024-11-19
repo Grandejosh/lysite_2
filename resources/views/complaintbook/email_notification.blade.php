@@ -9,7 +9,7 @@
     <meta name="x-apple-disable-message-reformatting">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="telephone=no" name="format-detection">
-    <title>Nuevo Usuario Registrado en {{ env('APP_NAME') }}</title>
+    <title>Libro de Reclamaciones - {{ env('APP_NAME') }}</title>
     <!--[if (mso 16)]><style type="text/css"> a {text-decoration: none;} </style><![endif]--><!--[if gte mso 9]><style>sup { font-size: 100% !important; }</style><![endif]--><!--[if !mso]><!-- -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:500,800" rel="stylesheet"><!--<![endif]--><!--[if gte mso 9]>
 <xml>
@@ -449,15 +449,31 @@ backgroundColor: '#f4f4f4'
   borderRadius: '5px',
   boxShadow: '0 2px 5px rgba(0, 0, 0, 0.1)'
 ">
-  <h1 style="
+@if (!isset($reply))
+    <h1 style="
     color: '#0066cc',
     borderBottom: '2px solid #0066cc',
     paddingBottom: '10px'
-  ">Confirmación de Queja/Reclamo</h1>
+    ">Confirmación de Queja/Reclamo
+    </h1>
+@else
+    <h1 style="
+    color: '#0066cc',
+    borderBottom: '2px solid #0066cc',
+    paddingBottom: '10px'
+    ">Respuesta a Queja/Reclamo
+    </h1>
+@endif
 
   <p>Estimado(a) {{ $complaintBook->full_name }},</p>
 
-  <p>Hemos recibido su queja/reclamo con los siguientes detalles:</p>
+
+  @if (!isset($reply))
+    <p>Hemos recibido su queja/reclamo con los siguientes detalles:</p>
+@else
+    <p>aquí los detalles de la queja/reclamo y la respuesta:</p>
+@endif
+
 
   <table style="
     width: '100%',
@@ -465,60 +481,77 @@ backgroundColor: '#f4f4f4'
     marginBottom: '20px'
   ">
     <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Fecha de Registro:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->date_register }}</td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Fecha de Registro:</strong></td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->date_register }}</td>
     </tr>
     <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Nombre Completo:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->full_name }}</td>
+        <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Numero Correlativo:</strong></td>
+        <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->id }}</td>
+      </tr>
+    <tr>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Nombre Completo:</strong></td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->full_name }}</td>
     </tr>
     <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>DNI:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->dni_number }}</td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>DNI:</strong></td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->dni_number }}</td>
+    </tr>
+    @if (!isset($reply))
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Teléfono:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->telephone }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Email:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->email }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Dirección:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->address }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Serie:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->serie }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Número:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->number }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Monto:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->amount }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Descripción:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->description }}</td>
+        </tr>
+        <tr>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Tipo:</strong></td>
+            <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->type }}</td>
+        </tr>
+    @endif
+    <tr>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Detalles:</strong></td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->details }}</td>
     </tr>
     <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Teléfono:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->telephone }}</td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;"><strong>Mejora solicitada:</strong></td>
+      <td style="padding: 8px; borderBottom: 1px solid #ddd;">{{ $complaintBook->improvement }}</td>
     </tr>
+    @if (isset($reply))
     <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Email:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->email }}</td>
+        <td style="padding: 8px; border-bottom: 1px solid #ddd;"><strong>Respuesta:</strong></td>
+        <td style="padding: 8px; border-bottom: 1px solid #ddd;">{{ $reply }}</td>
     </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Dirección:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->address }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Serie:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->serie }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Número:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->number }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Monto:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->amount }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Descripción:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->description }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Tipo:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->type }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Detalles:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->details }}</td>
-    </tr>
-    <tr>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd"><strong>Mejora solicitada:</strong></td>
-      <td style="padding: '8px', borderBottom: '1px solid #ddd">{{ $complaintBook->improvement }}</td>
-    </tr>
+    @endif
+
   </table>
 
+  @if (!isset($reply))
   <p>Gracias por contactarnos. Nos pondremos en contacto con usted lo antes posible.</p>
+  @else
+  <p>Esperamos que la respuesta obtenida sea de tu agrado.</p>
+  @endif
 
   <p style="
     marginTop: '20px',
