@@ -696,6 +696,10 @@ class LyBoxGpt extends Component
         ////bajar el scroll!!!!
         $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
 
+        if($this->forget_context){
+            $resultado = "Entendido.";
+        }
+
         HistoryGptItem::create([
             'history_id' => $history->id,
             'my_user' => false,
