@@ -694,12 +694,10 @@ class LyBoxGpt extends Component
             $resultado = "Hubo un error vuelve a intentarlo";
         }
         ////bajar el scroll!!!!
-        $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
-
         if($this->forget_context){
             $resultado = "Entendido, ¿Cómo puedo asistirte hoy?";
         }
-
+        $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
         HistoryGptItem::create([
             'history_id' => $history->id,
             'my_user' => false,
