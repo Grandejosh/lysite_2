@@ -452,7 +452,7 @@ class LyBoxGpt extends Component
     {  //crea el thread y obtiene el ID, si ya existe no la crea y luego consulta respuesta
 
         if ($this->verifyDeviceTokenUser()) {
-        if (true) { // la linea anterior debe ir por ahora la quité 10 de julio 2024
+        if (true) {
             if ($this->paraphrase_left >= 1) {
                 try {
                     $pasaje = false;
