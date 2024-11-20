@@ -137,8 +137,6 @@
 
         function openModalDetailsBook(data) {
             var htmlDetails = `<dl class="row">
-                <dt class="col-sm-3">Descripcion contrato</dt>
-                <dd class="col-sm-9">${data.description}</dd>
                 <dt class="col-sm-3">Tipo</dt>
                 <dd class="col-sm-9">${data.type}</dd>
                 <dt class="col-sm-3">Detalle</dt>

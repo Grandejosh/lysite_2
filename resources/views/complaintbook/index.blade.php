@@ -64,7 +64,7 @@
                                 <div class="col-6 form-group">
                                     <label for="exampleFormControlInput1">Email</label>
                                     <input required type="email"class="form-control" id="replyEmail" name="replyEmail"
-                                        placeholder="name@example.com">
+                                        disabled placeholder="name@example.com">
                                 </div>
                                 <div class="col-6 form-group">
                                     <label for="exampleFormControlSelect2">Estado</label>

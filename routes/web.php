@@ -191,8 +191,7 @@ route::get('LibrodeReclamosLYON', function () {
 })->name('lyon_librodereclamos');
 
 
-Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
-    ->post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
+Route::post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
 // returns a page that shows a full post
 Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
     ->get('/complaintbook/list', ComplaintBookController::class . '@index')->name('complaintbook_list');
