@@ -23,7 +23,8 @@
                         <div class="col-md-12">
                             <h1 class="mb-1" style="font-size: 55px; color: #000">Unirme</h1>
                             <p class="mt-0" style="font-size: 20px; color:#000;">
-                                Estas a pundo de adquirir el plan: <b style="color: #ff9152;">{{ $typeSubscription }}</b>. ¿Cómo quieres pagar?
+                                Estas a pundo de adquirir el plan: <b style="color: #ff9152;">{{ $typeSubscription }}</b>.
+                                ¿Cómo quieres pagar?
                             </p>
                         </div>
                     </div>
@@ -83,19 +84,18 @@
                     </div>
                     <div class="row">
                         <div class="col-md-12 box-unirse-list">
-                            <a href="" class="btn btn-white">
+                            <a href="{{ route('pago_yape_mercadopago', $mod) }}" class="btn btn-white">
                                 <div class="row">
                                     <div class="col-md-2">
                                         <div class="mt-1">
-                                            <img style="width: 100%;" src="{{ asset('theme-lyontech/images/museo.png') }}"
+                                            <img style="width: 100%;" src="{{ asset('img/yape-logo-1-300x300.png') }}"
                                                 alt="Icono">
                                         </div>
                                     </div>
                                     <div class="col-md-8">
                                         <div class="mt-1">
-                                            <h4 class="mb-0" style="text-transform: uppercase; text-align:left;">Banca por
-                                                internet</h4>
-                                            <p class="mt-0" style="text-align:left;">Paga en efectivo.</p>
+                                            <h4 class="mb-0" style="text-transform: uppercase; text-align:left;">Yape</h4>
+                                            <p class="mt-0" style="text-align:left;">Aceptamos yape.</p>
                                         </div>
                                     </div>
                                     <div class="col-md-2">
@@ -158,8 +158,8 @@
                             Requerido
                         </h5>
                         <!--<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                                        <span aria-hidden="true">&times;</span>
-                                                                                      </button>-->
+                                                                                                            <span aria-hidden="true">&times;</span>
+                                                                                                          </button>-->
                     </div>
                     <div class="modal-body">
                         <p>Es necesario iniciar sesión para poder hacer un pago. Por favor, inicie sesión para continuar</p>

@@ -21,14 +21,35 @@ class MercadoPagoController extends Controller
 
         try {
 
-            $payment = $client->create([
-                "token" => $request->get('token'),
-                "issuer_id" => $request->get('issuer_id'),
-                "payment_method_id" => $request->get('payment_method_id'),
-                "transaction_amount" => (float) $request->get('transaction_amount'),
-                "installments" => $request->get('installments'),
-                "payer" => $request->get('payer')
-            ]);
+            if ($request->get('payment_method_id') == 'yape') {
+
+                $tsup = UserSubscription::with('subscription')
+                    ->with('user')
+                    ->where('id', $id)
+                    ->first();
+
+                $createRequest = [
+                    "description" => 'suscripcion ' . $tsup->subscription->name,
+                    "installments" => 1,
+                    "payer" => [
+                        "email" => $tsup->user->email,
+                    ],
+                    "payment_method_id" => "yape",
+                    "token" => $request->get('token'),
+                    "transaction_amount" => (float) $tsup->subscription->price,
+                ];
+                $payment = $client->create($createRequest);
+            } else {
+                $payment = $client->create([
+                    "token" => $request->get('token'),
+                    "issuer_id" => $request->get('issuer_id'),
+                    "payment_method_id" => $request->get('payment_method_id'),
+                    "transaction_amount" => (float) $request->get('transaction_amount'),
+                    "installments" => $request->get('installments'),
+                    "payer" => $request->get('payer')
+                ]);
+            }
+
 
             $us = UserSubscription::find($id);
 

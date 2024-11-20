@@ -24,10 +24,10 @@ class AutomationController extends Controller
             $allowed_thesis = $subscription->allowed_thesis;
             $add_months = $subscription->until_subscription; //numero de meses que se ampliará la subscripción
             // agregando permisos para tesis y uso de AI
-            $user;
+            $user = null;
             if ($user_id == null) {
                 $user = Auth::user();
-            }else{
+            } else {
                 $user = User::find($user_id);
             }
             $person = $user->person;
@@ -103,13 +103,13 @@ class AutomationController extends Controller
             $add_months = $subscription->until_subscription; //numero de meses que se ampliará la subscripción
             */
 
-            if($ai_oportunities>0){
+            if ($ai_oportunities > 0) {
                 $user->givePermissionTo('academico_directo_gpt');
             }
-            if($add_months>0){
+            if ($add_months > 0) {
                 $user->givePermissionTo('academico_directo_cursos');
             }
-            if($allowed_thesis>0){
+            if ($allowed_thesis > 0) {
                 $user->givePermissionTo('academico_directo_tesis');
             }
             DB::commit();

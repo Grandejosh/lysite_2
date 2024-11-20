@@ -191,12 +191,38 @@ route::get('LibrodeReclamosLYON', function () {
 })->name('lyon_librodereclamos');
 
 
-Route::post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
+Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
+    ->post('/complaintbook', ComplaintBookController::class . '@store')->name('complaintbook_store');
 // returns a page that shows a full post
-Route::get('/complaintbook/list', ComplaintBookController::class . '@index')->name('complaintbook_list');
+Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
+    ->get('/complaintbook/list', ComplaintBookController::class . '@index')->name('complaintbook_list');
 // returns the form for editing a post
-Route::get('/complaintbook/{id}/edit', ComplaintBookController::class . '@edit')->name('complaintbook_edit');
+Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
+    ->get('/complaintbook/{id}/edit', ComplaintBookController::class . '@edit')->name('complaintbook_edit');
 // updates a post
-Route::put('/complaintbook/{id}', ComplaintBookController::class . '@update')->name('complaintbook_update');
+Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
+    ->put('/complaintbook/{id}', ComplaintBookController::class . '@update')->name('complaintbook_update');
 // deletes a post
-Route::delete('/complaintbook/{id}', ComplaintBookController::class . '@destroy')->name('complaintbook_destroy');
+Route::middleware(['auth.device', 'auth:sanctum', 'verified', 'role:Admin'])
+    ->delete('/complaintbook/{id}', ComplaintBookController::class . '@destroy')->name('complaintbook_destroy');
+
+Route::middleware(['auth.device', 'auth:sanctum', 'verified'])
+    ->get('/yape/{mod}', function ($mod) {
+
+        $sus = TypeSubscription::find($mod);
+        $us = UserSubscription::create([
+            'date_start' => \Carbon\Carbon::now()->format('Y-m-d'),
+            'date_end' => \Carbon\Carbon::now()->addMonth()->format('Y-m-d'),
+            'user_id' => Auth::id(),
+            'subscription_id' => $sus->id,
+            'status' => false,
+            'status_response' => null,
+            'payment_response' => null
+        ]);
+
+        return view('ly_yape', [
+            'price' => $sus->price,
+            'us_id' => $us->id
+        ]);
+    })
+    ->name('pago_yape_mercadopago');
