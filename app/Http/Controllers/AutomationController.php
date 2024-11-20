@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\DB;
 
 class AutomationController extends Controller
 {
-    public function succes_payment_auto($type_subscription_id, $user_id = null)
+    public function succes_payment_auto(int $type_subscription_id, int $user_id = null, Object $server_response = null, String $server = null)
     {
         DB::beginTransaction();
         try {
@@ -96,6 +96,11 @@ class AutomationController extends Controller
             $userSubscription->user_id = $user->id;
             $userSubscription->subscription_id = $type_subscription_id;
             $userSubscription->status = true;
+            if ($server_response) {
+                $userSubscription->status_response = $server_response->status;
+                $userSubscription->payment_response = json_encode($server_response);
+                $userSubscription->payment_server = $server;
+            }
             $userSubscription->save();
             /*
             $ai_oportunities = $subscription->ai_oportunities;

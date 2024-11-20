@@ -114,15 +114,15 @@ Route::middleware(['single-session'])->group(function () {
 
             $client = new \MercadoPago\Client\Preference\PreferenceClient();
 
-            $us = UserSubscription::create([
-                'date_start' => \Carbon\Carbon::now()->format('Y-m-d'),
-                'date_end' => \Carbon\Carbon::now()->addMonth()->format('Y-m-d'),
-                'user_id' => Auth::id(),
-                'subscription_id' => $sus->id,
-                'status' => false,
-                'status_response' => null,
-                'payment_response' => null
-            ]);
+            // $us = UserSubscription::create([
+            //     'date_start' => \Carbon\Carbon::now()->format('Y-m-d'),
+            //     'date_end' => \Carbon\Carbon::now()->addMonth()->format('Y-m-d'),
+            //     'user_id' => Auth::id(),
+            //     'subscription_id' => $sus->id,
+            //     'status' => false,
+            //     'status_response' => null,
+            //     'payment_response' => null
+            // ]);
 
             $preference = $client->create([
                 "items" => array(
@@ -144,7 +144,7 @@ Route::middleware(['single-session'])->group(function () {
         return view('ly_tarjeta', [
             'preference_id' => $preference_id,
             'price' => $sus->price,
-            'us_id' => $us->id
+            'us_id' => $sus->id
         ]);
     })->name('tarjeta_page');
 
@@ -210,19 +210,19 @@ Route::middleware(['auth.device', 'auth:sanctum', 'verified'])
     ->get('/yape/{mod}', function ($mod) {
 
         $sus = TypeSubscription::find($mod);
-        $us = UserSubscription::create([
-            'date_start' => \Carbon\Carbon::now()->format('Y-m-d'),
-            'date_end' => \Carbon\Carbon::now()->addMonth()->format('Y-m-d'),
-            'user_id' => Auth::id(),
-            'subscription_id' => $sus->id,
-            'status' => false,
-            'status_response' => null,
-            'payment_response' => null
-        ]);
+        // $us = UserSubscription::create([
+        //     'date_start' => \Carbon\Carbon::now()->format('Y-m-d'),
+        //     'date_end' => \Carbon\Carbon::now()->addMonth()->format('Y-m-d'),
+        //     'user_id' => Auth::id(),
+        //     'subscription_id' => $sus->id,
+        //     'status' => false,
+        //     'status_response' => null,
+        //     'payment_response' => null
+        // ]);
 
         return view('ly_yape', [
             'price' => $sus->price,
-            'us_id' => $us->id
+            'us_id' => $sus->id
         ]);
     })
     ->name('pago_yape_mercadopago');
