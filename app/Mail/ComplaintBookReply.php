@@ -8,28 +8,29 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use App\Models\ComplaintBook;
 
-class EmailComplaintBookNotification extends Mailable
+class ComplaintBookReply extends Mailable
 {
     use Queueable, SerializesModels;
 
     public $complaintBook;
     public $subject;
-
+    public $reply;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($complaintBook, $subject = null)
+    public function __construct($complaintBook, $reply, $subject = null)
     {
-        if($subject)
+        if($subject != null)
         {
-            $this->subject = $subject;
+            $this->subject = $subject . " - Reclamo/Queja - " . env('APP_NAME');
         }else{
-            $this->subject = "Notificación Libro de Reclamaciones - " . env('APP_NAME');
+            $this->subject = "Respuesta a Libro de Reclamaciones - " . env('APP_NAME');
         }
 
         $this->complaintBook = $complaintBook;
+        $this->reply = $reply;
     }
 
     /**
@@ -37,16 +38,11 @@ class EmailComplaintBookNotification extends Mailable
      *
      * @return \Illuminate\Mail\Mailables\Envelope
      */
-
-    /**
-     * Get the message content definition.
-     *
-     * @return \Illuminate\Mail\Mailables\Content
-     */
     public function build()
     {
         return $this->view('complaintbook.email_notification', [
-            'complaintBook' => $this->complaintBook
+            'complaintBook' => $this->complaintBook,
+            'reply' => $this->reply
         ]);
     }
 

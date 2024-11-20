@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 use Livewire\WithPagination;
 use SplSubject;
+use App\Mail\ComplaintBookReply;
+use Illuminate\Support\Facades\Mail;
 
 class ComList extends Component
 {
@@ -31,7 +33,8 @@ class ComList extends Component
     public function getData()
     {
         return ComplaintBook::where('full_name', 'like', '%' . $this->search . '%')
-            ->paginate(10);
+        ->orderBy('id', 'desc')
+        ->paginate(10);
     }
 
     public function getSearch()
@@ -56,7 +59,6 @@ class ComList extends Component
 
     public function opemModalReplyMessaje($data)
     {
-
         $this->replyId = $data['id'];
         $this->replyAsunto = null;
         $this->replyEmail = $data['email'];
@@ -72,7 +74,7 @@ class ComList extends Component
             'status' => $this->replyEstado
         ]);
 
-        ComplaintBooksReply::create([
+        $reply = ComplaintBooksReply::create([
             'complaint_book_id' => $this->replyId,
             'subject' => $this->replyAsunto,
             'email' => $this->replyEmail,
@@ -81,7 +83,18 @@ class ComList extends Component
             'user_id' => Auth::id()
         ]);
 
+        $this->sendEmailReply($reply);
+
         $this->getSearch();
-        $this->dispatchBrowserEvent('open-modal-reply-mensaje-hide', ['tit' => 'Enhorabuena', 'msg' => 'Se registró correctamente']);
+        $this->dispatchBrowserEvent('open-modal-reply-mensaje-hide', ['tit' => 'Enhorabuena', 'msg' => 'Se registró y correctamente']);
+    }
+
+    private function sendEmailReply($response){
+        $email = $response->email;
+        $complaintBook = ComplaintBook::find($response->complaint_book_id);
+        $reply = $response->message;
+        $subject =$response->subject;
+        $view_email = new ComplaintBookReply($complaintBook, $reply, $subject);
+        Mail::to($email)->send($view_email);
     }
 }

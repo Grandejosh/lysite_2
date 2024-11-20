@@ -452,7 +452,7 @@ class LyBoxGpt extends Component
     {  //crea el thread y obtiene el ID, si ya existe no la crea y luego consulta respuesta
 
         if ($this->verifyDeviceTokenUser()) {
-        if (true) { // la linea anterior debe ir por ahora la quité 10 de julio 2024
+        if (true) {
             if ($this->paraphrase_left >= 1) {
                 try {
                     $pasaje = false;
@@ -624,7 +624,7 @@ class LyBoxGpt extends Component
             $this->path = $this->file_document->storeAs('asistente_lyon', $this->fileName);
         }
         //$this->file_id
-        $sufijo = "responde usando código HTML y las listas en etiquetas <ul></ul>, <ol></ol> e <il></il> según sea necesario pero no crees las etiquetas '<HTML>', '<body>', '<head>' ni  '<tittle>' si puedes utiliza clases boostrap 4 en las propiedades class";
+        $sufijo = "responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle' si puedes utiliza clases boostrap 4 en las propiedades class";
         switch ($prompt) {
             case 1:
                 $this->message = "del archivo que tienes Enlístame los objetivos generales y específicos de la investigación, si no lo dice explicitamente deducelo y dímelo. " . $sufijo;
@@ -694,8 +694,10 @@ class LyBoxGpt extends Component
             $resultado = "Hubo un error vuelve a intentarlo";
         }
         ////bajar el scroll!!!!
+        if($this->forget_context){
+            $resultado = "Entendido, ¿Cómo puedo asistirte hoy?";
+        }
         $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
-
         HistoryGptItem::create([
             'history_id' => $history->id,
             'my_user' => false,
