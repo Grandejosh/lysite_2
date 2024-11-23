@@ -19,11 +19,7 @@ class VerifyDeviceToken
     {
         $user = $this->auth->user();
 
-        if(isset($_COOKIE['device_token'])) {            
-            $deviceToken = $_COOKIE['device_token'];
-        } else {            
-            $deviceToken = null;
-        }
+        $deviceToken = $_COOKIE['device_token'];
 
             if ($user && $user->device_token && $user->device_token !== $deviceToken) {
                 $response = redirect()->route('logout')->with('error', 'Se ha iniciado sesión desde otro dispositivo.');
