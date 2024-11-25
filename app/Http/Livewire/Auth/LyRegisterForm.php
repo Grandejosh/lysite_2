@@ -173,7 +173,6 @@ class LyRegisterForm extends Component
 
         $user = User::find(Auth::id());
 
-            $existingDeviceToken = $_COOKIE['device_token'] ?? null;
             // Generar un nuevo token de dispositivo
             $deviceToken = Str::uuid()->toString();
 
