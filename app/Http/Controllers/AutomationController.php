@@ -24,7 +24,7 @@ class AutomationController extends Controller
             $allowed_thesis = $subscription->allowed_thesis;
             $add_months = $subscription->until_subscription; //numero de meses que se ampliará la subscripción
             // agregando permisos para tesis y uso de AI
-            dd($subscription, "Luego los datos obtenidos de la subs",$ai_oportunities, $add_months, $allowed_thesis);
+            
             $user = null;
             if ($user_id == null) {
                 $user = Auth::user();
