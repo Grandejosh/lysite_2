@@ -2,7 +2,7 @@
     <a class="navbar-brand" href="#">
         <img src="assets/images/icon.jpg" width="30" height="30" style="margin-left: 10px; ">
         <span class="brand-text-nv">
-            LyonTeach
+            Lyonteach
         </span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
