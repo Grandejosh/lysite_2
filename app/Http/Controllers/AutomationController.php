@@ -112,7 +112,7 @@ class AutomationController extends Controller
             if ($ai_oportunities > 0) {
                 $user->givePermissionTo('academico_directo_gpt');
             }
-            
+                // a todos le damos permiso porque hasta el gratis tiene acceso a cursos
                 $user->givePermissionTo('academico_directo_cursos');
             
             if ($allowed_thesis > 0) {
