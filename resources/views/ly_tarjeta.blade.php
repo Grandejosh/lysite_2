@@ -115,8 +115,8 @@
                                                 if (data.status == 'approved') {
                                                     window.location.href = data.url;
                                                 } else {
-                                                    alert('No se pudo continuar el proceso');
-                                                    window.location.href = data.url;
+                                                    alert(data.message);
+                                                    window.location.reload();
                                                 }
                                             })
                                             .catch((error) => {
@@ -127,6 +127,7 @@
                                                     // Mostrar la alerta con el mensaje de error devuelto por el backend
                                                     alert(error.message);
                                                 }
+                                                window.location.reload();
                                             })
                                     });
                                 },

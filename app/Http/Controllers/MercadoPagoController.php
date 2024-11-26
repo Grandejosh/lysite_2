@@ -22,71 +22,73 @@ class MercadoPagoController extends Controller
 
         $sus = TypeSubscription::find($id);
 
-        // try {
+        try {
 
-        if ($request->get('payment_method_id') == 'yape') {
+            if ($request->get('payment_method_id') == 'yape') {
 
-            $createRequest = [
-                "description" => 'suscripcion ' . $sus->name,
-                "installments" => 1,
-                "payer" => [
-                    "email" => "test_user_123@testuser.com",
-                ],
-                "payment_method_id" => "yape",
-                "token" => $request->get('token'),
-                "transaction_amount" => (float) $sus->price,
-            ];
-            $payment = $client->create($createRequest);
-            $payment_server = 'yape';
-        } else {
-            $payment = $client->create([
-                "token" => $request->get('token'),
-                "issuer_id" => $request->get('issuer_id'),
-                "payment_method_id" => $request->get('payment_method_id'),
-                "transaction_amount" => (float) $request->get('transaction_amount'),
-                "installments" => $request->get('installments'),
-                "payer" => $request->get('payer')
-            ]);
-            $payment_server = 'mercadopago';
-        }
+                $createRequest = [
+                    "description" => 'suscripcion ' . $sus->name,
+                    "installments" => 1,
+                    "payer" => [
+                        "email" => Auth::user()->email,
+                    ],
+                    "payment_method_id" => "yape",
+                    "token" => $request->get('token'),
+                    "transaction_amount" => (float) $sus->price,
+                ];
+                $payment = $client->create($createRequest);
+                $payment_server = 'yape';
+            } else {
+                $createRequest = [
+                    "issuer_id" => $request->get('issuer_id'),
+                    "description" => 'suscripcion ' . $sus->name,
+                    "installments" => $request->get('installments'),
+                    "payer" => $request->get('payer'),
+                    "payment_method_id" => $request->get('payment_method_id'),
+                    "token" => $request->get('token'),
+                    "transaction_amount" => (float) $sus->price
+                ];
+                //dd($createRequest);
+                $payment = $client->create($createRequest);
+
+                $payment_server = 'mercadopago';
+            }
 
 
-        $us = UserSubscription::find($id);
+            $us = UserSubscription::find($id);
 
-        if ($payment->status == 'approved') {
-
-            // $us->status_response = $payment->status;
-            // $us->payment_response = json_encode($payment);
-            // $us->payment_server = 'mercadopago';
-            // $us->payment_online = true;
-            // $us->save();
-
-            $actives = new AutomationController();
-
-            $actives->succes_payment_auto($us->subscription_id, null, $payment, $payment_server);
-
+            $url = route('web_gracias_por_comprar', $us->id);
+            $message = null;
+            //dd($payment->status);
+            switch ($payment->status) {
+                case "approved":
+                    $actives = new AutomationController();
+                    $actives->succes_payment_auto($us->subscription_id, null, $payment, $payment_server);
+                    $message = 'Pago aprobado';
+                    break;
+                case "rejected":
+                    $message = 'Rechazado por error general';
+                    break;
+                case "in_process":
+                    $message = 'Pendiente de pago';
+                    break;
+                default:
+                    $message = 'Pendiente de pago';
+                    break;
+            }
             return response()->json([
                 'status' => $payment->status,
-                'message' => $payment->status_detail,
-                'url' => route('web_gracias_por_comprar', $us->id)
+                //'message' => $payment->status_detail,
+                'message' => $message,
+                'url' => $url
             ]);
-        } else {
-
-            return response()->json([
-                'status' => $payment->status,
-                'message' => $payment->status_detail,
-                'url' => route('modo_page')
-            ]);
-
-            $us->delete();
+        } catch (\MercadoPago\Exceptions\MPApiException $e) {
+            // Manejar la excepción
+            $response = $e->getApiResponse();
+            $content  = $response->getContent();
+            //dd($content);
+            $message = $content['message'];
+            return response()->json(['error' => 'Error al procesar el pago: ' . $message], 412);
         }
-        // } catch (\MercadoPago\Exceptions\MPApiException $e) {
-        //     // Manejar la excepción
-        //     $response = $e->getApiResponse();
-        //     $content  = $response->getContent();
-
-        //     $message = $content['message'];
-        //     return response()->json(['error' => 'Error al procesar el pago: ' . $message], 412);
-        // }
     }
 }
