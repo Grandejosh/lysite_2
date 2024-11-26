@@ -169,6 +169,22 @@ class LyRegisterForm extends Component
         ////aca se loguea el usuario
         Auth::attempt(array('email' => $this->user->email, 'password' => $this->password));
 
+        /////Crear device token //////////////////////////////////////////////
+
+        $user = User::find(Auth::id());
+
+            // Generar un nuevo token de dispositivo
+            $deviceToken = Str::uuid()->toString();
+
+            // Asignar el nuevo token de dispositivo al usuario en la base de datos
+            $user->device_token = $deviceToken;
+            $user->save();
+
+            // Guardar el token de dispositivo en el almacenamiento local del navegador
+            setcookie('device_token', $deviceToken, time() + (86400 * 2), '/'); // Almacena la cookie durante 1 días
+
+        //////////////////////////////////////////////////////////////////////////////device token/////////
+
         //notificación de correo al correo de notificaciones .env MAIL_TO_NOTIFICATIONS si notificaciones new user está activado
         if (env('NOTIFICATIONS_NEW_USER')) {
             $correo = new NewUserNotification($this->user->name, $this->user->email, null, trim($confirmationCode));
