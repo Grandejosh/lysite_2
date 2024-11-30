@@ -2,6 +2,7 @@
 
 namespace App\Http\Livewire\Auth;
 
+use App\Mail\NewDeviceNotification;
 use Livewire\Component;
 use App\Models\SessionHistory;
 use App\Models\TypeSubscription;
@@ -12,6 +13,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
+use App\Models\UserDevice;
+use Illuminate\Support\Facades\Mail;
+use Jenssegers\Agent\Agent;
 
 class LyLoginForm extends Component
 {
@@ -75,13 +79,9 @@ class LyLoginForm extends Component
             // Guardar el token de dispositivo en el almacenamiento local del navegador
             setcookie('device_token', $deviceToken, time() + (86400 * 2), '/'); // Almacena la cookie durante 1 días
 
-
-
-
-
             // Resto del código...
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
+            $this->verifyDevice($user);
 
             return redirect()->intended('dashboard');
         } else {
@@ -95,5 +95,48 @@ class LyLoginForm extends Component
         $this->email = null;
         $this->password = null;
         $this->rememberme = null;
+    }
+
+    public function verifyDevice($user)
+    {
+        // Obtener información del dispositivo
+        $agent = new Agent();
+        $deviceName = $agent->device() ?: 'Desconocido'; // Nombre del dispositivo o 'Desconocido' si no está disponible
+        $deviceIP = request()->ip();
+        $deviceOS = $agent->platform() ?: 'Desconocido'; // Sistema operativo
+        $browser = $agent->browser() ?: 'Desconocido'; // Navegador
+        // Verificar si el dispositivo ya está registrado
+        $existingDevice = UserDevice::where('user_id', $user->id)
+            ->where('device_ip', $deviceIP)
+            ->where('device_name', $deviceName)
+            ->first();
+
+        if ($existingDevice) {
+
+            if (!$existingDevice->is_verified) {
+                Auth::logout();
+                $msg = 'Este dispositivo aún no ha sido verificado. Verifica tu correo.';
+                //session()->flash('message', 'Este dispositivo aún no ha sido verificado. Verifica tu correo.');
+                $this->dispatchBrowserEvent('validate-device_message', ['message' => $msg]);
+            }
+        } else {
+            // Crear un nuevo dispositivo y marcarlo como no verificado
+            $newDevice = UserDevice::create([
+                'user_id' => $user->id,
+                'device_name' => $deviceName,
+                'device_ip' => $deviceIP,
+                'device_os' => $deviceOS,
+                'browser' => $browser,
+                'is_verified' => false,
+            ]);
+
+            // Enviar correo de verificación
+            Mail::to($user->email)->send(new NewDeviceNotification($newDevice));
+
+            Auth::logout();
+
+            $msg = 'Se ha detectado un nuevo dispositivo. Por favor, verifica tu correo.';
+            $this->dispatchBrowserEvent('validate-device_message', ['message' => $msg]);
+        }
     }
 }

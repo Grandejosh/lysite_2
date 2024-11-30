@@ -7,4 +7,5 @@
     <div class="img js-fullheight" style="background-image: url({{ asset('theme-lyontech/images/fondo-naranja.jpg') }});">
         @livewire('auth.ly-login-form')
     </div>
+
 @stop

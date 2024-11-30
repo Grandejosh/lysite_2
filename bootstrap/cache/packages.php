@@ -28,6 +28,17 @@
       'Image' => 'Intervention\\Image\\Facades\\Image',
     ),
   ),
+  'jenssegers/agent' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Jenssegers\\Agent\\AgentServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'Agent' => 'Jenssegers\\Agent\\Facades\\Agent',
+    ),
+  ),
   'laravel/fortify' => 
   array (
     'providers' => 

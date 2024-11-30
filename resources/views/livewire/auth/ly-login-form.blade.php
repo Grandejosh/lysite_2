@@ -13,20 +13,20 @@
                                                 {{ $modo->name }}
                                             </h2>
                                             @if ($modo->price == 0)
-                                                    <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
-                                                        <strong>-</strong>
-                                                    </p>
-                                                    <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
-                                                        <strong>-</strong>
-                                                    </p>
+                                                <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
+                                                    <strong>-</strong>
+                                                </p>
+                                                <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
+                                                    <strong>-</strong>
+                                                </p>
                                             @else
-                                                    <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
-                                                        <strong>S/ {{ $modo->price }}</strong>
-                                                        <strong>ó</strong>
-                                                    </p>
-                                                    <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
-                                                        <strong>$USD {{ $modo->dollar_price }}</strong>
-                                                    </p>
+                                                <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
+                                                    <strong>S/ {{ $modo->price }}</strong>
+                                                    <strong>ó</strong>
+                                                </p>
+                                                <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
+                                                    <strong>$USD {{ $modo->dollar_price }}</strong>
+                                                </p>
                                             @endif
                                             <p class="mt-0 mb-0 text-center" style="color: #ff9152; font-size: 18px;">
                                                 <strong>/{{ $modo->detail_one }}</strong>
@@ -107,6 +107,12 @@
                                         {{ session('message') }}
                                     </div>
                                 @endif
+                                @if (session()->has('message'))
+                                    <div class="alert alert-danger">
+                                        <p class="font-bold">Atención</p>
+                                        <p>{{ session('message') }}</p>
+                                    </div>
+                                @endif
                                 <div class="form-group-c btn-cent-c">
                                     <button wire:click="login" type="button"
                                         class="form-control btn btn-orange submit ">Iniciar
@@ -173,23 +179,23 @@
                             <div class="col-md-4">
                                 <div class="box-plane-card-login">
                                     <h2 style="text-align: center;">{{ $modo->name }}</h2>
-                                        @if ($modo->price == 0)
-                                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
-                                                            <strong>-</strong>
-                                                            <strong></strong>
-                                                        </p>
-                                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
-                                                            <strong>-</strong>
-                                                        </p>
-                                        @else
-                                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
-                                                            <strong>S/ {{ $modo->price }}</strong>
-                                                            <strong>ó</strong>
-                                                        </p>
-                                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
-                                                            <strong>$USD {{ $modo->dollar_price }}</strong>
-                                                        </p>
-                                        @endif
+                                    @if ($modo->price == 0)
+                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
+                                            <strong>-</strong>
+                                            <strong></strong>
+                                        </p>
+                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
+                                            <strong>-</strong>
+                                        </p>
+                                    @else
+                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 21px;">
+                                            <strong>S/ {{ $modo->price }}</strong>
+                                            <strong>ó</strong>
+                                        </p>
+                                        <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 18px;">
+                                            <strong>$USD {{ $modo->dollar_price }}</strong>
+                                        </p>
+                                    @endif
                                     <ul>
                                         <li>{{ $modo->detail_two }}</li>
                                         <li>{{ $modo->detail_three }}</li>
@@ -237,6 +243,11 @@
                     document.getElementById('ojo_que_todo_lo_ve').classList.remove('fa-eye');
                 }
             }
+        </script>
+        <script>
+            window.addEventListener('validate-device_message', event => {
+                alert('Advertencia: ' + event.detail.message);
+            });
         </script>
     </div>
 </div>

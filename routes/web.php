@@ -5,6 +5,7 @@ use App\Events\PrivateMessage;
 use App\Http\Controllers\ComplaintBookController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DeviceController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\User\UserController;
@@ -39,6 +40,9 @@ Route::get('/', function () {
 Route::get('cookies_policy', function () {
     return view('cookies_policy');
 })->name('cookies_policy');
+
+Route::get('/verify-device/{id}', [DeviceController::class, 'verify'])->name('verify.device');
+
 
 Route::get('/prueba', function () {
 
