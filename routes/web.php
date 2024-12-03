@@ -42,7 +42,7 @@ Route::get('cookies_policy', function () {
 })->name('cookies_policy');
 
 Route::get('/terms', function () {
-    return view('terms_conditions');
+    return view('ly_terms_conditions');
 })->name('terms_conditions');
 
 Route::get('/verify-device/{id}', [DeviceController::class, 'verify'])->name('verify.device');
