@@ -102,13 +102,14 @@ class LyLoginForm extends Component
         // Obtener información del dispositivo
         $agent = new Agent();
         $deviceName = $agent->device() ?: 'Desconocido'; // Nombre del dispositivo o 'Desconocido' si no está disponible
+        $userAgent = $deviceName = 'Desconocido' ? request()->header('User-Agent') : $deviceName;
         $deviceIP = request()->ip();
         $deviceOS = $agent->platform() ?: 'Desconocido'; // Sistema operativo
         $browser = $agent->browser() ?: 'Desconocido'; // Navegador
         // Verificar si el dispositivo ya está registrado
         $existingDevice = UserDevice::where('user_id', $user->id)
             ->where('device_ip', $deviceIP)
-            ->where('device_name', $deviceName)
+            ->where('device_name', $userAgent)
             ->first();
 
         if ($existingDevice) {
