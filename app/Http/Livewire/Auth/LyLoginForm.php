@@ -126,7 +126,7 @@ class LyLoginForm extends Component
             // Crear un nuevo dispositivo y marcarlo como no verificado
             $newDevice = UserDevice::create([
                 'user_id' => $user->id,
-                'device_name' => $deviceName,
+                'device_name' => $userAgent,
                 'device_ip' => $deviceIP,
                 'device_os' => $deviceOS,
                 'browser' => $browser,
