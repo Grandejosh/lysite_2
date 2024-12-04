@@ -110,6 +110,8 @@ class LyLoginForm extends Component
         $existingDevice = UserDevice::where('user_id', $user->id)
             ->where('device_ip', $deviceIP)
             ->where('device_name', $userAgent)
+            ->where('device_os', $deviceOS)
+            ->where('browser', $browser)
             ->first();
 
         if ($existingDevice) {
