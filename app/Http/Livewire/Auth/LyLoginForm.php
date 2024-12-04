@@ -116,11 +116,14 @@ class LyLoginForm extends Component
 
         if ($existingDevice) {
 
-            if (!$existingDevice->is_verified) {
+            if ($existingDevice->is_verified) {
+                return true;
+            } else {
                 Auth::logout();
                 $msg = 'Este dispositivo aún no ha sido verificado. Verifica tu correo.';
                 //session()->flash('message', 'Este dispositivo aún no ha sido verificado. Verifica tu correo.');
                 $this->dispatchBrowserEvent('validate-device_message', ['message' => $msg]);
+                return false;
             }
         } else {
             // Crear un nuevo dispositivo y marcarlo como no verificado
@@ -140,6 +143,7 @@ class LyLoginForm extends Component
 
             $msg = 'Se ha detectado un nuevo dispositivo. Por favor, verifica tu correo.';
             $this->dispatchBrowserEvent('validate-device_message', ['message' => $msg]);
+            return false;
         }
     }
 }
