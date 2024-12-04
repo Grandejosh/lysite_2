@@ -22,20 +22,24 @@
                                                     </h1>
 
                                                     @if ($modo->price == 0)
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 25px;">
-                                                                <strong>-</strong>
-                                                            </p>
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 20px;">
-                                                                <strong>-</strong>
-                                                            </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 25px;">
+                                                            <strong>-</strong>
+                                                        </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 20px;">
+                                                            <strong>-</strong>
+                                                        </p>
                                                     @else
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 25px;">
-                                                                <strong>S/ {{ $modo->price }}</strong>
-                                                                <strong>ó</strong>
-                                                            </p>
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 20px;">
-                                                                <strong>$USD {{ $modo->dollar_price }}</strong>
-                                                            </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 25px;">
+                                                            <strong>S/ {{ $modo->price }}</strong>
+                                                            <strong>ó</strong>
+                                                        </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 20px;">
+                                                            <strong>$USD {{ $modo->dollar_price }}</strong>
+                                                        </p>
                                                     @endif
 
                                                     <p class="mt-0 mb-0 text-center"
@@ -52,7 +56,7 @@
                                                         <li>{{ $modo->detail_three }}</li>
                                                         <li>{{ $modo->detail_four }}</li>
                                                         @if ($modo->detail_five && $modo->detail_five !== 'null')
-                                                        <li>{{ $modo->detail_five }}</li>
+                                                            <li>{{ $modo->detail_five }}</li>
                                                         @endif
 
                                                         @if ($modo->detail_six && $modo->detail_six !== 'null')
@@ -95,20 +99,24 @@
                                                     <h1 class="mb-0" style="text-align: center;">{{ $modo->name }}</h1>
 
                                                     @if ($modo->price == 0)
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 25px;">
-                                                                <strong>-</strong>
-                                                            </p>
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 20px;">
-                                                                <strong>-</strong>
-                                                            </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 25px;">
+                                                            <strong>-</strong>
+                                                        </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 20px;">
+                                                            <strong>-</strong>
+                                                        </p>
                                                     @else
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 25px;">
-                                                                <strong>S/ {{ $modo->price }}</strong>
-                                                                <strong>ó</strong>
-                                                            </p>
-                                                            <p class="mt-0 mb-0  text-center" style="color: #000; font-size: 20px;">
-                                                                <strong>$USD {{ $modo->dollar_price }}</strong>
-                                                            </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 25px;">
+                                                            <strong>S/ {{ $modo->price }}</strong>
+                                                            <strong>ó</strong>
+                                                        </p>
+                                                        <p class="mt-0 mb-0  text-center"
+                                                            style="color: #000; font-size: 20px;">
+                                                            <strong>$USD {{ $modo->dollar_price }}</strong>
+                                                        </p>
                                                     @endif
 
                                                     <p class="mt-0 mb-0 text-center"
@@ -125,7 +133,7 @@
                                                         <li>{{ $modo->detail_three }}</li>
                                                         <li>{{ $modo->detail_four }}</li>
                                                         @if ($modo->detail_five && $modo->detail_five !== 'null')
-                                                        <li>{{ $modo->detail_five }}</li>
+                                                            <li>{{ $modo->detail_five }}</li>
                                                         @endif
 
                                                         @if ($modo->detail_six && $modo->detail_six !== 'null')
@@ -141,9 +149,19 @@
                                                         @endif
                                                     </ul>
                                                     <form action="#" class="signin-form mt-2">
+
                                                         <div class="form-group mt-4 mb-4">
-                                                            <a href="{{ route('unirme_page', $modo->id) }}"
-                                                                class="form-control btn btn-orange submit">Unirse</a>
+
+                                                            @if (in_array($modo->id, $userModes))
+                                                                <a href="#" class="form-control btn btn-gris submit">
+                                                                    Registrado
+                                                                </a>
+                                                            @else
+                                                                <a href="{{ route('unirme_page', $modo->id) }}"
+                                                                    class="form-control btn btn-orange submit">Unirse</a>
+                                                            @endif
+
+
                                                         </div>
                                                     </form>
                                                 </div>

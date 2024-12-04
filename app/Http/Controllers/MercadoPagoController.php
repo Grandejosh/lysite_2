@@ -55,15 +55,13 @@ class MercadoPagoController extends Controller
             }
 
 
-            $us = UserSubscription::find($id);
-
-            $url = route('web_gracias_por_comprar', $us->id);
+            $url = route('web_gracias_por_comprar', $sus->id);
             $message = null;
             //dd($payment->status);
             switch ($payment->status) {
                 case "approved":
                     $actives = new AutomationController();
-                    $actives->succes_payment_auto($us->subscription_id, null, $payment, $payment_server);
+                    $actives->succes_payment_auto($sus->id, null, $payment, $payment_server);
                     $message = 'Pago aprobado';
                     break;
                 case "rejected":

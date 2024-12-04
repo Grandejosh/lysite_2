@@ -166,8 +166,21 @@ Route::middleware(['single-session'])->group(function () {
 
 Route::get('/modo', function () {
     $modos = TypeSubscription::limit(4)->orderBy('price')->get();
+    $userModes = UserSubscription::where('user_id', Auth::id())
+        ->where('status', true)
+        ->pluck('subscription_id');
+
+    $modes = [];
+    if (count($userModes) > 0) {
+        foreach ($userModes as $mode) {
+            array_push($modes, $mode);
+        }
+    }
+
+    //dd($modes);
     return view('ly_modo', [
-        'modos' => $modos
+        'modos' => $modos,
+        'userModes' => $modes
     ]);
 })->name('modo_page');
 
