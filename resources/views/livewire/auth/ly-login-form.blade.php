@@ -102,6 +102,9 @@
                                     @enderror
 
                                 </div>
+                                <div class="text-right">
+                                    <div><a style="color: #0059ff;" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a></div>
+                                </div>
                                 @if (session()->has('message'))
                                     <div class="alert alert-danger" role="alert">
                                         {{ session('message') }}
@@ -156,6 +159,9 @@
                                     @error('password')
                                         <span class="text-danger error">{{ $message }}</span>
                                     @enderror
+                                </div>
+                                <div class="text-right">
+                                    <div><a style="color: #0059ff;" href="{{ route('password.request') }}">¿Olvidaste tu contraseña?</a></div>
                                 </div>
                                 @if (session()->has('message'))
                                     <div class="alert alert-danger" role="alert">
