@@ -9,6 +9,7 @@ use Livewire\Component;
 use Livewire\WithPagination;
 use SplSubject;
 use App\Mail\ComplaintBookReply;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Mail;
 
 class ComList extends Component
@@ -33,8 +34,8 @@ class ComList extends Component
     public function getData()
     {
         return ComplaintBook::where('full_name', 'like', '%' . $this->search . '%')
-        ->orderBy('id', 'desc')
-        ->paginate(10);
+            ->orderBy('id', 'desc')
+            ->paginate(10);
     }
 
     public function getSearch()
@@ -71,7 +72,10 @@ class ComList extends Component
     public function saveReplyMessageStatus()
     {
         ComplaintBook::find($this->replyId)->update([
-            'status' => $this->replyEstado
+            'status' => $this->replyEstado,
+            'attends_user_id' => Auth::id(),
+            'response_date' => Carbon::now()->format('Y-m-d'),
+            'response_description' => $this->replyMensaje
         ]);
 
         $reply = ComplaintBooksReply::create([
@@ -89,11 +93,12 @@ class ComList extends Component
         $this->dispatchBrowserEvent('open-modal-reply-mensaje-hide', ['tit' => 'Enhorabuena', 'msg' => 'Se registró y correctamente']);
     }
 
-    private function sendEmailReply($response){
+    private function sendEmailReply($response)
+    {
         $email = $response->email;
         $complaintBook = ComplaintBook::find($response->complaint_book_id);
         $reply = $response->message;
-        $subject =$response->subject;
+        $subject = $response->subject;
         $view_email = new ComplaintBookReply($complaintBook, $reply, $subject);
         Mail::to($email)->send($view_email);
     }

@@ -27,11 +27,12 @@ class ComplaintBookController extends Controller
             'monto' => 'required|numeric|regex:/^\d{1,12}(\.\d{1,2})?$/',
             'contrato-descripcion' => 'required|max:255',
             'tipo' => 'required|max:255',
-            'serie' => 'required|max:6',
-            'numero' => 'required|max:20',
+            // 'serie' => 'required|max:6',
+            // 'numero' => 'required|max:20',
             'detalle' => 'required|max:255',
             'pedido' => 'required|max:255',
             'conformidad' => 'accepted',
+            'bien' => 'required|max:1',
         ], [
             'conformidad.accepted' => 'Debe estar conforme con lo detallado.',
         ]);
@@ -52,7 +53,9 @@ class ComplaintBookController extends Controller
             'improvement' => $request->get('pedido'),
             'registers_user_id' => null,
             'attends_user_id' => null,
-            'status' => 1
+            'status' => 1,
+            'type_item' => $request->get('bien'),
+            'guardian_parents' => $request->get('padres')
         ]);
 
         $email = $request->get('email');
@@ -68,5 +71,4 @@ class ComplaintBookController extends Controller
         return redirect()->route('home')
             ->with('success_libroreclamos', 'Registro exitoso.');
     }
-
 }

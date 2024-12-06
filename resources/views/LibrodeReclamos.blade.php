@@ -14,7 +14,17 @@
                                 <img src="/theme-lyontech/images/leon.png" class="card-img-top"
                                     style="width: 180px;height:180px;margin:auto;margin-top:10px" />
                                 <div class="card-body">
-                                    <h4>IDENTIFICACIÓN DEL CONSUMIDOR RECLAMANTE</h4>
+                                    <h4> IDENTIFICACIÓN DEL CONSUMIDOR RECLAMANTE</h4>
+                                    <div class="form-group row">
+                                        <label for="fecha" class="col-sm-4 col-form-label">FECHA</label>
+                                        <div class="col-sm-4">
+                                            <input value="{{ old('fecha') }}" name="fecha" id="fecha" type="date"
+                                                class="form-control">
+                                        </div>
+                                        @error('fecha')
+                                            <small class="text-danger text-xs">{{ $message }}</small>
+                                        @enderror
+                                    </div>
                                     <div class="form-group row">
                                         <label for="nombres" class="col-sm-4 col-form-label">NOMBRES Y APELLIDOS</label>
                                         <div class="col-sm-8">
@@ -65,8 +75,19 @@
                                             @enderror
                                         </div>
                                     </div>
-                                    <h4 style="margin-top:60px">IDENTIFICACIÓN DEL BIEN CONTRATADO</h4>
                                     <div class="form-group row">
+                                        <label for="padres" class="col-sm-4 col-form-label">PADRE O MADRE: [PARA EL CASO
+                                            DE MENORES DE EDAD]</label>
+                                        <div class="col-sm-8">
+                                            <input value="{{ old('padres') }}" name="padres" type="text"
+                                                class="form-control" id="padres">
+                                            @error('padres')
+                                                <small class="text-danger text-xs">{{ $message }}</small>
+                                            @enderror
+                                        </div>
+                                    </div>
+                                    <h4 style="margin-top:60px">IDENTIFICACIÓN DEL BIEN CONTRATADO</h4>
+                                    {{-- <div class="form-group row">
                                         <label for="serie" class="col-sm-4 col-form-label">SERIE Y NÚMERO</label>
                                         <div class="col-sm-4">
                                             <input value="{{ old('serie') }}" name="serie" id="serie" type="text"
@@ -80,6 +101,25 @@
                                             <small class="text-danger text-xs">{{ $message }}</small>
                                         @enderror
                                         @error('numero')
+                                            <small class="text-danger text-xs">{{ $message }}</small>
+                                        @enderror
+                                    </div> --}}
+                                    <div class="form-group row">
+                                        <label for="serie" class="col-sm-4 col-form-label">BIEN ADQUIRIDO</label>
+                                        <div class="col-sm-8">
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="bien" type="radio" id="bien1"
+                                                    value="1" {{ old('bien') === '1' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="bien1">PRODUCTO</label>
+                                            </div>
+                                            <div class="form-check form-check-inline">
+                                                <input class="form-check-input" name="bien" type="radio"
+                                                    id="bien2" value="2"
+                                                    {{ old('bien') === '2' ? 'checked' : '' }}>
+                                                <label class="form-check-label" for="bien2">SERVICIO</label>
+                                            </div>
+                                        </div>
+                                        @error('bien')
                                             <small class="text-danger text-xs">{{ $message }}</small>
                                         @enderror
                                     </div>
@@ -143,7 +183,8 @@
                                         <div class="col-sm-8">
                                             <div class="form-check">
                                                 <input class="form-check-input" type="checkbox" id="conformidad"
-                                                    name="conformidad" value="1">
+                                                    name="conformidad" value="1"
+                                                    {{ old('conformidad') === '1' ? 'checked' : '' }}>
                                                 <label class="form-check-label" for="conformidad">
                                                     EN CONFORMIDAD POR LO DETALLADO
                                                 </label>
