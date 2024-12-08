@@ -119,6 +119,7 @@ class LyLoginForm extends Component
             if ($existingDevice->is_verified) {
                 return true;
             } else {
+                Mail::to($user->email)->send(new NewDeviceNotification($existingDevice));
                 Auth::logout();
                 $msg = 'Este dispositivo aún no ha sido verificado. Verifica tu correo.';
                 //session()->flash('message', 'Este dispositivo aún no ha sido verificado. Verifica tu correo.');
