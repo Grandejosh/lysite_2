@@ -2,7 +2,7 @@
 
   <x-master>
     <x-slot name="jumbotron">
-        <div class="bg-gradient-primary py-32pt">
+        <div class="bg-gradient-primary py-32pt" style="background: #fe8f00;">
             <div class="container d-flex flex-column flex-md-row align-items-center text-center text-md-left">
                 <img src="assets/images/illustration/student/128/white.svg" class="mr-md-32pt mb-32pt mb-md-0"
                     alt="student">
