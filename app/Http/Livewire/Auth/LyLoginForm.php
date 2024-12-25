@@ -81,7 +81,7 @@ class LyLoginForm extends Component
 
             // Resto del código...
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            $this->verifyDevice($user);
+            //$this->verifyDevice($user);
 
             return redirect()->intended('dashboard');
         } else {
