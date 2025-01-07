@@ -42,6 +42,7 @@
 
 @livewireScripts
 <script src="{{ url('assets/vendor/jquery.min.js') }}"></script>
+
 <!-- Bootstrap -->
 <script src="{{ url('assets/vendor/popper.min.js') }}"></script>
 <script src="{{ url('assets/vendor/bootstrap.min.js') }}"></script>

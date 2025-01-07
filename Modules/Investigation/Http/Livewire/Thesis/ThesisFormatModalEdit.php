@@ -52,6 +52,10 @@ class ThesisFormatModalEdit extends Component
         $this->normative_thesisx = $format->normative_thesis;
         $this->type_thesisx = $format->type_thesis;
         $this->namex = $format->name;
+        $this->xleft = $format->left_margin;
+        $this->xright = $format->right_margin;
+        $this->xtop = $format->top_margin;
+        $this->xbottom = $format->bottom_margin;
     }
 
     public function getParts()
@@ -127,6 +131,7 @@ class ThesisFormatModalEdit extends Component
             'index_order'   => '',
             'items'         => []
         ]);
+
         $index = count($this->parts) - 1;
         $this->dispatchBrowserEvent('inve-thesis-student-format-add-update', ['keytitle' => $index]);
     }

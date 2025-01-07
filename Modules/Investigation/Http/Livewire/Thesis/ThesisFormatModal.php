@@ -115,6 +115,7 @@ class ThesisFormatModal extends Component
             'index_order'   => '',
             'items'         => []
         ]);
+
         $index = count($this->xparts) - 1;
 
         $this->dispatchBrowserEvent('inve-thesis-student-format-add', ['keytitle' => $index]);

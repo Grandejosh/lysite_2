@@ -50,6 +50,7 @@
 </head>
 
 <body class="layout-navbar-mini-fixed-bottom">
+
     @yield('content')
     <!--  livewire -->
     @if (!Auth::guest())
@@ -90,9 +91,10 @@
     <script src="{{ url('assets/js/cute-alert/cute-alert.js') }}"></script>
 
     <script src="{{ asset('js/app.js') }}"></script>
+
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
-
+    <script src="{{ asset('x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js') }}"></script>
     @yield('modales')
     @yield('script')
     <!-- Modal -->

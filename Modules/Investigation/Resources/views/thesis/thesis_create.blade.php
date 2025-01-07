@@ -25,7 +25,8 @@
     <livewire:investigation::thesis.thesis-format-modal-edit />
 @endsection
 @section('script')
-    <script src="{{ asset('x-editable/dist/bootstrap3-editable/js/bootstrap-editable.js') }}"></script>
+
+
     <!-- Flatpickr -->
     <script src="{{ url('assets/vendor/flatpickr/flatpickr.min.js') }}"></script>
     <script src="{{ url('assets/js/flatpickr.js') }}"></script>
