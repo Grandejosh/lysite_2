@@ -118,10 +118,10 @@
                   <p><i class="fas fa-map-marker-alt pe-2"></i>Chimbote, 57 Street, Perú</p>
                 </li>
                 <li class="mb-2">
-                  <p><i class="fas fa-phone pe-2"></i>+ 51 555 555 555</p>
+                  <p><i class="fas fa-phone pe-2"></i>+51 922-477-831</p>
                 </li>
                 <li class="mb-2">
-                    <p><i class="fas fa-envelope pe-2 mb-0"></i>contact@example.com</p>
+                    <p><i class="fas fa-envelope pe-2 mb-0"></i>{{ env('MAIL_FROM_ADDRESS') }}</p>
                   </li>
                   <li class="mb-2">
                     <p><div id="whatsapp">
