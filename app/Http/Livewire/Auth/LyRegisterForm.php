@@ -98,7 +98,7 @@ class LyRegisterForm extends Component
                 'password' => Hash::make($this->password),
                 'country_id' => $this->country_id,
             ]);
-            dd($this->country_id);
+
             $this->departments = Department::where('country_id', $this->country_id)->get();
             $this->universities = Universities::where('country', $this->country_id)->get();
 
@@ -114,6 +114,7 @@ class LyRegisterForm extends Component
         $this->provinces = Province::where('department_id', $this->department_id)
             ->where('country_id', $this->country_id)
             ->get();
+        dd($this->country_id);
     }
 
     public function getDistricts()
