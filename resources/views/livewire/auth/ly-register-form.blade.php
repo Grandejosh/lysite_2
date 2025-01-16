@@ -49,13 +49,14 @@
 
             </div>
             <div class="form-row  mt-2">
-                <div class="form-select ">
+                <div class="form-select " wire:ignore.self>
                     <label for="department_id">&nbsp;Departamento:</label>
-                    <select wire:model="department_id" wire:change="getProvences" id="department_id">
+                    <select wire:model="department_id" id="department_id">
                         @if (count($departments) > 0)
                             <option value="">Seleccionar</option>
                             @foreach ($departments as $department)
-                                <option value="{{ $department->id }}">{{ $department->description }}</option>
+                                <option value="{{ $department->id }}-{{ $department->country_id }}">
+                                    {{ $department->description }}</option>
                             @endforeach
                         @else
                             <option value="">Sin Registros</option>
@@ -67,11 +68,12 @@
                 </div>
                 <div class="form-select ">
                     <label>&nbsp;Provincia:</label>
-                    <select wire:model="province_id" wire:change="getDistricts" name="provincia" id="">
+                    <select wire:model="province_id" name="provincia" id="">
                         @if (count($provinces) > 0)
                             <option value="">Seleccionar</option>
                             @foreach ($provinces as $province)
-                                <option value="{{ $province->id }}">{{ $province->description }}</option>
+                                <option value="{{ $province->id }}-{{ $province->country_id }}">
+                                    {{ $province->description }}</option>
                             @endforeach
                         @else
                             <option value="">Sin Registros</option>
@@ -87,7 +89,8 @@
                         @if (count($districts) > 0)
                             <option value="">Seleccionar</option>
                             @foreach ($districts as $district)
-                                <option value="{{ $district->id }}">{{ $district->description }}</option>
+                                <option value="{{ $district->id }}-{{ $district->country_id }}">
+                                    {{ $district->description }}</option>
                             @endforeach
                         @else
                             <option value="">Sin Registros</option>

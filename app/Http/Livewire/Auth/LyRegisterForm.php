@@ -18,6 +18,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use App\Http\Controllers\DniController;
 use App\Mail\NewUserOnlineEmail;
+use Illuminate\Support\Facades\Log;
 
 class LyRegisterForm extends Component
 {
@@ -51,10 +52,19 @@ class LyRegisterForm extends Component
     public $user;
     public $inputsDisabled = false;
 
+    public function mount()
+    {
+        $this->countries = Country::all();
+    }
 
     public function render()
     {
-        $this->countries = Country::all();
+        if ($this->country_id) {
+            $this->departments = Department::where('country_id', $this->country_id)->get();
+        }
+
+        $this->getProvences();
+        $this->getDistricts();
 
         return view('livewire.auth.ly-register-form');
     }
@@ -110,18 +120,23 @@ class LyRegisterForm extends Component
 
     public function getProvences()
     {
-
-        $this->provinces = Province::where('department_id', $this->department_id)
-            ->where('country_id', $this->country_id)
-            ->get();
-        dd($this->country_id);
+        if ($this->department_id) {
+            list($dep, $cou) = explode('-', $this->department_id);
+            $this->provinces = Province::where('department_id', $dep)
+                ->where('country_id', $cou)
+                ->get();
+        }
     }
 
     public function getDistricts()
     {
-        $this->districts = District::where('province_id', $this->province_id)
-            ->where('country_id', $this->country_id)
-            ->get();
+        if ($this->province_id) {
+            list($pro, $cou) = explode('-', $this->province_id);
+
+            $this->districts = District::where('province_id', $pro)
+                ->where('country_id', $cou)
+                ->get();
+        }
     }
 
 
