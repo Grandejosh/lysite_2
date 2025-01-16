@@ -58,7 +58,7 @@
                                 <option value="{{ $department->id }}">{{ $department->description }}</option>
                             @endforeach
                         @else
-                            <option value="">Sin Rregistros</option>
+                            <option value="">Sin Registros</option>
                         @endif
                     </select>
                     @error('department_id')
