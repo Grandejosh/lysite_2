@@ -108,6 +108,7 @@ class LyRegisterForm extends Component
 
     public function getProvences()
     {
+        dd($this->country_id);
         $this->provinces = Province::where('department_id', $this->department_id)
             ->where('country_id', $this->country_id)
             ->get();
@@ -173,15 +174,15 @@ class LyRegisterForm extends Component
 
         $user = User::find(Auth::id());
 
-            // Generar un nuevo token de dispositivo
-            $deviceToken = Str::uuid()->toString();
+        // Generar un nuevo token de dispositivo
+        $deviceToken = Str::uuid()->toString();
 
-            // Asignar el nuevo token de dispositivo al usuario en la base de datos
-            $user->device_token = $deviceToken;
-            $user->save();
+        // Asignar el nuevo token de dispositivo al usuario en la base de datos
+        $user->device_token = $deviceToken;
+        $user->save();
 
-            // Guardar el token de dispositivo en el almacenamiento local del navegador
-            setcookie('device_token', $deviceToken, time() + (86400 * 2), '/'); // Almacena la cookie durante 1 días
+        // Guardar el token de dispositivo en el almacenamiento local del navegador
+        setcookie('device_token', $deviceToken, time() + (86400 * 2), '/'); // Almacena la cookie durante 1 días
 
         //////////////////////////////////////////////////////////////////////////////device token/////////
 
