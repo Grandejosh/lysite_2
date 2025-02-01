@@ -164,6 +164,11 @@ class LyRegisterForm extends Component
 
         $this->user->save();
 
+        list($dpid, $dco) = explode('-', $this->department_id);
+        list($prid, $pco) = explode('-', $this->province_id);
+        list($dtid, $tco) = explode('-', $this->district_id);
+
+
         Person::create([
             'identity_document_type_id' => $this->identity_document_type_id,
             'number' => trim($this->number),
@@ -176,9 +181,9 @@ class LyRegisterForm extends Component
             'sex' => 1,
             'birth_date' => $this->birth_date,
             'email' => trim($this->email),
-            'department_id' => $this->department_id,
-            'province_id' => $this->province_id,
-            'district_id' => $this->district_id,
+            'department_id' => trim($dpid),
+            'province_id' => trim($prid),
+            'district_id' => trim($dtid),
             'country_id' => $this->country_id,
             'university_id' => $this->university_id,
             'user_id' => $this->user->id
