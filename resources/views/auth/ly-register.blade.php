@@ -98,7 +98,7 @@
                 font-family: "Rubik", Medium;
                 font-size: 40px;
                 font-weight: 600;
-                text-align: left;
+                text-align: center;
                 margin-bottom:0;
             }
 
@@ -133,6 +133,7 @@
                     font-weight: 300;
                     font-size: 45px;
                     letter-spacing: -1px; word-spacing: -1px; line-height: 1;
+                    text-align: left;
                 }
             }
 
