@@ -60,9 +60,16 @@
                 background-repeat: no-repeat; /* Evita que la imagen se repita */
                 height: 100vh; /* Altura del viewport */
                 margin: 0; /* Elimina márgenes */
-                display: flex; /* Usar flexbox para centrar el contenido */
-                justify-content: center; /* Centra horizontalmente */
-                align-items: center; /* Centra verticalmente */
+
+                display: -webkit-box;
+                display: -ms-flexbox;
+                display: flex;
+                -webkit-box-pack: center;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -webkit-box-align: center;
+                -ms-flex-align: center;
+                align-items: center;
             }
 
             .card {
