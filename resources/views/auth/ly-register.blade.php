@@ -13,7 +13,7 @@
                         <div class="col-lg-12 col-md-12 col-sm-10">
                             <div class="card card-transparent text-login">
                                 <h5>BIENVENIDO</h5>
-                                <p style="font-size: 52px; letter-spacing: -1px; word-spacing: -1px; line-height: 1;">
+                                <p class=" font-size-16pt " style="letter-spacing: -1px; word-spacing: -1px; line-height: 1;">
                                     a la prueba gratuita
                                 </p>
                                 <p style="font-size: 52px; letter-spacing: -1px; word-spacing: -1px; line-height: 1;">
