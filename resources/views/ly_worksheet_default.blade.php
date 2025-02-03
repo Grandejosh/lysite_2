@@ -58,7 +58,7 @@
                 <div class="modal-body pb-0" style="border: 0px; text-align:center;">
                     <img style="width: 50%;" src="{{ asset('assets/images/logoBlanco.png') }}" alt="">
                     <h3 style="font-weight: 700;">
-                        ESTA HERRAMIENTA ESTÁ DISPONIBLE EN EL PLAN BASIC,
+                        ESTA HERRAMIENTA ESTÁ DISPONIBLE EN EL PLAN
                         STANDARD Y PREMIUM
                     </h3>
                 </div>
