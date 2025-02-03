@@ -80,7 +80,7 @@
         });
     </script>
 
-
+<!-- Fin de Cookies -->
     <div class="hero_area" style="background: #000;">
         <!-- header section strats -->
         <x-lyontech.header></x-lyontech.header>

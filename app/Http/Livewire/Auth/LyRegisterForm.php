@@ -195,14 +195,14 @@ class LyRegisterForm extends Component
 
         /////Crear device token //////////////////////////////////////////////
 
-        $user = User::find(Auth::id());
+        $this->user = User::find(Auth::id());
 
         // Generar un nuevo token de dispositivo
         $deviceToken = Str::uuid()->toString();
 
         // Asignar el nuevo token de dispositivo al usuario en la base de datos
-        $user->device_token = $deviceToken;
-        $user->save();
+        $this->user->device_token = $deviceToken;
+        $this->user->save();
 
         // Guardar el token de dispositivo en el almacenamiento local del navegador
         setcookie('device_token', $deviceToken, time() + (86400 * 2), '/'); // Almacena la cookie durante 1 días
