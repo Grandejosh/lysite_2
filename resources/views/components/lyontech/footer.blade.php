@@ -152,7 +152,7 @@
                   <a href="{{ route('register') }}" class="text-white"></i>Empezar gratis</a>
                 </li>
                 <li class="mb-2">
-                  <a href="{{ route('password.request') }}" class="text-white"></i>Olvido su contraseña</a>
+                  <a href="{{ route('password.request') }}" class="text-white"></i>Olvidó su contraseña</a>
                 </li>
               </ul>
             </div>
