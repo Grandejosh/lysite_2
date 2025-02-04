@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="position: fixed; z-index: 9999; width: 100%;">
     <a class="navbar-brand" href="{{ env('APP_URL') }}">
-        <img src="{{ asset('theme-lyontech/images/icon.jpg') }}" style="width: 55px; heiht: 55px; "> &nbsp;
+        <img src="{{ asset('theme-lyontech/images/icon.jpg') }}" style="width: 55px; heiht: 55px; "> &nbsp;&nbsp;
         <span class="brand-text">
             Lyonteach
         </span>
