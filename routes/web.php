@@ -45,6 +45,10 @@ Route::get('/terms', function () {
     return view('ly_terms_conditions');
 })->name('terms_conditions');
 
+Route::get('/privacy_policy', function () {
+    return view('ly_privacy_policy');
+})->name('privacy_policy');
+
 Route::get('/verify-device/{id}', [DeviceController::class, 'verify'])->name('verify.device');
 
 

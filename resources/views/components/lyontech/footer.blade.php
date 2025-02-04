@@ -28,8 +28,8 @@
             <div class="col-md-4"></div>
             <div class="col-md-2">
               <div class="mb-4 mx-auto">
-                  <img class="img-leon" 
-                        src="{{ ENV('APP_URL') }}/theme-lyontech/images/leon.png" alt="" 
+                  <img class="img-leon"
+                        src="{{ ENV('APP_URL') }}/theme-lyontech/images/leon.png" alt=""
                         loading="lazy" />
               </div>
             </div>
@@ -77,16 +77,16 @@
 
               <ul class="list-unstyled text-left">
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Consultas IA</a>
+                  <a href="{{ route('help_gpt_default') }}" class="text-white"></i>Consultas IA</a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Hoja de Trabajo</a>
+                  <a href="{{ route('worksheet_default') }}" class="text-white"></i>Hoja de Trabajo</a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Mis investigaciones</a>
+                  <a href="{{ route('dashboard') }}" class="text-white"></i>Mis investigaciones</a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Cursos</a>
+                  <a href="{{ route('dashboard_courses_default') }}" class="text-white"></i>Cursos</a>
                 </li>
                 <li class="mb-2">
                   <a href="#!" class="text-white"></i>Chats</a>
@@ -100,7 +100,7 @@
 
               <ul class="list-unstyled text-left">
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Políticas de privacidad</a>
+                  <a target="_blank" href="{{ route('privacy_policy') }}" class="text-white"></i>Políticas de privacidad</a>
                 </li>
                 <li class="mb-2">
                   <a target="_blank" href="{{ route('lyon_librodereclamos') }}" class="text-white"></i>Libro de reclamaciones</a>
@@ -109,7 +109,7 @@
                   <a target="_blank" href="{{ route('terms_conditions') }}" class="text-white"></i>Términos y condiciones</a>
                 </li>
                 <li class="mb-2">
-                  <a href="#!" class="text-white"></i>Membresias</a>
+                  <a href="{{ route('modo_page') }}" class="text-white"></i>Membresias</a>
                 </li>
                 <li class="mb-2">
                   <a href="#!" class="text-white"></i>Presentación</a>
@@ -168,7 +168,7 @@
       </footer>
 
       <style>
-        
+
         .img-leon{
               width: 50%;
             }
