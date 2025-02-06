@@ -29,7 +29,7 @@
 
         </div>
     </body> --}}
-    <body class="background-register" style="background-image: url({{ asset('theme-lyontech/images/login.png') }}); 
+    <body class="background-full" style="background-image: url({{ asset('theme-lyontech/images/login.png') }}); 
             background-size: cover; background-position: center; 
             background-repeat: no-repeat;">
             <div class="container-fluid">
@@ -54,7 +54,7 @@
                 </div>
             </div> 
         <style>
-            .background-register {
+            .background-full {
                 background-size: cover; /* Ajusta la imagen para cubrir toda la pantalla */
                 background-position: center; /* Centra la imagen */
                 background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -70,6 +70,7 @@
                 -webkit-box-align: center;
                 -ms-flex-align: center;
                 align-items: center;
+                filter: brightness(110%) saturate(120%);
             }
 
             .card {
