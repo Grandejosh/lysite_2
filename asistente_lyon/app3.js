@@ -396,7 +396,7 @@ app.post("/create_run", async (req, res) => {
             user_name,
             thread_id,
             assistant_id,
-            file_path: file ? path.join("/var/www/html", process.env.PROJECT_PATH, "asistente_lyon", file) : null,
+            file_path: file ? path.join("/var/www/html", process.env.PROJECT_PATH, "asistente_lyon/asistente_lyon", file) : null,
             vector_id
         };
 
@@ -547,7 +547,7 @@ const getPendingRun = async ({ thread_id, run_id }) => {
 };
 
 // Verificar el estado de un run en intervalos
-const checkRunStatus = async (thread_id, run_id, maxAttempts = 45, interval = 500) => {
+const checkRunStatus = async (thread_id, run_id, maxAttempts = 60, interval = 500) => {
     let attempts = 0;
     while (attempts < maxAttempts) {
         const runStatus = await openai.beta.threads.runs.retrieve(thread_id, run_id);
