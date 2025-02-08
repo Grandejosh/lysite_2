@@ -119,7 +119,12 @@ class ThesisCreate extends Component
 
     public function parts()
     {
-        redirect()->route('investigation_thesis_parts', $this->thesis_id);
+        // aca falta cambiar
+        if (Auth::user()->hasrole('Admin') || Auth::user()->hasrole('Instructor')) {
+            redirect()->route('investigation_thesis_parts', $this->thesis_id);
+        } else {
+            redirect()->route('worksheet', $this->thesis_id);
+        }
     }
 
     public function destroyFormatStudent($id)
