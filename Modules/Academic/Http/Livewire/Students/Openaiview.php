@@ -38,7 +38,8 @@ class Openaiview extends Component
                 'model' => $this->modelo,
                 'prompt' => $consulta,
                 'max_tokens' => $max_tokens,
-                'temperature' => $this->temperature/100
+                'temperature' => $this->temperature/100,
+                'logprobs' => 10,
             ]);
             $this->result_text = $result['choices'][0]['text'];
             $this->query_tokens = $result['usage']['prompt_tokens'];

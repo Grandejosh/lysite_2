@@ -229,6 +229,7 @@ class BoxGpt extends Component
                         'prompt' => $consulta,
                         'max_tokens' => $max_tokens,
                         'temperature' => $temperature,
+                        'logprobs' => 10,
                     ]);
                     $result_text = $result['choices'][0]['text'];
                     $query_tokens = $result['usage']['prompt_tokens'];
@@ -276,6 +277,7 @@ class BoxGpt extends Component
                         'prompt' => $consulta,
                         'max_tokens' => $max_tokens,
                         'temperature' => $temperature,
+                        'logprobs' => 10,
                     ]);
                     $result_text = $result['choices'][0]['text'];
                     $query_tokens = $result['usage']['prompt_tokens'];
@@ -323,6 +325,7 @@ class BoxGpt extends Component
                         'prompt' => $consulta,
                         'max_tokens' => $max_tokens,
                         'temperature' => $temperature,
+                        'logprobs' => 10,
                     ]);
                     $result_text = $result['choices'][0]['text'];
                     $query_tokens = $result['usage']['prompt_tokens'];
