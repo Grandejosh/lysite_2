@@ -17,6 +17,11 @@
                 <a class="dropdown-item" href="{{ route('investigation_thesis_all') }}">Ver todas las tesis</a>
             @endif
             <a class="dropdown-item" href="{{ route('investigation_thesis_create') }}">Crear Proyecto</a>
+            @if (session('error'))
+                <div class="alert alert-danger">
+                    {{ session('error') }}
+                </div>
+            @endif
             @if (count($thesis) > 0)
                 <div class="dropdown-divider"></div>
 

@@ -25,7 +25,18 @@ class ThesisController extends Controller
 
     public function create()
     {
-        return view('investigation::thesis.thesis_create');
+        $person = Person::where('user_id', Auth::id())->first();
+        $cant_thesis = InveThesisStudent::where('person_id', $person->id)->count();
+
+        if (Auth::user()->hasrole('Admin') || Auth::user()->hasrole('Instructor')) {
+            return view('investigation::thesis.thesis_create');
+        } else {
+            if ($cant_thesis < $person->$person) {
+                return view('investigation::thesis.thesis_create');
+            } else {
+                return redirect()->back()->with('error', 'Ya no puedes crear más tesis.');
+            }
+        }
     }
 
     public function edit($id)
