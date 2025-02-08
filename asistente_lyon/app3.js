@@ -200,7 +200,7 @@ const createRun = async (data) => {
 
 
     //Run assistant [{ type: "file_search" }],
-    var run;
+    let run;
     if(vectorStore_id!=null){
         run = await openai.beta.threads.runs.create(data.thread_id, {
             assistant_id: data.assistant_id,
@@ -235,7 +235,7 @@ const createRun = async (data) => {
         check_run = check_run_retrieve["status"];
         steps++;
         if(steps > 13){
-            var resp = {};
+            let resp = {};
             resp['run_id'] = check_run_retrieve['id'];
             resp['thread_id'] = check_run_retrieve['thread_id'];
             resp['status'] = "Pending";
@@ -274,7 +274,7 @@ const getPendingRun = async (data) => {
             check_run = get_run_retrieve["status"];
             steps++;
             if(steps > 11){
-                var resp = {};
+                let resp = {};
                 resp['run_id'] = get_run_retrieve['id'];
                 resp['thread_id'] = get_run_retrieve['thread_id'];
                 resp['status'] = "Pending";
