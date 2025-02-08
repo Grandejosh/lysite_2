@@ -222,7 +222,7 @@ const createRun = async (data) => {
         run.id //este es el run_id al correr el run
     );
     console.log("Datos del run: ", run);
-    console.log("STATUS DEL RUN -> ", run_retrieve["status"]);
+    console.log("225 STATUS DEL RUN -> ", run_retrieve["status"]);
     let check_run = run_retrieve["status"];
     let steps = 0;
     while (check_run != "completed") {
@@ -231,7 +231,7 @@ const createRun = async (data) => {
             data.thread_id, //este dato es el thread_id del hilo creado
             run.id //este es el run_id al correr el run
         );
-        console.log("STATUS DEL RUN -> ", check_run_retrieve["status"]);
+        console.log("234 STATUS DEL RUN -> ", check_run_retrieve["status"]);
         check_run = check_run_retrieve["status"];
         steps++;
         if(steps > 13){
@@ -270,7 +270,7 @@ const getPendingRun = async (data) => {
                 data.thread_id, //este dato es el thread_id del hilo creado
                 data.run_id //este es el run_id al correr el run
             );
-            console.log("STATUS DEL RUN -> ", get_run_retrieve["status"]);
+            console.log("273 STATUS DEL RUN -> ", get_run_retrieve["status"]);
             check_run = get_run_retrieve["status"];
             steps++;
             if(steps > 11){
