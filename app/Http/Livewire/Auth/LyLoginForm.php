@@ -81,7 +81,7 @@ class LyLoginForm extends Component
 
             // Resto del código...
             ///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-            //$this->verifyDevice($user);
+            $this->verifyDevice($user);
 
             return redirect()->intended('dashboard');
         } else {
@@ -99,6 +99,9 @@ class LyLoginForm extends Component
 
     public function verifyDevice($user)
     {
+        //obtener datos del request
+        $request = new Request();
+        $token = $_COOKIE['token_' . $user->id] ?? null;
         // Obtener información del dispositivo
         $agent = new Agent();
         $deviceName = $agent->device() ?: 'Desconocido'; // Nombre del dispositivo o 'Desconocido' si no está disponible
@@ -108,10 +111,7 @@ class LyLoginForm extends Component
         $browser = $agent->browser() ?: 'Desconocido'; // Navegador
         // Verificar si el dispositivo ya está registrado
         $existingDevice = UserDevice::where('user_id', $user->id)
-            ->where('device_ip', $deviceIP)
-            ->where('device_name', $userAgent)
-            ->where('device_os', $deviceOS)
-            ->where('browser', $browser)
+            ->where('token', $token)
             ->first();
 
         if ($existingDevice) {
@@ -128,12 +128,15 @@ class LyLoginForm extends Component
             }
         } else {
             // Crear un nuevo dispositivo y marcarlo como no verificado
+            $token = Str::uuid()->toString();
+            setcookie('token_' . $user->id, $token, time() + (86400 * 2*180), '/'); // Almacena la cookie durante 180 días
             $newDevice = UserDevice::create([
                 'user_id' => $user->id,
                 'device_name' => $userAgent,
                 'device_ip' => $deviceIP,
                 'device_os' => $deviceOS,
                 'browser' => $browser,
+                'token' => $token,
                 'is_verified' => false,
             ]);
 

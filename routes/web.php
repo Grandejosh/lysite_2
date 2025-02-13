@@ -49,7 +49,7 @@ Route::get('/privacy_policy', function () {
     return view('ly_privacy_policy');
 })->name('privacy_policy');
 
-Route::get('/verify-device/{id}', [DeviceController::class, 'verify'])->name('verify.device');
+Route::get('/verify-device/{id}/{token}', [DeviceController::class, 'verify'])->name('verify.device');
 
 
 Route::get('/prueba', function () {

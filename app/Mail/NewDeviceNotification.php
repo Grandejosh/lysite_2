@@ -32,7 +32,10 @@ class NewDeviceNotification extends Mailable
             ->view('emails.new-device')
             ->with([
                 'device' => $this->device,
-                'verificationLink' => route('verify.device', $this->device->id),
+                'verificationLink' => route('verify.device', [
+                    'id' => $this->device->id,
+                    'token' => $this->device->token
+                ]),
             ]);
     }
 }
