@@ -10,6 +10,7 @@ use App\Models\Person;
 use App\Models\Province;
 use App\Models\Universities;
 use App\Models\User;
+use App\Models\UserDevice;
 use Carbon\Carbon;
 use Livewire\Component;
 use Illuminate\Support\Facades\Mail;
@@ -19,6 +20,7 @@ use Illuminate\Support\Str;
 use App\Http\Controllers\DniController;
 use App\Mail\NewUserOnlineEmail;
 use Illuminate\Support\Facades\Log;
+use Jenssegers\Agent\Agent;
 
 class LyRegisterForm extends Component
 {
@@ -222,6 +224,24 @@ class LyRegisterForm extends Component
         ]);
 
         Mail::to(trim($this->email))->send($newCorreo);
+
+        $agent = new Agent();
+        $deviceName = $agent->device() ?: 'Desconocido'; // Nombre del dispositivo o 'Desconocido' si no está disponible
+        $userAgent = $deviceName = 'Desconocido' ? request()->header('User-Agent') : $deviceName;
+        $deviceIP = request()->ip();
+        $deviceOS = $agent->platform() ?: 'Desconocido'; // Sistema operativo
+        $browser = $agent->browser() ?: 'Desconocido'; // Navegador
+        $token = Str::uuid()->toString();
+            setcookie('token_' . $user->id, $token, time() + (86400 * 2*180), '/'); // Almacena la cookie durante 180 días
+            $newDevice = UserDevice::create([
+                'user_id' => $this->user->id,
+                'device_name' => $userAgent,
+                'device_ip' => $deviceIP,
+                'device_os' => $deviceOS,
+                'browser' => $browser,
+                'token' => $token,
+                'is_verified' => true,
+            ]);
 
         return redirect()->intended('dashboard');
     }
