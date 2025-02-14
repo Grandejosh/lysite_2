@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('user_devices', function (Blueprint $table) {
             // Agregar columna VARCHAR con longitud personalizada (opcional)
-            $table->string('token', 35)  // 35 caracteres máximo
+            $table->string('token', 100)  // 100 caracteres máximo
                   ->nullable()             // Permite valores NULL
                   ->comment('token de verificación');
         });
