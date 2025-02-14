@@ -232,7 +232,7 @@ class LyRegisterForm extends Component
         $deviceOS = $agent->platform() ?: 'Desconocido'; // Sistema operativo
         $browser = $agent->browser() ?: 'Desconocido'; // Navegador
         $token = Str::uuid()->toString();
-            setcookie('token_' . $user->id, $token, time() + (86400 * 2*180), '/'); // Almacena la cookie durante 180 días
+            setcookie('token_' . $this->user->id, $token, time() + (86400 * 2*180), '/'); // Almacena la cookie durante 180 días
             $newDevice = UserDevice::create([
                 'user_id' => $this->user->id,
                 'device_name' => $userAgent,
