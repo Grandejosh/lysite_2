@@ -810,7 +810,6 @@
                             'outdent',
                             'indent',
                             '|',
-                            'todoList',
                             'link',
                             'blockQuote',
                             'imageUpload',
