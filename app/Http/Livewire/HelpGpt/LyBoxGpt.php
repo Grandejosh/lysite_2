@@ -197,7 +197,7 @@ class LyBoxGpt extends Component
                     'user_id'   => Auth::id()
                 ]
             );
-    
+
             HistoryGptItem::create([
                 'history_id' => $history->id,
                 'my_user' => true,
@@ -257,18 +257,19 @@ class LyBoxGpt extends Component
             } else {
                 $resultado = "Hubo un error vuelve a intentarlo";
             }
+            HistoryGptItem::create([
+                'history_id' => $history->id,
+                'my_user' => false,
+                'file_original_name' => null,
+                'content' => $resultado
+            ]);
             ////bajar el scroll!!!!
             $this->dispatchBrowserEvent('scroll-messages-updated', ['success' => true]);
         } elseif ($this->typeAction == 5) {
             $resultado = $this->references();
         }
 
-        HistoryGptItem::create([
-            'history_id' => $history->id,
-            'my_user' => false,
-            'file_original_name' => null,
-            'content' => $resultado
-        ]);
+        
         //$this->saveFileID_deleteFile($file_id, $filename, $path);
 
         if ($this->typeAction == 4) {
