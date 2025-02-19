@@ -168,7 +168,7 @@ class LyRegisterForm extends Component
 
         list($dpid, $dco) = explode('-', $this->department_id);
         list($prid, $pco) = explode('-', $this->province_id);
-        
+
         if($this->district_id){
             list($dtid, $tco) = explode('-', $this->district_id);
         }else{
@@ -191,7 +191,7 @@ class LyRegisterForm extends Component
             'email' => trim($this->email),
             'department_id' => trim($dpid),
             'province_id' => trim($prid),
-            'district_id' => trim($dtid),
+            'district_id' => $dtid ? trim($dtid) : null,
             'country_id' => $this->country_id,
             'university_id' => $this->university_id,
             'user_id' => $this->user->id
