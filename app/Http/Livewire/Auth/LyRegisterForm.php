@@ -168,7 +168,13 @@ class LyRegisterForm extends Component
 
         list($dpid, $dco) = explode('-', $this->department_id);
         list($prid, $pco) = explode('-', $this->province_id);
-        list($dtid, $tco) = explode('-', $this->district_id);
+        
+        if($this->district_id){
+            list($dtid, $tco) = explode('-', $this->district_id);
+        }else{
+            $dtid = null;
+        }
+        
 
 
         Person::create([
