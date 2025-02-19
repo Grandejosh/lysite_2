@@ -180,19 +180,7 @@ class LyBoxGpt extends Component
 
     public function saveMessageUser()
     {
-        $history = HistoryGpt::firstOrCreate(
-            [
-                'type_action' => $this->typeAction,
-                'user_id'   => Auth::id()
-            ]
-        );
-
-        HistoryGptItem::create([
-            'history_id' => $history->id,
-            'my_user' => true,
-            'file_original_name' => null,
-            'content' => htmlentities($this->message, ENT_QUOTES, "UTF-8")
-        ]);
+        
 
         $resultado = null;
         $messages = null;
@@ -203,6 +191,19 @@ class LyBoxGpt extends Component
         } elseif ($this->typeAction == 3) {
             $resultado = $this->grammarCorrection();
         } elseif ($this->typeAction == 4) {
+            $history = HistoryGpt::firstOrCreate(
+                [
+                    'type_action' => $this->typeAction,
+                    'user_id'   => Auth::id()
+                ]
+            );
+    
+            HistoryGptItem::create([
+                'history_id' => $history->id,
+                'my_user' => true,
+                'file_original_name' => null,
+                'content' => htmlentities($this->message, ENT_QUOTES, "UTF-8")
+            ]);
             $this->fileName = null;
 
             if ($this->file_document) {
