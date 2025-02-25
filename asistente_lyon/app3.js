@@ -555,7 +555,7 @@ const getPendingRun = async ({ thread_id, run_id }) => {
 };
 
 // Verificar el estado de un run en intervalos
-const checkRunStatus = async (thread_id, run_id, maxAttempts = 60, interval = 500) => {
+const checkRunStatus = async (thread_id, run_id, maxAttempts = 80, interval = 600) => {
     let attempts = 0;
     while (attempts < maxAttempts) {
         const runStatus = await openai.beta.threads.runs.retrieve(thread_id, run_id);
