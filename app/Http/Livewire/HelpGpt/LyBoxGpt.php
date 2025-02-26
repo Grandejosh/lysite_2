@@ -180,7 +180,7 @@ class LyBoxGpt extends Component
 
     public function saveMessageUser()
     {
-        
+
 
         $resultado = null;
         $messages = null;
@@ -269,7 +269,7 @@ class LyBoxGpt extends Component
             $resultado = $this->references();
         }
 
-        
+
         //$this->saveFileID_deleteFile($file_id, $filename, $path);
 
         if ($this->typeAction == 4) {
@@ -630,7 +630,7 @@ class LyBoxGpt extends Component
             $this->path = $this->file_document->storeAs('asistente_lyon', $this->fileName);
         }
         //$this->file_id
-        $sufijo = "responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle' si puedes utiliza clases boostrap 4 en las propiedades class";
+        $sufijo = "responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle', utiliza clases boostrap 4 en las propiedades class";
         switch ($prompt) {
             case 1:
                 $this->message = "del archivo que tienes Enlístame los objetivos generales y específicos de la investigación, si no lo dice explicitamente deducelo y dímelo. " . $sufijo;
@@ -651,7 +651,7 @@ class LyBoxGpt extends Component
                 $this->message = "del archivo que tienes Cuál es el aporte principal de esta investigación, y quiénes serían los beneficiarios directos " . $sufijo;
                 break;
             case 7:
-                $this->message = "del archivo que tienes Indícame los resultados de acuerdo a cada objetivo de la investigación. revisa todo el documento y dedúcelo si no es explícito. " . $sufijo;
+                $this->message = "Indícame los resultados de acuerdo a cada objetivo de la investigación de este documento. Asimismo enfatízame los resultados estadísticos y numéricos de ser el caso. revisa todo el documento y dedúcelo si no es explícito. " . $sufijo;
                 break;
             case 8:
                 $this->message = "del archivo que tienes Redáctame la recomendación principal del documento, averigua en todo el documento antes de responder, no tiene que estár explicito en el documento " . $sufijo;
