@@ -110,9 +110,12 @@ class LyLoginForm extends Component
         $deviceOS = $agent->platform() ?: 'Desconocido'; // Sistema operativo
         $browser = $agent->browser() ?: 'Desconocido'; // Navegador
         // Verificar si el dispositivo ya está registrado
-        $existingDevice = UserDevice::where('user_id', $user->id)
+        $existingDevice = null;
+        if($token != null){
+            $existingDevice = UserDevice::where('user_id', $user->id)
             ->where('token', $token)
             ->first();
+        }
 
         if ($existingDevice) {
 
