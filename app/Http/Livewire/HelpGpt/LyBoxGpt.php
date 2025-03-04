@@ -697,21 +697,12 @@ class LyBoxGpt extends Component
                 break;
         }
 
-        $messages = $this->getThreadId($this->message);  //crear u obtener el thread_id devuelve lista de mensajes
+        $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
         $break = false;
-        try {
-            if (!isset($messages[0])) {
-                while ($messages['status'] == "Pending" && $break == false) {
-                    $messages = $this->getPendingRun($messages);
-                    if ($messages['status'] == "failed") $break = true;
-                }
-            }
-        } catch (\Throwable $th) {
-        }
         try {
             if ($messages != false && $break == false) {
                 $resultado = $messages[0][0]['text']['value'];   //la respuesta final
-
+                dd($this->message);
                 ///eliminar archivo subido
 
                 $ifile_path = storage_path('app/' . $this->path);
