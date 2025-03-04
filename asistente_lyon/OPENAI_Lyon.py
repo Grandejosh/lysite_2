@@ -129,7 +129,7 @@ def assistant_ai():
     thread.start()
 
     # Responder inmediatamente mientras se procesa la solicitud
-    return jsonify({"status": "processing"}), 202
+    #return jsonify({"status": "processing"}), 202
 
 # Iniciar la aplicación
 if __name__ == '__main__':
