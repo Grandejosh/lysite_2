@@ -240,8 +240,8 @@ class LyBoxGpt extends Component
             }
             //dd($this->message);
             if ($messages != false && $break == false) {
-
-                $messages = $messages['response'];
+                $data = $messages->original; // Accede al contenido
+                $messages = $data['response']; // Accede al campo 'response'
                 try {
                     $resultado = $messages;   //la respuesta final
                 } catch (\Throwable $th) {
