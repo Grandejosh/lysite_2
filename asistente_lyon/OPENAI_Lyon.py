@@ -116,4 +116,4 @@ def assistant_ai():
 if __name__ == '__main__':
     if not os.path.exists(UPLOAD_FOLDER):
         os.makedirs(UPLOAD_FOLDER)
-    app.run(host="127.0.0.1", port=PORT)
+    app.run(host="127.0.0.1", port=PORT, debug=True)
