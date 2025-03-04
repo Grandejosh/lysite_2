@@ -208,13 +208,6 @@
                                         <div class="form-group">
                                             <div class="list-unstyled" id="messageContainer"
                                                 style="max-height: 350px; overflow-y: auto; background:#fff;">
-                                                <div wire:stream>
-                                                    @foreach (explode("\n\n", $response) as $chunk)
-                                                        @if (!empty($chunk))
-                                                            <div>{{ $chunk }}</div>
-                                                        @endif
-                                                    @endforeach
-                                                </div>
                                                 @if (count($historyItems) > 0)
                                                     @foreach ($historyItems as $item)
                                                         @if ($item->my_user)
