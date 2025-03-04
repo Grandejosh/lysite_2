@@ -1,13 +1,12 @@
 from dotenv import load_dotenv
 import os
-from flask import Flask, request, jsonify
+from flask import Flask, request, Response, stream_with_context
 from openai import OpenAI
 from werkzeug.utils import secure_filename
 
 # Configuración inicial
 load_dotenv()
-# Configuración inicial
-API_KEY =  os.getenv("API_KEY_IA")  # Reemplaza con tu clave de API de OpenAI
+API_KEY = os.getenv("API_KEY_IA")  # Reemplaza con tu clave de API de OpenAI
 ASSISTANT_ID = os.getenv('ASSISTANT_ID_IA')  # Reemplaza con el ID de tu asistente
 PORT = 5000  # Puerto de conexión para la API
 UPLOAD_FOLDER = "uploads"  # Carpeta para almacenar archivos subidos
@@ -27,7 +26,7 @@ user_conversations = {}
 def allowed_file(filename):
     return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
-# Ruta para manejar las conversaciones con el asistente
+# Ruta para manejar las conversaciones con el asistente en modo stream
 @app.route('/assistant_ai', methods=['POST'])
 def assistant_ai():
     # Obtener los datos del POST
@@ -52,7 +51,7 @@ def assistant_ai():
 
     if file_name is not None and file_name != "":
         # Ruta base donde se buscará el archivo
-        base_path = "/var/www/html/"+os.getenv("PROJECT_PATH")+"/asistente_lyon/"
+        base_path = "/var/www/html/" + os.getenv("PROJECT_PATH") + "/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
         print(file_path)
         # Verificar si el archivo existe y tiene una extensión permitida
@@ -92,33 +91,21 @@ def assistant_ai():
         attachments=attachments if attachments else None  # Adjuntar archivos si existen
     )
 
-    # Ejecutar el asistente en el Thread
-    run = client.beta.threads.runs.create(
-        thread_id=thread_id,
-        assistant_id=ASSISTANT_ID
-    )
-
-    # Esperar a que el asistente termine de procesar
-    while run.status != "completed":
-        run = client.beta.threads.runs.retrieve(
+    # Ejecutar el asistente en el Thread con streaming
+    def generate():
+        with client.beta.threads.runs.stream(
             thread_id=thread_id,
-            run_id=run.id
-        )
+            assistant_id=ASSISTANT_ID
+        ) as stream:
+            for event in stream:
+                if event.event == "thread.message.delta":
+                    # Obtener el contenido del mensaje en tiempo real
+                    for content in event.data.delta.content:
+                        if content.type == "text":
+                            yield f"data: {content.text.value}\n\n"
 
-    # Obtener los mensajes del Thread
-    messages = client.beta.threads.messages.list(
-        thread_id=thread_id
-    )
-
-    # Obtener la respuesta del asistente
-    assistant_response = messages.data[0].content[0].text.value
-
-    # Eliminar el archivo si se subió
-    if file_path and os.path.exists(file_path):
-        os.remove(file_path)
-
-    # Devolver la respuesta del asistente
-    return jsonify({"response": assistant_response})
+    # Devolver la respuesta en modo stream
+    return Response(stream_with_context(generate()), content_type='text/event-stream')
 
 # Iniciar la aplicación
 if __name__ == '__main__':

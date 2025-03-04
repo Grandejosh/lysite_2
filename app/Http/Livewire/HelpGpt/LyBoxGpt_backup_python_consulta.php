@@ -17,7 +17,6 @@ use Illuminate\Http\Client\Response;
 use GuzzleHttp\Client;
 use GuzzleHttp\Promise\Utils;
 use GuzzleHttp\Psr7\Request as GRequest;
-use GuzzleHttp\Exception\RequestException;
 use Livewire\WithFileUploads;
 use Modules\Investigation\Entities\AssistantGptFilesId;
 
@@ -457,37 +456,40 @@ class LyBoxGpt extends Component
                         $this->paraphrase_used++;
                         $this->paraphrase_allowed--;
                     }
-                    $client = new Client();
+
+                    //usando nuevo api python
+                    $user_id = Auth::user()->id;
+                    $message = $msg;
+                    $archivo = $archivo;
 
                     if($this->forget_context == true){
                         $archivo = "forget";
-                        $permisos->paraphrase_used--;
-                        $permisos->save();
                         $this->forget_context = false;
                     }
+                    // URL del servidor Flask
+                    $url = 'http://127.0.0.1:5000/assistant_ai';
 
-                    try {
-                        $response = $client->post('http://127.0.0.1:5000/assistant_ai', [
-                            'form_params' => [
-                                'user_id' => Auth::user()->id,
-                                'message' => $msg,
-                                'archivo' => $archivo,
-                            ],
-                            'stream' => true, // Habilitar el modo stream
-                        ]);
+                    // Enviar la solicitud POST
+                    $response = Http::asForm()->post($url, [
+                        'user_id' => $user_id,
+                        'message' => $message,
+                        'archivo' => $archivo,
+                    ]);
 
-                        // Leer la respuesta en chunks
-                        $stream = $response->getBody();
-                        while (!$stream->eof()) {
-                            $chunk = $stream->read(1024); // Leer 1024 bytes a la vez
-                            echo $chunk; // Procesar el chunk (puedes enviarlo al frontend o almacenarlo)
-                            ob_flush();
-                            flush();
-                        }
-                    } catch (RequestException $e) {
-                        return response()->json(['error' => $e->getMessage()], 500);
+
+                    // Verificar si la solicitud fue exitosa
+                    if ($response->successful()) {
+                        // Devolver la respuesta del servidor Flask
+                        return response()->json($response->json());
+                    } else {
+                        // Manejar el error
+                        return response()->json([
+                            'error' => 'Error al comunicarse con el servidor de AI',
+                            'details' => $response->body(),
+                        ], $response->status());
                     }
 
+                    return $response;
                     //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
                 } catch (\Throwable $th) {
                     return null;
