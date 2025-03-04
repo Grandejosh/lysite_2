@@ -505,6 +505,7 @@ class LyBoxGpt extends Component
                             'details' => $response->body(),
                         ], $response->status());
                     }
+                    return $response;
                     //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
                 } catch (\Throwable $th) {
                     return null;
