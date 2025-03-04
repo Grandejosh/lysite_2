@@ -477,7 +477,7 @@ class LyBoxGpt extends Component
 
                     // URL del servidor Flask
                     $url = 'http://127.0.0.1:5000/assistant_ai';
-
+                    dd($archivo);
                     // Enviar la solicitud POST
                     $response = Http::asForm()->post($url, [
                         'user_id' => $user_id,
