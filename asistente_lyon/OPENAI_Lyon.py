@@ -44,7 +44,7 @@ def assistant_ai():
 
     if file_name is not None and file_name != "":
         # Ruta base donde se buscará el archivo
-        base_path = "/var/www/html/lysite/asistente_lyon/"
+        base_path = "/var/www/html/"+os.getenv("PROJECT_PATH")+"/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
         print(file_path)
         # Verificar si el archivo existe y tiene una extensión permitida
