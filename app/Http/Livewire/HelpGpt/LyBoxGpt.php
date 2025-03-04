@@ -294,7 +294,7 @@ class LyBoxGpt extends Component
                         $consulta = "Parafraséame este texto en español con el objetivo de reducir el mayor grado de similitud, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano intenta no ser predecible: ";
                         break;
                     case  2:
-                        $consulta = "Parafraséame este texto de manera que suene completamente natural y humano, evitando cualquier indicio de haber sido generado por una inteligencia artificial. Usa un tono conversacional, con ligeras variaciones en la estructura de las oraciones para que fluya de forma orgánica. Introduce matices como pausas naturales, pequeñas imperfecciones lingüísticas y frases que reflejen la forma en que las personas realmente escriben o hablan. Si es necesario, incluye expresiones coloquiales, referencias culturales o ejemplos concretos que refuercen la autenticidad del texto. Evita el uso excesivo de conectores formales o una estructura demasiado perfecta. Si el contenido lo permite, añade opiniones o reflexiones breves para darle un toque más genuino y personal, agrega cierta inconsistencia gramatical y errores como lo haría un humano, el texto es el siguiente: ";
+                        $consulta = "Parafraséame este texto en español logrando humanizarlo por completo, asimismo, reduciendo el mayor grado de similitud posible, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano intenta no ser predecible: ";
                         break;
                 }
 
