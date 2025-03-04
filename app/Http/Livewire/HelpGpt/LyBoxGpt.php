@@ -464,6 +464,7 @@ class LyBoxGpt extends Component
 
                     if($this->forget_context == true){
                         $archivo = "forget";
+                        $this->forget_context = false;
                     }
                     // URL del servidor Flask
                     $url = 'http://127.0.0.1:5000/assistant_ai';
