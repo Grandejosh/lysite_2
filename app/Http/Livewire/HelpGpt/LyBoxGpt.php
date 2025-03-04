@@ -50,7 +50,7 @@ class LyBoxGpt extends Component
     public $n3 = false;
     public $n4 = false;
     public $n5 = false;
-
+    public $response = '';
     public $forget_context = false;
     public $vector_id = null;
 
