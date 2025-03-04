@@ -229,7 +229,7 @@ class LyBoxGpt extends Component
 
             $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
             $break = false;
-
+            $this->path = null;
             //dd($this->message);
             if ($messages != false && $break == false) {
                 try {
