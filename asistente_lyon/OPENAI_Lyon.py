@@ -43,7 +43,7 @@ def assistant_ai():
     file_path = None
     if file_name:
         # Ruta base donde se buscará el archivo
-        base_path = "/var/www/html/lysite/asistente_lyon/asistente_lyon/"
+        base_path = "/var/www/html/lysite/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
 
         # Verificar si el archivo existe y tiene una extensión permitida

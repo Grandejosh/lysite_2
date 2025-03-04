@@ -456,21 +456,12 @@ class LyBoxGpt extends Component
 
     public function getThreadId($msg, $archivo = null)
     {  //crea el thread y obtiene el ID, si ya existe no la crea y luego consulta respuesta
-        dd($msg, $archivo);
+
         if ($this->verifyDeviceTokenUser()) {
             if ($this->paraphrase_left >= 1) {
                 try {
                     $pasaje = false;
-                    if ($this->thread_id == null || $this->forget_context) {
-                        $this->forget_context = false;
-                        $pasaje = true; //para restar el consumo de oportunidades de IA si es true no se cobra
-                        $client = new Client();
-                        $promise = $client->getAsync('http://localhost:' . env('AI_ASSISTANT_PORT') . '/create_thread');
-                        $response = $promise->wait();
-                        $data = json_decode($response->getBody(), true);
-                        $this->thread_id = $data['thread_id'];
-                        $this->assistant_id = $data['assistant_id'];
-                    }
+
                     $permisos = Person::where('user_id', Auth::user()->id)->first();
                     $permisos->paraphrase_used++;
                     $permisos->save();
