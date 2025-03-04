@@ -456,9 +456,8 @@ class LyBoxGpt extends Component
 
     public function getThreadId($msg, $archivo = null)
     {  //crea el thread y obtiene el ID, si ya existe no la crea y luego consulta respuesta
-
+        dd($msg, $archivo);
         if ($this->verifyDeviceTokenUser()) {
-        if (true) {
             if ($this->paraphrase_left >= 1) {
                 try {
                     $pasaje = false;
@@ -513,7 +512,7 @@ class LyBoxGpt extends Component
             } else {
                 return $val[0] = "Parece que se agotaron tus oportunidades para usar esta herramienta";
             }
-        }
+
     }
     }
 
