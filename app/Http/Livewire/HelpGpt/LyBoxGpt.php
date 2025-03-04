@@ -492,6 +492,7 @@ class LyBoxGpt extends Component
                     return $response;
                     //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
                 } catch (\Throwable $th) {
+                    dd($th);
                     return null;
                 }
             } else {
@@ -683,7 +684,6 @@ class LyBoxGpt extends Component
 
         $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
         $break = false;
-        $data = "";
         try {
             $data = $messages->original; // Accede al contenido
             $messages = $data['response']; // Accede al campo 'response'
@@ -692,8 +692,10 @@ class LyBoxGpt extends Component
             $permisos = Person::where('user_id', Auth::user()->id)->first();
                     $permisos->paraphrase_used--;
                     $permisos->save();
+            $this->paraphrase_used--;
+            $this->paraphrase_allowed++;
             $resultado = "El servidor está ocupado intenta de nuevo por favor, disculpa las molestias, esta consulta no será descontada.";
-            dd("687", $messages, $data);   //la respuesta final
+            dd("687", $messages);   //la respuesta final
         }
         ////bajar el scroll!!!!
         // if($this->forget_context){
