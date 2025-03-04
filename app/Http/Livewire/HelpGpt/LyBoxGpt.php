@@ -683,12 +683,16 @@ class LyBoxGpt extends Component
 
         $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
         $break = false;
+        $data = "";
         try {
             $data = $messages->original; // Accede al contenido
             $messages = $data['response']; // Accede al campo 'response'
             $resultado = $messages;   //la respuesta final
         } catch (\Throwable $th) {
-            $resultado = "El servidor está ocupado intenta de nuevo por favor, disculpa las molestias.";
+            $permisos = Person::where('user_id', Auth::user()->id)->first();
+                    $permisos->paraphrase_used--;
+                    $permisos->save();
+            $resultado = "El servidor está ocupado intenta de nuevo por favor, disculpa las molestias, esta consulta no será descontada.";
             dd("687", $messages, $data);   //la respuesta final
         }
         ////bajar el scroll!!!!
