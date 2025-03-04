@@ -480,12 +480,10 @@ class LyBoxGpt extends Component
                         $stream = $response->getBody();
                         while (!$stream->eof()) {
                             $chunk = $stream->read(1024); // Leer 1024 bytes a la vez
-                            echo $chunk; // Procesar el chunk (puedes enviarlo al frontend o almacenarlo)
-                            ob_flush();
-                            flush();
+                            yield $chunk; // Enviar el chunk a la vista
                         }
                     } catch (RequestException $e) {
-                        return response()->json(['error' => $e->getMessage()], 500);
+                        yield "data: " . json_encode(['error' => $e->getMessage()]) . "\n\n";
                     }
 
                     //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
