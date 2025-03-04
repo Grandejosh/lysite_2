@@ -288,13 +288,13 @@ class LyBoxGpt extends Component
                 switch ($this->prompt) {
 
                     case  0:
-                        $consulta = "Parafraséame este texto en español como si fueras un experto en investigación: ";
+                        $consulta = "Parafraséame este texto en español como si fueras un experto en investigación, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano: ";
                         break;
                     case  1:
-                        $consulta = "Parafraséame este texto en español con el objetivo de reducir el mayor grado de similitud: ";
+                        $consulta = "Parafraséame este texto en español con el objetivo de reducir el mayor grado de similitud, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano: ";
                         break;
                     case  2:
-                        $consulta = "Parafraséame este texto en español logrando humanizarlo por completo, asimismo, reduciendo el mayor grado de similitud posible: ";
+                        $consulta = "Parafraséame este texto en español logrando humanizarlo por completo, asimismo, reduciendo el mayor grado de similitud posible, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano: ";
                         break;
                 }
 
