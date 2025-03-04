@@ -688,8 +688,8 @@ class LyBoxGpt extends Component
             $messages = $data['response']; // Accede al campo 'response'
             $resultado = $messages;   //la respuesta final
         } catch (\Throwable $th) {
-            $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";
-            dd("687", $messages);   //la respuesta final
+            $resultado = "El servidor está ocupado intenta de nuevo por favor, disculpa las molestias.";
+            dd("687", $messages, $data);   //la respuesta final
         }
         ////bajar el scroll!!!!
         // if($this->forget_context){
