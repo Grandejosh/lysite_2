@@ -232,15 +232,15 @@ class LyBoxGpt extends Component
             $break = false;
             $this->path = null;
             //dd($this->message);
-            // if ($messages != false && $break == false) {
-            //     try {
-            //         $data = $messages->original; // Accede al contenido
-            //         $messages = $data['response']; // Accede al campo 'response'
-            //         $resultado = $messages;   //la respuesta final
-            //     } catch (\Throwable $th) {
-            //         $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";   //la respuesta final
-            //         dd("241", $messages);
-            //     }
+            if ($messages != false && $break == false) {
+                // try {
+                //     $data = $messages->original; // Accede al contenido
+                //     $messages = $data['response']; // Accede al campo 'response'
+                //     $resultado = $messages;   //la respuesta final
+                // } catch (\Throwable $th) {
+                //     $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";   //la respuesta final
+                //     dd("241", $messages);
+                // }
 
             } else {
                 $resultado = "Hubo un error vuelve a intentarlo";
