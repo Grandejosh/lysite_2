@@ -242,7 +242,7 @@ class LyBoxGpt extends Component
             if ($messages != false && $break == false) {
 
                 try {
-                    $resultado = $messages[0][0]['text']['value'];   //la respuesta final
+                    $resultado = $messages;   //la respuesta final
                 } catch (\Throwable $th) {
                     $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";   //la respuesta final
                 }
