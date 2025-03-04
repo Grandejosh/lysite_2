@@ -240,7 +240,6 @@ class LyBoxGpt extends Component
             }
             //dd($this->message);
             if ($messages != false && $break == false) {
-                dd($messages);
 
                 try {
                     $resultado = $messages;   //la respuesta final
