@@ -46,9 +46,10 @@ def assistant_ai():
         # Ruta base donde se buscará el archivo
         base_path = "/var/www/html/lysite/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
-
+        print(file_path)
         # Verificar si el archivo existe y tiene una extensión permitida
         if os.path.exists(file_path) and allowed_file(file_name):
+            print("archivo encontrado")
             # Subir el archivo a OpenAI
             with open(file_path, "rb") as f:
                 file_response = client.files.create(
