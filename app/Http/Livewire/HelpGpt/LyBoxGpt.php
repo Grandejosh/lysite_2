@@ -229,15 +229,7 @@ class LyBoxGpt extends Component
 
             $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
             $break = false;
-            try {
-                if (!isset($messages[0])) {
-                    while ($messages['status'] == "Pending" && $break == false) {
-                        $messages = $this->getPendingRun($messages);
-                        if ($messages['status'] == "failed") $break = true;
-                    }
-                }
-            } catch (\Throwable $th) {
-            }
+
             //dd($this->message);
             if ($messages != false && $break == false) {
                 try {
@@ -248,13 +240,6 @@ class LyBoxGpt extends Component
                     $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";   //la respuesta final
                 }
 
-                ///eliminar archivo subido
-
-                $ifile_path = storage_path('app/' . $this->path);
-                //dd($ifile_path);
-                if (file_exists($ifile_path)) {
-                    @unlink($ifile_path);
-                }
             } else {
                 $resultado = "Hubo un error vuelve a intentarlo";
             }
@@ -477,7 +462,7 @@ class LyBoxGpt extends Component
 
                     // URL del servidor Flask
                     $url = 'http://127.0.0.1:5000/assistant_ai';
-                    dd($archivo);
+
                     // Enviar la solicitud POST
                     $response = Http::asForm()->post($url, [
                         'user_id' => $user_id,
@@ -693,21 +678,11 @@ class LyBoxGpt extends Component
         $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
         $break = false;
         try {
-            if ($messages != false && $break == false) {
-                $resultado = $messages[0][0]['text']['value'];   //la respuesta final
-                dd($this->message);
-                ///eliminar archivo subido
-
-                $ifile_path = storage_path('app/' . $this->path);
-                //dd($ifile_path);
-                if (file_exists($ifile_path)) {
-                    @unlink($ifile_path);
-                }
-            } else {
-                $resultado = "Hubo un error vuelve a intentarlo";
-            }
+            $data = $messages->original; // Accede al contenido
+            $messages = $data['response']; // Accede al campo 'response'
+            $resultado = $messages;   //la respuesta final
         } catch (\Throwable $th) {
-            $resultado = "Hubo un error vuelve a intentarlo";
+            $resultado = "El servidor está ocupado intenta de nuevo por favor, o quizá ya no tienes mas oportunidades de usar esta herramienta.";   //la respuesta final
         }
         ////bajar el scroll!!!!
         if($this->forget_context){
