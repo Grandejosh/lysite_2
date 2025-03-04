@@ -240,7 +240,8 @@ class LyBoxGpt extends Component
             }
             //dd($this->message);
             if ($messages != false && $break == false) {
-
+                $messages = $messages->json();
+                $messages = $messages['response'];
                 try {
                     $resultado = $messages;   //la respuesta final
                 } catch (\Throwable $th) {
