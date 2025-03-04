@@ -474,7 +474,7 @@ class LyBoxGpt extends Component
                     $user_id = Auth::user()->id;
                     $message = $msg;
                     $archivo = $archivo;
-
+dd($user_id, $message, $archivo);
                     // URL del servidor Flask
                     $url = 'http://127.0.0.1:5000/assistant_ai';
 
