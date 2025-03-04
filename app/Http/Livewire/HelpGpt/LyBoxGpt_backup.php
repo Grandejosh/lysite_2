@@ -227,7 +227,7 @@ class LyBoxGpt extends Component
             }
 
 
-            $messages = $this->getThreadId($this->message, $this->path);  //crear u obtener el thread_id devuelve lista de mensajes
+            $messages = $this->getThreadId($this->message);  //crear u obtener el thread_id devuelve lista de mensajes
             $break = false;
             try {
                 if (!isset($messages[0])) {
@@ -454,7 +454,7 @@ class LyBoxGpt extends Component
     }
     /*  Asistente de chat GPT  */
 
-    public function getThreadId($msg, $archivo = null)
+    public function getThreadId($msg)
     {  //crea el thread y obtiene el ID, si ya existe no la crea y luego consulta respuesta
 
         if ($this->verifyDeviceTokenUser()) {
@@ -479,33 +479,8 @@ class LyBoxGpt extends Component
                         $this->paraphrase_used++;
                         $this->paraphrase_allowed--;
                     }
-                    //usando nuevo api python
-                    $user_id = Auth::user()->id;
-                    $message = $msg;
-                    $archivo = $archivo;
 
-                    // URL del servidor Flask
-                    $url = 'http://127.0.0.1:5000/assistant_ai';
-
-                    // Enviar la solicitud POST
-                    $response = Http::post($url, [
-                        'user_id' => $user_id,
-                        'message' => $message,
-                        'archivo' => $archivo,
-                    ]);
-
-                    // Verificar si la solicitud fue exitosa
-                    if ($response->successful()) {
-                        // Devolver la respuesta del servidor Flask
-                        return response()->json($response->json());
-                    } else {
-                        // Manejar el error
-                        return response()->json([
-                            'error' => 'Error al comunicarse con el servidor de AI',
-                            'details' => $response->body(),
-                        ], $response->status());
-                    }
-                    //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
+                    return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
                 } catch (\Throwable $th) {
                     return null;
                 }
