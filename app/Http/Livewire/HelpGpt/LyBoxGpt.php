@@ -486,6 +486,7 @@ class LyBoxGpt extends Component
 
                     // Verificar si la solicitud fue exitosa
                     if ($response->successful()) {
+                        dd($response, "exito");
                         // Devolver la respuesta del servidor Flask
                         return response()->json($response->json());
                     } else {
@@ -495,6 +496,7 @@ class LyBoxGpt extends Component
                             'details' => $response->body(),
                         ], $response->status());
                     }
+                    dd($response);
                     return $response;
                     //return $this->sendGetConsulta($msg); //aqui ejecuta run y consulta respuesta el thread_id es variable global
                 } catch (\Throwable $th) {
