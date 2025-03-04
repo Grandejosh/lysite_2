@@ -635,37 +635,37 @@ class LyBoxGpt extends Component
             $this->path = $this->file_document->storeAs('asistente_lyon', $this->fileName);
         }
         //$this->file_id
-        $sufijo = "responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle', utiliza clases boostrap 4 en las propiedades class";
+        $sufijo = "";//"responde usando código HTML y las listas en etiquetas ul, ol e il según sea necesario pero no crees las etiquetas 'HTML', 'body', 'head' ni  'tittle', utiliza clases boostrap 4 en las propiedades class";
         switch ($prompt) {
             case 1:
-                $this->message = "del archivo que tienes Enlístame los objetivos generales y específicos de la investigación, si no lo dice explicitamente deducelo y dímelo. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Enlístame los objetivos generales y específicos de la investigación, si no lo dice explicitamente deducelo y dímelo. " . $sufijo;
                 break;
             case 2:
-                $this->message = "del archivo que tienes redáctame en un párrafo de 12 líneas el resumen de toda la investigación, manteniendo esta estructura: 1) Apellido y nombre de autor, 2) Año, 3) Título de la investigación, 4) Metodología, 5) Muestra y instrumentos de recolección, 6) Resultados, y 7) Conclusión general. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé redáctame en un párrafo de 12 líneas el resumen de toda la investigación, manteniendo esta estructura: 1) Apellido y nombre de autor, 2) Año, 3) Título de la investigación, 4) Metodología, 5) Muestra y instrumentos de recolección, 6) Resultados, y 7) Conclusión general. " . $sufijo;
                 break;
             case 3:
-                $this->message = "del archivo que tienes Redáctame a profundidad la problemática de la investigación, si no lo dice explicitamente deducelo y dimelo. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Redáctame a profundidad la problemática de la investigación, si no lo dice explicitamente deducelo y dimelo. " . $sufijo;
                 break;
             case 4:
-                $this->message = "del archivo que tienes Redáctame las teorías de cada variable que se utilizaron en el apartado de marco teórico y/o revisión  de la literatura de esta investigación, y agregar a cada teoría su cita de autor, deducelo del documento si no está explicito " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Redáctame las teorías de cada variable que se utilizaron en el apartado de marco teórico y/o revisión  de la literatura de esta investigación, y agregar a cada teoría su cita de autor, deducelo del documento si no está explicito " . $sufijo;
                 break;
             case 5:
-                $this->message = "del archivo que tienes Redáctame las definiciones más representativas de las variables de la investigación, y agrega su cita de autor a cada definición. si no lo dice explicitamente definelo del contenido. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Redáctame las definiciones más representativas de las variables de la investigación, y agrega su cita de autor a cada definición. si no lo dice explicitamente definelo del contenido. " . $sufijo;
                 break;
             case 6:
-                $this->message = "del archivo que tienes Cuál es el aporte principal de esta investigación, y quiénes serían los beneficiarios directos " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Cuál es el aporte principal de esta investigación, y quiénes serían los beneficiarios directos " . $sufijo;
                 break;
             case 7:
-                $this->message = "Indícame los resultados de acuerdo a cada objetivo de la investigación de este documento. Asimismo enfatízame los resultados estadísticos y numéricos de ser el caso. revisa todo el documento y dedúcelo si no es explícito. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Indícame los resultados de acuerdo a cada objetivo de la investigación de este documento. Asimismo enfatízame los resultados estadísticos y numéricos de ser el caso. revisa todo el documento y dedúcelo si no es explícito. " . $sufijo;
                 break;
             case 8:
-                $this->message = "del archivo que tienes Redáctame la recomendación principal del documento, averigua en todo el documento antes de responder, no tiene que estár explicito en el documento " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Redáctame la recomendación principal del documento, averigua en todo el documento antes de responder, no tiene que estár explicito en el documento " . $sufijo;
                 break;
             case 9:
-                $this->message = "del archivo que tienes Créame una propuesta de mejora en base a las recomendaciones de la investigación de este documento " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Créame una propuesta de mejora en base a las recomendaciones de la investigación de este documento " . $sufijo;
                 break;
             case 10:
-                $this->message = "del archivo que tienes Resume lo más que puedas este documento de acuerdo a lo que consideres como elemental de una investigación, aunque el documento no sea una investigación resumelo. " . $sufijo;
+                $this->message = "del archivo mas reciente que te pasé Resume lo más que puedas este documento de acuerdo a lo que consideres como elemental de una investigación, aunque el documento no sea una investigación resumelo. " . $sufijo;
                 break;
             case 20:
                 $this->message = "Olvida todo el contexto de esta conversación, has borrón y cuenta nueva como si no supieras nada de lo que hablamos salvo mi nombre si ya te lo dije " . $sufijo;
