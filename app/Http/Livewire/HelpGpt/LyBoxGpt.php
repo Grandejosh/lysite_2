@@ -474,16 +474,17 @@ class LyBoxGpt extends Component
                     $user_id = Auth::user()->id;
                     $message = $msg;
                     $archivo = $archivo;
-dd($user_id, $message, $archivo);
+
                     // URL del servidor Flask
                     $url = 'http://127.0.0.1:5000/assistant_ai';
 
                     // Enviar la solicitud POST
-                    $response = Http::post($url, [
+                    $response = Http::asForm()->post($url, [
                         'user_id' => $user_id,
                         'message' => $message,
                         'archivo' => $archivo,
                     ]);
+
 
                     // Verificar si la solicitud fue exitosa
                     if ($response->successful()) {
