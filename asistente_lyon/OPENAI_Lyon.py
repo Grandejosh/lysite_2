@@ -41,7 +41,8 @@ def assistant_ai():
     # Buscar el archivo si se proporciona un nombre de archivo
     file_id = None
     file_path = None
-    if file_name:
+
+    if file_name is not None and file_name != "":
         # Ruta base donde se buscará el archivo
         base_path = "/var/www/html/lysite/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
