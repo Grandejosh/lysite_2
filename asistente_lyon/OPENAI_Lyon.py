@@ -38,6 +38,14 @@ def assistant_ai():
     if not user_id or not user_content:
         return jsonify({"error": "user_id and message are required"}), 400
 
+    # Verificar si se debe olvidar la conversación
+    if file_name == "forget":
+        if user_id in user_conversations:
+            del user_conversations[user_id]  # Borrar la conversación del usuario
+            return jsonify({"response": "Conversación olvidada correctamente"}), 200
+        else:
+            return jsonify({"error": "No hay conversación para olvidar"}), 404
+
     # Buscar el archivo si se proporciona un nombre de archivo
     file_id = None
     file_path = None
