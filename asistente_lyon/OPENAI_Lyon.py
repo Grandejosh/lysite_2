@@ -51,6 +51,10 @@ def assistant_ai():
     file_path = None
 
     if file_name is not None and file_name != "":
+        #borrar conversacion para no confundir de archivo
+        if user_id in user_conversations:
+            del user_conversations[user_id]  # Borrar la conversación del usuario
+
         # Ruta base donde se buscará el archivo
         base_path = "/var/www/html/"+os.getenv("PROJECT_PATH")+"/asistente_lyon/"
         file_path = os.path.join(base_path, file_name)
