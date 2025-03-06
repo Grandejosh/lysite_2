@@ -452,7 +452,7 @@ class LyBoxGpt extends Component
                     $permisos = Person::where('user_id', Auth::user()->id)->first();
                     $permisos->paraphrase_used++;
                     $permisos->save();
-                    if ($pasaje == false) {
+                    if ($pasaje == false && $this->forget_context == false) {
                         $this->paraphrase_used++;
                         $this->paraphrase_allowed--;
                     }
