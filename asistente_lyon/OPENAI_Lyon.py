@@ -44,7 +44,7 @@ def assistant_ai():
             del user_conversations[user_id]  # Borrar la conversación del usuario
             return jsonify({"response": "Conversación olvidada correctamente"}), 200
         else:
-            return jsonify({"error": "No hay conversación para olvidar"}), 404
+            return jsonify({"response": "Correcto ya no recuerdo nada de ti"}), 200
 
     # Buscar el archivo si se proporciona un nombre de archivo
     file_id = None
