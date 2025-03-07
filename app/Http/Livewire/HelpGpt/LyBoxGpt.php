@@ -210,7 +210,7 @@ class LyBoxGpt extends Component
                 //Agregar texto al mensaje cuando se envia nulo en mensaje
                 // $this->forget_context = true;
                 if ($this->message == "" || $this->message == null) {
-                    $this->message = "voy a hacerte algunas preguntas sobre el documento que tienes.";
+                    $this->message = "voy a hacerte algunas preguntas sobre el documento que estoy pasando, analizalo para preguntarte posteriormente.";
                 }
                 $basePath = base_path();
                 $asistentePath = $basePath . '/asistente_lyon';
