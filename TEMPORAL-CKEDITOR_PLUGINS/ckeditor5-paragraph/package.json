@@ -13,6 +13,7 @@
   "main": "src/index.js",
   "dependencies": {
     "@ckeditor/ckeditor5-core": "^36.0.1",
+    "@ckeditor/ckeditor5-paragraph": "file:",
     "@ckeditor/ckeditor5-ui": "^36.0.1",
     "@ckeditor/ckeditor5-utils": "^36.0.1"
   },

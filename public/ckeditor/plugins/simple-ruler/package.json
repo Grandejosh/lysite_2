@@ -21,7 +21,8 @@
   },
   "homepage": "https://github.com/lovata/ckeditor-ruler#readme",
   "dependencies": {
-    "nouislider": "9.0.0",
-    "jquery": "*"
+    "ckeditor-ruler": "file:",
+    "jquery": "*",
+    "nouislider": "9.0.0"
   }
 }

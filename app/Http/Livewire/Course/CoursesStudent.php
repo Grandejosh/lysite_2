@@ -29,17 +29,35 @@ class CoursesStudent extends Component
                     'aca_courses.main_video',
                     'aca_students.registered_until'
                 )
+                ->selectRaw(
+                    '(SELECT COUNT(content_type_id) FROM aca_contents
+                            INNER JOIN aca_sections ON aca_contents.section_id = aca_sections.id
+                            WHERE content_type_id IN(3,4)
+                            AND aca_sections.course_id = aca_courses.id
+                        ) AS archivos'
+                )
+                ->selectRaw(
+                    '(SELECT COUNT(content_type_id) FROM aca_contents
+                            INNER JOIN aca_sections ON aca_contents.section_id = aca_sections.id
+                            WHERE content_type_id = 1
+                            AND aca_sections.course_id = aca_courses.id
+                        ) AS videos'
+                )
                 ->where('person_id', $person->id)
                 ->where('aca_courses.status', 1)
                 ->where('aca_students.registered_until', '>=', Carbon::now()->format('Y-m-d'))
                 ->get();
-                foreach ($this->courses as $key => $course) {
-                    $this->Load_rating($course->id);
-                    $this->courses[$key]->rating = $this->rating->rating;
-                    $this->courses[$key]->half = $this->rating->half;
-                    $this->courses[$key]->empty = $this->rating->empty;
-                    $this->courses[$key]->voters = $this->rating->voters;
-                }
+
+
+            //dd($this->courses);
+
+            foreach ($this->courses as $key => $course) {
+                $this->Load_rating($course->id);
+                $this->courses[$key]->rating = $this->rating->rating;
+                $this->courses[$key]->half = $this->rating->half;
+                $this->courses[$key]->empty = $this->rating->empty;
+                $this->courses[$key]->voters = $this->rating->voters;
+            }
         }
     }
 
@@ -48,7 +66,8 @@ class CoursesStudent extends Component
         return view('livewire.course.courses-student');
     }
 
-    public function traducirMeses($fecha) {
+    public function traducirMeses($fecha)
+    {
         $mesesEn = array('January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December');
         $mesesEs = array('enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio', 'julio', 'agosto', 'septiembre', 'octubre', 'noviembre', 'diciembre');
 
@@ -59,21 +78,18 @@ class CoursesStudent extends Component
     {
         $this->rating = AcaCourseRating::where('course_id', $course_id)->first();
 
-        if($this->rating){
+        if ($this->rating) {
             if (fmod($this->rating->rating, 1) > 0) {
                 $this->rating->half = true;
             }
             $this->rating->rating = $this->rating->rating - fmod($this->rating->rating, 1);
-            if($this->rating->half){
+            if ($this->rating->half) {
                 $this->rating->empty = 4 - $this->rating->rating;
-            }else{
+            } else {
                 $this->rating->empty = 5 - $this->rating->rating;
             }
 
             $this->rating->voters = AcaCourseRatingVote::where('course_id', $course_id)->count();
         }
-
-
     }
-
 }
