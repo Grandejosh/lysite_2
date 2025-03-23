@@ -695,7 +695,7 @@ class LyBoxGpt extends Component
             $this->paraphrase_allowed++;
         $this->file_document = null;
             $resultado = "El servidor está ocupado intenta de nuevo por favor, disculpa las molestias, esta consulta no será descontada.";
-            dd("697", $messages);   //la respuesta final
+            //dd("697", $messages);   //la respuesta final
         }
         ////bajar el scroll!!!!
         // if($this->forget_context){
