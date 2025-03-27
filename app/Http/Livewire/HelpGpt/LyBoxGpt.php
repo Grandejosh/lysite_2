@@ -288,13 +288,13 @@ class LyBoxGpt extends Component
                 switch ($this->prompt) {
 
                     case  0:
-                        $consulta = "Parafraséame este texto en español como si fueras un experto en investigación, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano eso si siempre con palabras formales: ";
+                        $consulta = "Parafraséame este texto en español como si fueras un experto en investigación, pero agrega cierta inconsistencia gramatical como lo haría un humano, eso sí siempre con palabras formales a efectos de no ser coloquial, banal o burdo. Asimismo recuerda que en el nuevo texto que generes deberás ir reduciendo la similitud del contenido: ";
                         break;
                     case  1:
-                        $consulta = "Parafraséame este texto en español con el objetivo de reducir el mayor grado de similitud, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano, eso si siempre con palabras formales: ";
+                        $consulta = "Parafraséame este texto en español con el objetivo de reducir el mayor grado de similitud, pero agrega cierta inconsistencia gramatical como lo haría un humano, eso sí siempre con palabras formales a efectos de no ser coloquial, banal o burdo: ";
                         break;
                     case  2:
-                        $consulta = "Parafraséame este texto en español logrando humanizarlo por completo, asimismo, reduciendo el mayor grado de similitud posible, pero agrega cierta inconsistencia y errores gramaticales como lo haría un humano intenta no ser predecible eso si siempre con palabras formales: ";
+                        $consulta = "Parafraséame este texto en español con el objetivo de humanizarlo por completo, agrega cierta inconsistencia gramatical como lo haría un humano, eso sí siempre con palabras formales a efectos de no ser coloquial, banal o burdo. Asimismo recuerda que el nuevo texto que generes deberá ser indetectable para los detectores de inteligencia artificial: ";
                         break;
                 }
 
