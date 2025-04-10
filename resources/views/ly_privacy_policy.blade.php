@@ -20,9 +20,14 @@
             list-style-type: disc;
             margin-left: 40px;
         }
+        img{
+            max-width: 5rem;
+        }
     </style>
 
 <body>
+    <img src="theme-lyontech/images/leon.png" alt="" srcset="">
+    <br>
     <h1>POLÍTICA DE PRIVACIDAD EMPRESA</h1>
 
     <p>

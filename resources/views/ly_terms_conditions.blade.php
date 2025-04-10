@@ -18,8 +18,14 @@
         list-style-type: disc;
         margin-left: 40px;
     }
+    img{
+        text-align: center;
+        max-width: 5rem;
+    }
 </style>
 <body>
+    <img src="theme-lyontech/images/leon.png" alt="" srcset="">
+    <br>
     <h1>TÉRMINOS Y CONDICIONES</h1>
 
     <p>

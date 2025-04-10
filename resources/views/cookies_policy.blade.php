@@ -16,10 +16,16 @@
     p {
         color: #666;
     }
+    img{
+        max-width: 6rem;
+    }
 </style>
 </head>
 <body>
+    <img src="theme-lyontech/images/leon.png" alt="" srcset="">
+    <br>
     <div class="container">
+
         <h1 class="mt-4">Política de Cookies</h1>
         <p>Esta política de cookies explica cómo {{ env('APP_NAME') }} utiliza cookies y tecnologías similares para reconocerte cuando visitas nuestro sitio web.</p>
 
