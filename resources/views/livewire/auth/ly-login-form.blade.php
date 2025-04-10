@@ -1,4 +1,4 @@
-
+<div>
     <div class="pc-screen">
         <div class="row">
             <div class="col-md-9 box-plane-login">
@@ -168,7 +168,7 @@
                         @endif
                         <div class="form-group-c btn-cent-c">
                             <button wire:click="login" type="button"
-                                class="form-control btn btn-orange submit ">Iniciar
+                                class="form-control btn btn-orange submit s">Iniciar
                                 Sesión</button>
                         </div>
                     </form>
@@ -252,7 +252,7 @@
             });
         </script>
     </div>
-
+</div>
 {{-- <div class="container-section">
     <div class="pc-screen">
         <div class="row">
